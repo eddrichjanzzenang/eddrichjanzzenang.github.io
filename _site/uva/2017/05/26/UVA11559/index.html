@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en-ca">
+  
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/normalize.css">
+  <link rel="stylesheet" href="/css/skeleton.css">
+  <link rel="stylesheet" href="/css/skeleton-alerts.css">
+  <link rel="stylesheet" href="/css/common.css">
+  <script src="/js/jquery-3.1.1.min.js"></script> 
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-precomposed.png">
+  
+  <script src="/js/main.js"></script>
+    <!-- for code syntax highlighting -->
+  <link rel="stylesheet" href="/js/highlight/styles/default.css">
+  <script src="/js/highlight/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+</head>
+
+
+<body>
+
+  <header>
+    <nav>
+	
+	<div class="hamburger">
+		<div class="line"></div>
+		<div class="line"></div>
+		<div class="line"></div>
+	</div>
+	
+	
+	<ul class="clearfix nav-top">
+	<!-- <ul class="open nav-top"> -->
+		<li><a href="/index.html" >Home</a></li>
+    <li><a href="/posts.html">Posts</a></li>
+		<li><a href="/projects.html">Projects</a></li>
+		<li><a href="https://github.com/eddrichjanzzenang" target="_blank">GitHub</a></li>
+		<li><a href="/contact.html">Contact</a></li>
+	</ul>
+</nav>
+
+
+<!-- https://www.youtube.com/watch?v=6m6iqN1uynE -->
+
+  </header>
+
+
+  <div class="content-wrapper">
+    <h1>UVA Problems</h1>
+
+<h3>Event Planning</h3>
+
+<pre>
+<code>
+	<p>import java.util.*;</p>
+
+<p>public class number11559{
+    static class Hotel{
+    	public int price;
+    	public boolean isEnough = true;
+    	public Hotel(int price, boolean isEnough){
+    		this.price = price;
+    		this.isEnough = isEnough;
+    	}</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>}
+
+public static void main(String args[]){
+ 	Scanner sc = new Scanner(System.in);
+ 	while(sc.hasNext()){
+ 		int n = sc.nextInt();
+     	int b = sc.nextInt();
+     	int h = sc.nextInt();
+     	int w = sc.nextInt();
+
+     	Hotel[] hotellist = new Hotel[h];
+ 	     	
+
+    	
+     	for(int i = 0; i &lt; h; i++){
+     		int p = sc.nextInt();
+     		boolean isEnough = false;
+     		for(int j = 0; j &lt; w; j++){
+     			int acc = sc.nextInt();
+     			if(acc &gt;= w){
+     				isEnough = true;
+     			}
+     		}
+     		Hotel ho = new Hotel(p * n, isEnough);
+     		hotellist[i] = ho;
+     	}
+     
+     	boolean inBudget = true;
+     	int min = 0;
+     	for(int i = 0; i &lt; hotellist.length; i++){
+     		if(hotellist[i].isEnough == true){
+     			if(hotellist[i].price &lt; hotellist[min].price ){
+     				min = i;
+     			}	
+     		} 
+     	}	
+
+     	if(hotellist[min].price &gt;= b){
+     		inBudget = false;
+     	}
+
+     	if(!inBudget){
+     		System.out.println("stay home");
+     	} else {
+     		System.out.println(hotellist[min].price);
+     	}
+
+ 	}
+}    }
+</code></pre></div></div>
+	
+</code>
+</pre>
+
+<div class="row">
+	<div class="offset-by-five two columns">
+		[<a style="text-align:center" href="/uva">Back to Listing Page</a>]	
+	</div>
+</div>
+
+
+
+  <div>
+  
+  <footer>
+  
+<footer class="footer">
+	<nav>
+	
+	
+	<ul class="clearfix nav-bottom">
+	<!-- <ul class="open nav-top"> -->
+		<li><a href="/index.html" >Home</a></li>
+    <li><a href="/posts.html">Posts</a></li>
+		<li><a href="/projects.html">Projects</a></li>
+		<li><a href="https://github.com/eddrichjanzzenang" target="_blank">GitHub</a></li>
+		<li><a href="/contact.html">Contact</a></li>
+	</ul>
+</nav>
+
+
+<!-- https://www.youtube.com/watch?v=6m6iqN1uynE -->
+
+	<div class="mini">
+		<img src="/images/me.jpg" alt="">
+		<p>Developed by <a href="https://github.com/eddrichjanzzenang">Eddrich Janzzen Ang</a> powered by <a href="https://jekyllrb.com/">Jekyll</a></p>	
+	</div>
+</footer>
+
+
+  <footer>
+
+</body>
+<script src="/js/main.js"></script>
+</html>

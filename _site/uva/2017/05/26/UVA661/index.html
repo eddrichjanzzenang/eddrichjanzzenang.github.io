@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en-ca">
+  
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/normalize.css">
+  <link rel="stylesheet" href="/css/skeleton.css">
+  <link rel="stylesheet" href="/css/skeleton-alerts.css">
+  <link rel="stylesheet" href="/css/common.css">
+  <script src="/js/jquery-3.1.1.min.js"></script> 
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-precomposed.png">
+  
+  <script src="/js/main.js"></script>
+    <!-- for code syntax highlighting -->
+  <link rel="stylesheet" href="/js/highlight/styles/default.css">
+  <script src="/js/highlight/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+</head>
+
+
+<body>
+
+  <header>
+    <nav>
+	
+	<div class="hamburger">
+		<div class="line"></div>
+		<div class="line"></div>
+		<div class="line"></div>
+	</div>
+	
+	
+	<ul class="clearfix nav-top">
+	<!-- <ul class="open nav-top"> -->
+		<li><a href="/index.html" >Home</a></li>
+    <li><a href="/posts.html">Posts</a></li>
+		<li><a href="/projects.html">Projects</a></li>
+		<li><a href="https://github.com/eddrichjanzzenang" target="_blank">GitHub</a></li>
+		<li><a href="/contact.html">Contact</a></li>
+	</ul>
+</nav>
+
+
+<!-- https://www.youtube.com/watch?v=6m6iqN1uynE -->
+
+  </header>
+
+
+  <div class="content-wrapper">
+    <h1>UVA Problems</h1>
+
+<h3>Blowing Fuses</h3>
+
+<pre>
+<code>
+	<p>import java.util.<em>;
+import java.math.</em>;</p>
+
+<p>public class Main{</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>public static void main(String args[]){
+	Scanner sc = new Scanner(System.in);
+	int counter = 1;
+
+	while(sc.hasNextLine()){
+		int n = sc.nextInt();
+		int m = sc.nextInt();
+		int c = sc.nextInt();
+
+
+		if(n == 0 &amp;&amp; m == 0 &amp;&amp; c == 0){
+			break;
+		}
+
+
+		int[] devices = new int[n]; 
+		boolean[] switches = new boolean[n];
+		int[] operations = new int[m];
+		
+ 	
+		for(int i = 0; i &lt; n; i++){
+			int x = sc.nextInt();
+			devices[i] = x;
+			switches[i] = true;
+
+		}
+
+		for(int i = 0; i &lt; m; i++){
+			int x = sc.nextInt();
+			operations[i] = (x - 1);
+
+		}
+
+
+		
+		boolean blown = false;
+		int max = 0;
+		int currCapacity = 0; 
+		for(int i = 0; i &lt; m; i++){
+			int power = devices[operations[i]];
+
+			if(switches[operations[i]]){
+				currCapacity += power;
+				switches[operations[i]] = !(switches[operations[i]]);
+
+			} else {
+				currCapacity -= power;
+				switches[operations[i]] = !(switches[operations[i]]);
+			}				
+
+			if(currCapacity &gt; max){
+				max = currCapacity; 
+			}
+
+			if(currCapacity &gt; c){
+				blown = true;
+			}
+
+		}
+
+		System.out.println("Sequence " + counter);
+		counter++;
+
+		if(blown){
+			System.out.println("Fuse was blown.");
+
+		} else {
+			System.out.println("Fuse was not blown.");
+			System.out.println("Maximal power consumption was " + max + " amperes.");
+
+		}
+	
+		System.out.println("");
+
+
+
+
+	}
+
+} }
+</code></pre></div></div>
+	
+</code>
+</pre>
+
+<div class="row">
+	<div class="offset-by-five two columns">
+		[<a style="text-align:center" href="/uva">Back to Listing Page</a>]	
+	</div>
+</div>
+
+
+
+  <div>
+  
+  <footer>
+  
+<footer class="footer">
+	<nav>
+	
+	
+	<ul class="clearfix nav-bottom">
+	<!-- <ul class="open nav-top"> -->
+		<li><a href="/index.html" >Home</a></li>
+    <li><a href="/posts.html">Posts</a></li>
+		<li><a href="/projects.html">Projects</a></li>
+		<li><a href="https://github.com/eddrichjanzzenang" target="_blank">GitHub</a></li>
+		<li><a href="/contact.html">Contact</a></li>
+	</ul>
+</nav>
+
+
+<!-- https://www.youtube.com/watch?v=6m6iqN1uynE -->
+
+	<div class="mini">
+		<img src="/images/me.jpg" alt="">
+		<p>Developed by <a href="https://github.com/eddrichjanzzenang">Eddrich Janzzen Ang</a> powered by <a href="https://jekyllrb.com/">Jekyll</a></p>	
+	</div>
+</footer>
+
+
+  <footer>
+
+</body>
+<script src="/js/main.js"></script>
+</html>

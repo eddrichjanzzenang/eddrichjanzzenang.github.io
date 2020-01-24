@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en-ca">
+  
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/normalize.css">
+  <link rel="stylesheet" href="/css/skeleton.css">
+  <link rel="stylesheet" href="/css/skeleton-alerts.css">
+  <link rel="stylesheet" href="/css/common.css">
+  <script src="/js/jquery-3.1.1.min.js"></script> 
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-precomposed.png">
+  
+  <script src="/js/main.js"></script>
+    <!-- for code syntax highlighting -->
+  <link rel="stylesheet" href="/js/highlight/styles/default.css">
+  <script src="/js/highlight/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+</head>
+
+
+<body>
+
+  <header>
+    <nav>
+	
+	<div class="hamburger">
+		<div class="line"></div>
+		<div class="line"></div>
+		<div class="line"></div>
+	</div>
+	
+	
+	<ul class="clearfix nav-top">
+	<!-- <ul class="open nav-top"> -->
+		<li><a href="/index.html" >Home</a></li>
+    <li><a href="/posts.html">Posts</a></li>
+		<li><a href="/projects.html">Projects</a></li>
+		<li><a href="https://github.com/eddrichjanzzenang" target="_blank">GitHub</a></li>
+		<li><a href="/contact.html">Contact</a></li>
+	</ul>
+</nav>
+
+
+<!-- https://www.youtube.com/watch?v=6m6iqN1uynE -->
+
+  </header>
+
+
+  <div class="content-wrapper">
+    <h1>UVA Problems</h1>
+
+<h3>Number Theory for Newbies</h3>
+
+<pre>
+<code>
+	<p>#include &lt;iostream&gt;
+#include &lt;math.h&gt;
+#include &lt;string&gt;
+#include &lt;algorithm&gt;</p>
+
+<p>using namespace std;</p>
+
+<p>long long convert(int num[], int len){
+	string s = “”;
+		for(int i = 0; i &lt; len; i++){
+			string c = to_string(num[i]);
+			s += c;
+		}</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>return stoll(s); }
+</code></pre></div></div>
+
+<p>int main(){</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>string n;
+while(cin &gt;&gt; n){
+	int len = n.length();
+	long long min, max, diff;
+	int numbers[len];
+	string s;
+
+
+	for(int i = 0; i &lt; len; i++){
+		numbers[i] = n[i] - '0';
+	}
+
+	sort(numbers, numbers+ len, greater&lt;int&gt;());
+	
+
+	max = convert(numbers, len);
+
+	//sort by descending then swap first non zero element 
+	sort(numbers, numbers+len);
+
+	for(int i = 0; i &lt; len; i++){
+		if(numbers[i] == 0){
+			for(int j = i; j &lt; len; j++){
+				if(numbers[j] != 0){
+					swap(numbers[i], numbers[j]);
+					break;
+				}	
+			}
+		break;	
+		}
+	}
+	
+	min = convert(numbers, len);
+
+	diff = max - min;
+	cout &lt;&lt; max &lt;&lt; " - " &lt;&lt; min &lt;&lt; " = " &lt;&lt; diff &lt;&lt; " = 9 * " &lt;&lt; diff/9 &lt;&lt; endl;
+
+
+}
+
+
+return 0;
+</code></pre></div></div>
+
+<p>}</p>
+	
+</code>
+</pre>
+
+<div class="row">
+	<div class="offset-by-five two columns">
+		[<a style="text-align:center" href="/uva">Back to Listing Page</a>]	
+	</div>
+</div>
+
+
+
+  <div>
+  
+  <footer>
+  
+<footer class="footer">
+	<nav>
+	
+	
+	<ul class="clearfix nav-bottom">
+	<!-- <ul class="open nav-top"> -->
+		<li><a href="/index.html" >Home</a></li>
+    <li><a href="/posts.html">Posts</a></li>
+		<li><a href="/projects.html">Projects</a></li>
+		<li><a href="https://github.com/eddrichjanzzenang" target="_blank">GitHub</a></li>
+		<li><a href="/contact.html">Contact</a></li>
+	</ul>
+</nav>
+
+
+<!-- https://www.youtube.com/watch?v=6m6iqN1uynE -->
+
+	<div class="mini">
+		<img src="/images/me.jpg" alt="">
+		<p>Developed by <a href="https://github.com/eddrichjanzzenang">Eddrich Janzzen Ang</a> powered by <a href="https://jekyllrb.com/">Jekyll</a></p>	
+	</div>
+</footer>
+
+
+  <footer>
+
+</body>
+<script src="/js/main.js"></script>
+</html>
