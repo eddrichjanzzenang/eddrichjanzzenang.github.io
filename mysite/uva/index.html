@@ -1,0 +1,25 @@
+---
+layout: uva-nav
+---
+
+{% for post in site.categories.uva %}
+<div class="uva">
+  <li>
+    <strong>
+      <a href="{{ site.baseurl }}{{ post.url }}">
+        {{ post.problem-code }}
+      </a>
+    </strong>
+    - {{ post.title }}
+    <br>
+    <small>added on</small>
+    {{ post.date | date_to_string }}
+  </li> 
+</div>
+{% endfor %}
+
+<div class="row">
+  <div class="center">
+    [<a style="text-align:center" href="/posts.html">Back to Posts Page</a>] 
+  </div>
+</div>

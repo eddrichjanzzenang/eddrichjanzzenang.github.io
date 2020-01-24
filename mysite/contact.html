@@ -1,0 +1,39 @@
+---
+layout: default
+permalink: contact.html
+---
+
+<div class="row content">
+  <div class="offset-by-one twelve columns">
+    <h3>Contact</h3>
+
+    <form method="POST" action="https://formspree.io/myrezndx">
+      <div class="row">
+        <div class="five columns">
+          <label for="n">Your name</label>
+          <input class="u-full-width" type="text" placeholder="John Doe" name="name" required>
+        </div>
+        
+        <div class="five columns">
+          <label for="e">Your email</label>
+          <input class="u-full-width" type="email" placeholder="test@mailbox.com" name="_replyto" required>
+        </div>
+      </div>
+       <div class="row">
+          <div class="ten columns">
+            <label for="m">Message</label>
+              <textarea class="u-full-width" placeholder="Hi Edd …" name="message" required></textarea>
+          </div>
+      </div>
+
+      <div class="row">
+        <div class="two columns">
+          <input class="button-primary" type="submit" value="Submit"> 
+        </div>
+        
+        <div class="eight columns status"></div>
+
+      </div>
+    </form>
+  </div>
+</div>
