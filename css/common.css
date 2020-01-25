@@ -21,7 +21,7 @@ nav li {
 
 .nav-top{
 	padding-top:5px;
-	font-size: 18px; 
+	font-size: 20px; 
 	text-align:right;  
     -webkit-transition: all 500ms cubic-bezier(0.675, 0.170, 0.245, 0.795); 
     -moz-transition: all 500ms cubic-bezier(0.675, 0.170, 0.245, 0.795); 
