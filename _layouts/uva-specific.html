@@ -2,17 +2,10 @@
 layout: uva-nav
 ---
 
+<h4>{{page.problem-code}} - {{page.title}}</h4>
+ <span>Posted on {{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}
+{{content}}</span>
 
-<h3>{{page.title}}</h3>
-
-<pre>
-<code>
-	{{content}}	
-</code>
-</pre>
-
-<div class="row">
-	<div class="offset-by-five two columns">
-		[<a style="text-align:center" href="/uva">Back to Listing Page</a>]	
-	</div>
+<div class="center">
+  [<a href="/uva">Back to Listing Page</a>]
 </div>
