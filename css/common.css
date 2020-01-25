@@ -113,16 +113,20 @@ nav li {
 	.nav-top{
 		height:0;
 		overflow:hidden;
-		/*display:none;*/
 	}
 
 	.nav-top.open{
-		height:240px;
+		height:220px;
 	}
   
   .content-wrapper{
     margin-right: 5%;
     margin-left: 5%;
+  }
+
+
+  .nav-bottom{
+    font-size: 14px;
   }
 
 }
