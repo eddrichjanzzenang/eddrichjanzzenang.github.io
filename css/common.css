@@ -80,9 +80,38 @@ nav li {
 	text-align:center;
 }
 
-.uva li {
+.posts li {
   list-style-type:none;
   margin-left:20px;
+}
+
+.blog {
+  border: 0.5px solid #f0f0f5;
+  padding:15px 0px 15px 0px;
+  margin-bottom: 15px;
+}
+
+
+.post-description{
+  border: 0.5px solid #f0f0f5;
+  padding:15px 15px 0px 15px;
+}
+
+span {
+  color: #878787;
+}
+
+
+.pager {
+  text-align: center;
+}
+
+.next {
+  display:inline;
+}
+
+.previous {
+  display:inline;
 }
 
 
@@ -131,11 +160,4 @@ nav li {
 
 }
 
-.post-description{
-  border: 0.5px solid #f0f0f5;
-  padding:15px 15px 0px 15px;
-}
 
-span {
-  color: #d3d3d3;
-}
