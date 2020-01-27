@@ -1,12 +1,10 @@
 ---
-layout: default
+layout: uva-nav
 ---
 
 <h4>{{page.problem-code}} - {{page.title}}</h4>
-<span>Posted on {{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}
-</span>
-
-{{content}}
+ <span>Posted on {{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}
+{{content}}</span>
 
 <div class="center">
   [<a href="/uva">Back to Listing Page</a>]
