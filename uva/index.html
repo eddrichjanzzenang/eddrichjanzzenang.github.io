@@ -1,11 +1,8 @@
 ---
 layout: uva-nav
-pagination:
-  enabled: true
-  category: uva
 ---
 
-{% for post in paginator.posts %}
+{% for post in site.categories.uva %}
 <div class="posts">
   <li>
     <span>{{ post.date | date: "%b %-d, %Y" }}</span>
@@ -20,8 +17,8 @@ pagination:
 </div>
 {% endfor %}
 
-<!-- jekyll paginate 2 -->
-<div class="pagination">
+<!-- jekyll paginate -->
+<!-- <div class="pagination">
   {% if paginator.total_pages > 1 %}
   <div class="pager">
     
@@ -39,10 +36,10 @@ pagination:
     {% endif %}
   </div>
   {% endif %}
-</div>
+</div> -->
 
 <div class="row" style="margin-top:20px;">
   <div class="center">
-    [<a style="text-align:center" href="/posts.html">Back to Posts Page</a>] 
+    [<a style="text-align:center" href="/posts">Back to Posts Page</a>] 
   </div>
 </div>
