@@ -6,17 +6,17 @@ layout: default
 
 <!-- post in site.categories.blog -->
 <div class="blog">
-  {% for post in paginator.posts %}
   <div class="posts">
+  {% for post in paginator.posts %}
     <li>
-      <span>{{ post.date | date: "%b %-d, %Y" }}</span> | 
+      <span>{{ post.date | date: "%b %-d, %Y" }}</span>  | 
         <a href="{{ site.baseurl }}{{ post.url }}">
           {{ post.title }}
         </a>
     </li> 
-  </div>
   {% endfor %}
-
+  </div>
+  
   <!-- jekyll paginate 2 -->
   <div class="pagination">
     {% if paginator.total_pages > 1 %}
@@ -38,7 +38,6 @@ layout: default
     {% endif %}
   </div>
 </div>
-
 
 
 <h4>Other Topics</h4> 
