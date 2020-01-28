@@ -136,6 +136,19 @@ nav li {
   padding:15px 15px 0px 15px;
 }
 
+
+.pager {
+  text-align: center;
+}
+
+.next {
+  display:inline;
+}
+
+.previous {
+  display:inline;
+}
+
 span {
   color: #d3d3d3;
 }
