@@ -4,7 +4,13 @@ layout: uva-nav
 
 <h4>{{page.problem-code}} - {{page.title}}</h4>
  <span>Posted on {{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}
-{{content}}</span>
+ </span>
+
+<p class="see-more" align="right">
+    Here you can find a collection of some the programming problems I have solved. They are solved using different programming languages such as Python, C++, and Java. You may also view my uHunt statistics <a href="https://uhunt.onlinejudge.org/id/796740">here.</a>       
+</p>
+
+{{content}}
 
 <div class="center">
   [<a href="/uva">Back to Listing Page</a>]
