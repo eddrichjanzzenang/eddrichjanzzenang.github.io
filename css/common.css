@@ -46,6 +46,9 @@ nav li {
   margin-left: 20%;
 }
 
+.blog-wrapper p {
+  text-align: justify;
+}
 
 .footer {
   position: fixed;
@@ -158,5 +161,9 @@ span {
     font-size: 14px;
   }
 
+}
+
+.img-blog{
+  width:100%;
 }
 
