@@ -13,7 +13,7 @@ description: A short article about fixing that black screen when trying to Bootc
 
 The Macbook Pro Mid 2012 "13 (non-retina), is aguably one of the most versatile models released by Apple. Not only does it offer a wide possiblity of upgradability; it also offers built-in ports without needing to buy those external dongles. With 2 USB ports, a Lightning Cable port, an Ethernet port, a Firewire 800 port, a Headphone jack, and SD Card slot, I could attest that this model is definitely designed for PROs! The device is indeed very flexible with most of the important parts being easily replacable/upgradable. As a matter of fact, with a few upgrades the device can still be upto par with todays standards. 
 
-At the time of this writing, I have went along to upgrade my machine by replacing the original 2 x 2Gb DDR3 RAMs with 2 x 8Gb DDR RAMs to get a maximum of 16Gb memory. I also switched out the orignal HDD with to an SSD to increase processing speed. Lastly, I've also went along to buy a bracket or "caddy case", to replace the optical drive with additional storage. 
+At the time of this writing, I have went along to upgrade my machine by replacing the original 2 x 2Gb DDR3 RAMs with 2 x 8Gb DDR RAMs to get a maximum of 16Gb memory. I also switched out the orignal HDD with to an SSD to increase processing speed. Lastly, I've also went along to buy a bracket or "caddy case" to replace the optical drive with additional storage. 
 
 #### Bootcamping this Device
 
