@@ -2,9 +2,11 @@
 layout: default
 ---
 
-<h4>{{page.title}}</h4>
+<h3>{{page.title}}</h3>
 <span>Posted on {{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}
 </span>
 <br><br>
 
-{{content}}
+<div class="blog-wrapper">
+	{{content}}	
+</div>
