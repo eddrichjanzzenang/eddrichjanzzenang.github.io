@@ -282,6 +282,7 @@ PLATFORMS
 DEPENDENCIES
   github-pages
   html-proofer
+  jekyll (>= 3.8.5)
   jekyll-admin
   jekyll-feed
   jekyll-gist
