@@ -1,0 +1,308 @@
+---
+title: Implementing simple API using Python Falcon
+layout: blog-specific
+author: eddrichjanzzen
+date: 2020-06-26
+category: blog
+tag: 
+- python
+description: A short article about implemeting API using Python Falcon
+---
+
+The advent of technology has produced many different programming languages the developers can use. From the low level languages such as C, C++, and Assembly Langauge, to the more high level languages such as Ruby and Python, indeed, technology has reached new heights.
+
+One of emerging languages in modern day is the Python language. The language has gained its popularity for being so simple yet at the same time very expressive. It is simple in the sense that the code resembles how humans think, which makes it very human understandable. It is expressive in the sense that it enables developers to write fewer lines of code for other tasks that require more code in other languages. For this reason, Python has been adopted as a language commonly used to build simple yet powerful scripts. As a matter of fact, Python often used in data science to perform machine learning tasks and build complex models, and even neural networks. 
+
+![Python](/assets/images/python-logo.png){:class="img-blog-right"}
+
+However, one of the underated capabilities that not everyone sees, is how Python can be used to create short and powerful APIs. Using libaries such as Python Django, Python Flask, one can develop simple backends fewer lines of code compared to other languages, which makes Python one of the few ideal languages for microservice architectures.  
+
+
+#### Python Falcon 
+![Falcon](/assets/images/falcon.jpg){:class="img-blog"}
+
+In today's article, we will be talking about another emerging framework for building simple APIs. We will be going through how to set up simple Create, Read, Update, and Delete functionalities using the [Python Falcon](https://falconframework.org/#sectionAbout) framework. 
+
+But first what is Falcon? 
+
+Falcon is a minimalist microframework designed to support the demanding needs of large scale microservices. It is fast and reliable because it compiles with Cython when available. Based on benchmarking tests, Falcon is able to outperform some of the famous microframeworks such as Bottle, Flask, and Werkzeug. 
+
+The speed up is just insane. For large scale microservices with high traffic, Falcon is the way to go. [Read more](https://falconframework.org/#sectionBenchmarks)
+
+
+#### Setting up 
+
+Falcon's architecture follows certain concepts from the REST architectural style. Important to both REST and the falcon framework is the concept of "resource". A resource is simply everything the system would need that can be accessed by a url. 
+
+Behind this, is a "resource controller" which is controls how the resources behave. It is incharge of orchestrating the requested action and composing a valid result. 
+
+Below is an example of a resource controller:
+
+```python
+class ProductResource(object):
+	
+	def on_get(self, req, resp):
+
+		try:
+			logger.info("Performing get all products...")
+			
+			resp.body = ujson.dumps({'products': products})
+			resp.status = falcon.HTTP_200
+
+		except Exception as e:
+
+			logger.error(e, exc_info=True)
+
+			resp.body = ujson.dumps({"error": e})
+			resp.status = falcon.HTTP_502
+
+
+	def on_get_product(self, req, resp, product_id):
+
+		try:
+			logger.info("Performing get product...")
+			
+			product = [p for p in products if str(p['id']) == str(product_id)]
+
+			if product == []:
+
+				resp.body = ujson.dumps({'error': 'product not found.'})
+				resp.status = falcon.HTTP_404
+
+			else: 
+
+				resp.body = ujson.dumps({'products': product[0]})
+				resp.status = falcon.HTTP_200
+
+
+
+		except Exception as e:
+
+			logger.error(e, exc_info=True)
+
+			resp.body = ujson.dumps({"error": e})
+			resp.status = falcon.HTTP_502
+
+
+	def on_post(self, req, resp):
+
+		try:
+			logger.info("Performing post request...")
+
+			body = req.context['request']
+
+			product = {
+				'id': body['id'],
+				'name': body['name'],
+				'stock' : body['stock'],
+				'price' : body['price']
+			}
+
+			products.append(product)
+
+			resp.body = ujson.dumps({
+				'products': product,
+				'status': 'CREATED OK'
+			})
+
+
+			resp.status = falcon.HTTP_200
+
+		except Exception as e:
+
+			logger.error(e, exc_info=True)
+
+			resp.body = ujson.dumps({"error": "connection error"})
+			resp.status = falcon.HTTP_502
+
+
+	def on_put_product(self, req, resp, product_id):
+		
+		try:
+			logger.info("Performing put request...")
+
+			body = req.context['request']
+
+			product = [p for p in products if str(p['id']) == str(product_id)]
+
+			if product == []:
+
+				resp.body = ujson.dumps({'error': 'product not found.'})
+				resp.status = falcon.HTTP_404
+
+			else: 
+
+				product[0]['name'] = body['name']
+				product[0]['stock'] = body['stock']
+				product[0]['price'] = body['price']
+
+				resp.body = ujson.dumps({
+					'products': product,
+					'status': 'UPDATED OK'
+				})
+
+				resp.status = falcon.HTTP_200
+
+		except Exception as e:
+
+			logger.error(e, exc_info=True)
+
+			resp.body = ujson.dumps({"error": e})
+			resp.status = falcon.HTTP_502
+
+	def on_delete_product(self, req, resp, product_id):
+
+		try:
+			logger.info("Performing delete request...")
+
+			product = [p for p in products if str(p['id']) == str(product_id)]
+
+			if product == []:
+
+				resp.body = ujson.dumps({'error': 'product not found.'})
+				resp.status = falcon.HTTP_404
+
+			else:
+
+				products.remove(product[0])
+
+				resp.body = ujson.dumps({
+					'products': product,
+					'status': 'DELETED OK'
+				})
+
+			resp.status = falcon.HTTP_200
+
+		except Exception as e:
+
+			logger.error(e, exc_info=True)
+
+			resp.body = ujson.dumps({"error": e})
+			resp.status = falcon.HTTP_502
+
+```
+
+The code above shows different functions that correspond to certain HTTP methods for a products API. For example: `on_get_product`, `on_post_product`, `on_put_product`, `on_delete_product`, etc., are functions that implement business logic for creating, reading, updating, and deleting products.
+
+
+Once the resource controller has been configured, we can then define a file called `app.py`, which will instantiate our product resource controller. 
+
+```python
+
+import falcon
+import json_utils
+from decouple import config
+from product_resource import ProductResource
+
+
+# Declare Falcon Middleware 
+# RequireJSON will always make sure the application data is in JSON format
+# JSONtranslator will translate the stream data from falcon into JSON format
+api = falcon.API(middleware=[
+			json_utils.RequireJSON(),
+			json_utils.JSONtranslator(),
+		])
+
+# we define our resource here
+product = ProductResource()
+
+api.add_route('/products', product)
+api.add_route('/products/{product_id}', product, suffix="product")
+
+```
+
+Note that we can define routes as needed using the `add_route` function. 
+
+Lastly, for the API to function efficiently, we must add two middlewares:
+
+`RequireJSON()` and `JSONtranslator`, these middlewares are used to process our json objects. Since Falcon processes request and response data as a stream of bytes, there is a need to perform some serialization to ensure that the data being sent and being serialized in json format, this is handled by `JSONtranslator`. On the otherhand, we must also validate that the request being accepted is in json format, this is handled by `RequireJSON()`
+
+
+```python
+import json
+import falcon
+import datetime
+import decimal
+
+# Middle ware classes for processing json objects
+
+
+# This will read the stream from the request, then it will decode this data into json format
+# If it cannot decode, it will return an TypeError
+
+class JSONtranslator:
+    def process_request(self, req, resp):
+        """
+        req.stream corresponds to the WSGI wsgi.input environ variable,
+        and allows you to read bytes from the request body.
+        See also: PEP 3333
+        """
+        if req.content_length in (None, 0):
+            return
+
+        body = req.stream.read()
+
+
+        if not body:
+            raise falcon.HTTPBadRequest(
+                'Empty request body. A valid JSON document is required.'
+            )
+
+        try:
+
+            # You can access the request data using req.context['request']
+            req.context['request'] = json.loads(body.decode('utf-8'))
+
+        except (ValueError, UnicodeDecodeError):
+            raise falcon.HTTPError(
+                falcon.HTTP_753,
+                'Malformed JSON. Could not decode the request body.'
+                'The JSON was incorrect or not encoded as UTF-8.'
+            )
+
+    def process_response(self, req, resp, resource, req_succeeded):
+        if 'response' not in resp.context:
+            return
+        
+        resp.body = json.dumps(
+            resp.context['response'],
+            default=json_serializer
+        )
+
+
+    def json_serializer(obj):
+        if isinstance(obj, datetime.datetime):
+            return str(obj)
+        elif isinstance(obj, decimal.Decimal):
+            return str(obj)
+
+        raise TypeError('Cannot serialize {!r} (type {})'.format(obj, type(obj)))
+
+
+class RequireJSON(object):
+
+    def process_request(self, req, resp):
+        if not req.client_accepts_json:
+            raise falcon.HTTPNotAcceptable(
+                'This API only supports responses encoded as JSON.',
+                href='http://docs.examples.com/api/json')
+
+        if req.method in ('POST', 'PUT'):
+            if 'application/json' not in req.content_type:
+                raise falcon.HTTPUnsupportedMediaType(
+                    'This API only supports requests encoded as JSON.',
+                    href='http://docs.examples.com/api/json')
+```
+
+
+There you have it. You have just completed setting up your Falcon API. :clap: :clap: :clap: 
+
+The Python Falcon framework is a sample framework that boasts to be blazing fast and reliable. It is also highly extensible and can be ideal for large scale microservices. 
+
+For more details, you may visit my sample project. [https://github.com/eddrichjanzzen/falcon-sample](https://github.com/eddrichjanzzen/falcon-sample)   
+
+
+
+
+
+

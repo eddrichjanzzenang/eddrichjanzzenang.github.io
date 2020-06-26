@@ -167,3 +167,10 @@ span {
   width:100%;
 }
 
+.img-blog-right{
+  float:right;
+  margin-left:10px;
+  width:50%;
+
+}
+
