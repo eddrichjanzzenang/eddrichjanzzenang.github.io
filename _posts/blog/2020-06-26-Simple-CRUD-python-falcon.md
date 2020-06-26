@@ -11,9 +11,9 @@ description: A short article about implemeting API using Python Falcon
 
 The advent of technology has produced many different programming languages the developers can use. From the low level languages such as C, C++, and Assembly Langauge, to the more high level languages such as Ruby and Python, indeed, technology has reached new heights.
 
-One of emerging languages in modern day is the Python language. The language has gained its popularity for being so simple yet at the same time very expressive. It is simple in the sense that the code resembles how humans think, which makes it very human understandable. It is expressive in the sense that it enables developers to write fewer lines of code for other tasks that require more code in other languages. For this reason, Python has been adopted as a language commonly used to build simple yet powerful scripts. As a matter of fact, Python often used in data science to perform machine learning tasks and build complex models, and even neural networks. 
-
 ![Python](/assets/images/python-logo.png){:class="img-blog-right"}
+
+One of emerging languages in modern day is the Python language. The language has gained its popularity for being so simple yet at the same time very expressive. It is simple in the sense that the code resembles how humans think, which makes it very human understandable. It is expressive in the sense that it enables developers to write fewer lines of code for other tasks that require more code in other languages. For this reason, Python has been adopted as a language commonly used to build simple yet powerful scripts. As a matter of fact, Python often used in data science to perform machine learning tasks and build complex models, and even neural networks. 
 
 However, one of the underated capabilities that not everyone sees, is how Python can be used to create short and powerful APIs. Using libaries such as Python Django, Python Flask, one can develop simple backends fewer lines of code compared to other languages, which makes Python one of the few ideal languages for microservice architectures.  
 
