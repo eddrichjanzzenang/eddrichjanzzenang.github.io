@@ -170,7 +170,8 @@ span {
 .img-blog-right{
   float:right;
   margin-left:10px;
-  width:50%;
+  margin-bottom:10px;
+  width:30%;
 
 }
 
