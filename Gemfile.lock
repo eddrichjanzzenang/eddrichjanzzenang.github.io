@@ -286,6 +286,7 @@ DEPENDENCIES
   jekyll-feed
   jekyll-gist
   jekyll-paginate
+  jemoji
 
 RUBY VERSION
    ruby 2.6.3p62
