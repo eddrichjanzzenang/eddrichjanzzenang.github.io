@@ -294,7 +294,7 @@ There you have it. You have just completed setting up your Falcon API. :clap: :c
 
 #### Wrapping up 
 
-The Python Falcon framework is a simple framework that boasts to be blazing fast and reliable. It is also highly extensible and can be ideal for large scale microservices. 
+Python Falcon is a simple framework that boasts to be blazing fast and highly reliable. It is also easily extensible which makes it one of the ideal choices for large scale microservices. 
 
 For more details, you may visit my sample project. [https://github.com/eddrichjanzzen/falcon-sample](https://github.com/eddrichjanzzen/falcon-sample)   
 
