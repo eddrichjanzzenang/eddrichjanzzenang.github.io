@@ -20,7 +20,7 @@ In today's article we will be talking about a less conventional implementation o
 
 ##### What is Dapper? 
 
-In simple terms, Dapper is a simple object mapper for .NET. It owns the title fo "King of Micro ORM". It is virtually as fast as using a raw ADO.NET data reader. It allows one to be very flexible with writing SQL queries themselves thereby ensuring optimal performance. [read more](https://dapper-tutorial.net/dapper)
+In simple terms, Dapper is a object mapper for .NET. It owns the title fo "King of Micro ORM". It is virtually as fast as using a raw ADO.NET data reader. It allows one to be very flexible with writing SQL queries themselves thereby ensuring optimal performance. [read more](https://dapper-tutorial.net/dapper)
 
 
 Unlike the full-blown ORMs (ei, [NHibernate](https://nhibernate.info/), [EntityFramework](https://docs.microsoft.com/en-us/ef/ef6/), or [SQLAlchemy](https://www.sqlalchemy.org/)), Dapper focuses more on mapping the data to its code representation, leaving the other configurations upto the developer. This allows for some flexibility in the way the data is queried/manipulated. This increased flexibility however, comes with some benefits and drawbacks. Lets go over some of them.
