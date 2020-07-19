@@ -93,6 +93,10 @@ nav li {
 .posts li {
   list-style-type:none;
   margin-left:20px;
+  margin-right:20px;
+  text-overflow: ellipsis;
+  white-space: nowrap; 
+  overflow: hidden;
 }
 
 .blog {
@@ -109,6 +113,8 @@ nav li {
 
 span {
   color: #878787;
+  /*font-family: 'Raleway', monospace;*/
+  /*text-transform: full-width;*/
 }
 
 
