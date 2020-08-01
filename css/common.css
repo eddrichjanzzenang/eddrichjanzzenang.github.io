@@ -1,3 +1,5 @@
+@import('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+
 html{
   margin:0;
   padding:0;
@@ -99,6 +101,12 @@ nav li {
   overflow: hidden;
 }
 
+.posts li span{
+  font-family: "Roboto", monospace;
+
+}
+
+
 .blog {
   border: 0.5px solid #f0f0f5;
   padding:15px 0px 15px 0px;
@@ -113,8 +121,6 @@ nav li {
 
 span {
   color: #878787;
-  /*font-family: 'Raleway', monospace;*/
-  /*text-transform: full-width;*/
 }
 
 
