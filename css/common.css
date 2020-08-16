@@ -1,4 +1,6 @@
-@import('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+body { 
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+}
 
 html{
   margin:0;
@@ -102,7 +104,8 @@ nav li {
 }
 
 .posts li span{
-  font-family: "Roboto", monospace;
+  font-family: "Raleway", monospace;
+  /*font-family: 'Roboto Mono', monospace;*/
 
 }
 
