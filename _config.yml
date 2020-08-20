@@ -1,8 +1,8 @@
 # Setup
-title:               eddrichjanzzenang
+title:               Eddrich Janzzen
 tagline:             My Own Webiste
-description:         Some Amazing Description
-url:                 http://yoururl.com
+description:         Personal Blog
+url:                 https://eddrichjanzzen.github.io
 baseurl:             ''
 
 # Plugins, Tags, Categories and Analytics  
@@ -19,8 +19,8 @@ plugins:
 # About/contact
 author:
   name:              Eddrich Janzzen Ang
-  url:               https://yoururl.com
-  email:             you@gmail.com
+  url:               https://eddrichjanzzen.github.io
+  email:             eddrichang@gmail.com
 
 
 paginate: 5
