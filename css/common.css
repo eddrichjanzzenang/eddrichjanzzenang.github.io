@@ -53,8 +53,8 @@ nav li {
   padding:3%;
   padding-top:0px;
   padding-bottom: 200px;
-  margin-right: 20%;
-  margin-left: 20%;
+  margin-right: 18%;
+  margin-left: 18%;
 }
 
 .blog-wrapper p {
@@ -94,6 +94,13 @@ nav li {
   text-align:center;
 }
 
+
+.posts li span{
+  font-family: "Raleway", monospace;
+  font-size:0.7em;
+  /*font-family: 'Roboto Mono', monospace;*/
+}
+
 .posts li {
   list-style-type:none;
   margin-left:20px;
@@ -103,12 +110,28 @@ nav li {
   overflow: hidden;
 }
 
-.posts li span{
-  font-family: "Raleway", monospace;
-  font-size:0.7em;
-  /*font-family: 'Roboto Mono', monospace;*/
-
+.post-header {
+  font-size: 1.2em;
 }
+
+.post-content {
+  text-overflow: ellipsis;
+  white-space: nowrap; 
+  overflow: hidden;
+  margin-bottom:0.5em;
+  margin-left:10px;
+}
+
+.post-text{
+  border: 0.5px solid #f0f0f5;
+  padding:15px 15px 0px 15px;
+}
+
+.post-description {
+  height: 200px;
+  max-height:300px;
+}
+
 
 
 .blog {
@@ -117,11 +140,15 @@ nav li {
   margin-bottom: 15px;
 }
 
-
-.post-description{
+.card {
   border: 0.5px solid #f0f0f5;
-  padding:15px 15px 0px 15px;
 }
+
+.card-content {
+  padding:2em 4em 2em 4em;
+}
+
+
 
 span {
   color: #878787;
@@ -146,6 +173,13 @@ span {
     cursor:pointer;
     padding:15px;
     display:block;
+  }
+
+  .posts li span{
+    font-family: "Raleway", monospace;
+    font-size:0.7em;
+    display:block;
+    /*font-family: 'Roboto Mono', monospace;*/
   }
 
 
@@ -195,6 +229,12 @@ span {
   margin-left:10px;
   margin-bottom:10px;
   width:30%;
+
+}
+
+.project-frame {
+  width:100%;
+  height:350px;
 
 }
 
