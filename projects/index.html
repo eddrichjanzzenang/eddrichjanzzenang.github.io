@@ -1,0 +1,52 @@
+---
+layout: default
+pagination: 
+  enabled: true 
+  category: projects
+  per_page: 1
+---
+<h3>Projects/Works</h3>
+
+<div class="row">
+
+	{% for project in paginator.posts %}
+		<div class="twelve columns card">
+			<iframe class="project-frame" 
+						src="{{project.project_url}}">				
+			</iframe>
+			<div class="card-content">
+
+				<h4>{{project.title}}</h4>
+
+				<p>{{project.content}}</p>
+			</div>
+		</div>
+	{% endfor %}
+
+</div>
+
+
+
+<!-- jekyll paginate 2 -->
+<div class="pagination">
+	  {% if paginator.total_pages > 1 %}
+	  <div class="pager">
+	    
+	    {% if paginator.next_page %}
+	    <div class="next">
+	        <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo</a>
+	    </div>
+	    {% endif %}
+	    <small>page {{ paginator.page }} of {{ paginator.total_pages }}</small>
+
+	    {% if paginator.previous_page %}
+	    <div class="previous">
+	        <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&raquo</a>
+	    </div> 
+	    {% endif %}
+	  </div>
+	  {% endif %}
+	</div>
+</div>
+
+
