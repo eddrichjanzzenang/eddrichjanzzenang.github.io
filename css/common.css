@@ -182,7 +182,6 @@ span {
     /*font-family: 'Roboto Mono', monospace;*/
   }
 
-
   .line{
     width: 35px;
       height: 6px;
@@ -197,8 +196,7 @@ span {
     width:100%;
     text-align:center;
   }
-  
-  
+    
   .nav-top{
     height:0;
     overflow:hidden;
@@ -213,9 +211,12 @@ span {
     margin-left: 5%;
   }
 
-
   .nav-bottom{
     font-size: 14px;
+  }
+
+  .card-content {
+    padding: 0.5em 1em 0.5em 1em;
   }
 
 }
