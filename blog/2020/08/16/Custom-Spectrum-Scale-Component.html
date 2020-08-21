@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en-ca">
+  
+  <head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Spectrum Scale using D3.js and Angular | Eddrich Janzzen</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Spectrum Scale using D3.js and Angular" />
+<meta name="author" content="eddrichjanzzen" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="spectrum scale component using D3.js and Angular." />
+<meta property="og:description" content="spectrum scale component using D3.js and Angular." />
+<link rel="canonical" href="https://eddrichjanzzen.github.io/blog/2020/08/16/Custom-Spectrum-Scale-Component.html" />
+<meta property="og:url" content="https://eddrichjanzzen.github.io/blog/2020/08/16/Custom-Spectrum-Scale-Component.html" />
+<meta property="og:site_name" content="Eddrich Janzzen" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-08-16T00:00:00+00:00" />
+<script type="application/ld+json">
+{"description":"spectrum scale component using D3.js and Angular.","headline":"Spectrum Scale using D3.js and Angular","dateModified":"2020-08-16T00:00:00+00:00","datePublished":"2020-08-16T00:00:00+00:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://eddrichjanzzen.github.io/blog/2020/08/16/Custom-Spectrum-Scale-Component.html"},"url":"https://eddrichjanzzen.github.io/blog/2020/08/16/Custom-Spectrum-Scale-Component.html","author":{"@type":"Person","name":"eddrichjanzzen"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <link rel="icon" href="/images/favicon.ico">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:200,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;400" rel="stylesheet">
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/normalize.css">
+  <link rel="stylesheet" href="/css/skeleton.css">
+  <link rel="stylesheet" href="/css/skeleton-alerts.css">
+  <link rel="stylesheet" href="/css/common.css">
+  <!-- for syntax highlighting -->
+  <link rel="stylesheet" href="/css/tango.css">
+  <script src="/js/jquery-3.1.1.min.js"></script> 
+  <script src="/js/main.js"></script>  
+
+  <meta name="google-site-verification" content="y76HL_x2Anjbw7oIO9lswptVVKHz5NHCzh8Dz9Rp4FI" />
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-171515307-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-171515307-1');
+  </script>
+
+  
+</head>
+
+
+<body>
+
+  <header>
+    <nav>
+	
+	<div class="hamburger">
+		<div class="line"></div>
+		<div class="line"></div>
+		<div class="line"></div>
+	</div>
+	
+	
+	<ul class="clearfix nav-top">
+	<!-- <ul class="open nav-top"> -->
+		<li><a href="/index.html">Home</a></li>
+    <li><a href="/posts">Posts</a></li>
+		<li><a href="/projects.html">Projects</a></li>
+		<li><a href="https://github.com/eddrichjanzzen" target="_blank">GitHub</a></li>
+		<li><a href="/contact.html">Contact</a></li>
+	</ul>
+</nav>
+
+
+<!-- https://www.youtube.com/watch?v=6m6iqN1uynE -->
+
+  </header>
+
+
+  <div class="content-wrapper">
+    <h3>Spectrum Scale using D3.js and Angular</h3>
+<span>Posted on Aug 16, 2020 • eddrichjanzzen
+</span>
+<br><br>
+
+<div class="blog-wrapper">
+	<h4 id="data-visualization">Data Visualization</h4>
+
+<p>As business needs continue to evolve, being able to visualize data is of paramount importance. More than just presenting the numbers to our users; we also need to make it easy for them to understand what those numbers mean. Data visualization is a vast field that deals with making data easier to understand. There are numerous ways to present data such as bar graphs, line charts, and pie charts. However, these methods can sometimes be quite limited.</p>
+
+<p>For example: What if the data can be better represented using a color spectrum?</p>
+
+<p>In this article, I have used <a href="https://d3js.org/">D3.js</a> and <a href="https://angular.io/">Angular</a> to create a simple reusable component for a Spectrum Scale. Let’s dive in!</p>
+
+<h4 id="d3js-and-angular">D3.js and Angular</h4>
+
+<p><a href="https://d3js.org/">D3.js</a> or Data Driven Documents is a Javascript library for manipulating documents based on data. In simple terms, D3 is a library that helps you bring your data to life. With D3, creating simple yet amazing visualizations are possible with use of a browser.</p>
+
+<p><a href="https://angular.io/">Angular</a> is a platform built by Google for building mobile and desktop web applications. It is framework and development platform for creating efficient and sophisticated single-page apps.</p>
+
+<p>Combining D3 with Angular, we are able to take advantage of a powerful visualization tool and the resuability of components. Lets jump in!</p>
+
+<h4 id="spectrum-scale-component">Spectrum Scale Component</h4>
+
+<h5 id="set-up-and-installation">Set up and Installation:</h5>
+<p>Install the following dependencies: <code class="language-plaintext highlighter-rouge">d3</code> and <code class="language-plaintext highlighter-rouge">ng-spectrum-scale</code></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="nv">$ </span>npm i d3
+<span class="nv">$ </span>npm i ng-spectrum-scale
+
+</code></pre></div></div>
+
+<p>In your <code class="language-plaintext highlighter-rouge">app.module.ts</code>, add the following:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">BrowserModule</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@angular/platform-browser</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">NgModule</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@angular/core</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">AppRoutingModule</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./app-routing.module</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">AppComponent</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./app.component</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="c1">// NgSpectrumScaleModule</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">NgSpectrumScaleModule</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">ng-spectrum-scale</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="p">@</span><span class="nd">NgModule</span><span class="p">({</span>
+  <span class="na">declarations</span><span class="p">:</span> <span class="p">[</span>
+    <span class="nx">AppComponent</span>
+  <span class="p">],</span>
+  <span class="na">imports</span><span class="p">:</span> <span class="p">[</span>
+    <span class="nx">BrowserModule</span><span class="p">,</span>
+    <span class="nx">AppRoutingModule</span><span class="p">,</span>
+
+    <span class="c1">// NgSpectrumScaleModule</span>
+
+    <span class="nx">NgSpectrumScaleModule</span>
+  <span class="p">],</span>
+  <span class="na">providers</span><span class="p">:</span> <span class="p">[],</span>
+  <span class="na">bootstrap</span><span class="p">:</span> <span class="p">[</span><span class="nx">AppComponent</span><span class="p">]</span>
+<span class="p">})</span>
+<span class="k">export</span> <span class="kd">class</span> <span class="nx">AppModule</span> <span class="p">{</span> <span class="p">}</span>
+
+</code></pre></div></div>
+
+<h5 id="usage">Usage:</h5>
+<p>In your <code class="language-plaintext highlighter-rouge">app.component.html</code> add the following:</p>
+
+<p>Example 1:</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="nt">&lt;h1&gt;</span>Gender Bias<span class="nt">&lt;/h1&gt;</span>
+
+<span class="nt">&lt;app-spectrum-scale</span>
+	<span class="na">[data]=</span><span class="s">"-0.799"</span>
+	<span class="na">[leftLabel]=</span><span class="s">"'Feminine'"</span>
+	<span class="na">[rightLabel]=</span><span class="s">"'Masculine'"</span>
+	<span class="na">[middleLabel]=</span><span class="s">"'Neutral'"</span>
+	<span class="na">[minVal]=</span><span class="s">"-1"</span>
+	<span class="na">[maxVal]=</span><span class="s">"1"</span>
+	<span class="na">[colorList]=</span><span class="s">"['#FF6347', '#D53E4F','#090979','#0000FF']"</span>
+	<span class="na">[displayMeta]=</span><span class="s">"'Your article is '+ '&lt;b&gt;Feminine&lt;/b&gt;'"</span>
+<span class="nt">&gt;</span>
+<span class="nt">&lt;/app-spectrum-scale&gt;</span>  
+
+</code></pre></div></div>
+
+<p>Output:
+<img src="/assets/images/gender-bias.png" alt="Gender" class="img-blog"></p>
+
+<p>Example 2:</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="nt">&lt;h1&gt;</span>Sentiment Analysis<span class="nt">&lt;/h1&gt;</span>
+<span class="nt">&lt;app-spectrum-scale</span>
+	<span class="na">[data]=</span><span class="s">"0.55"</span>
+	<span class="na">[leftLabel]=</span><span class="s">"'Negative'"</span>
+	<span class="na">[rightLabel]=</span><span class="s">"'Positive'"</span>
+	<span class="na">[middleLabel]=</span><span class="s">"'Neutral'"</span>
+	<span class="na">[minVal]=</span><span class="s">"-1"</span>
+	<span class="na">[maxVal]=</span><span class="s">"1"</span>
+	<span class="na">[colorList]=</span><span class="s">"['#9E0142', '#D53E4F',
+	                    '#F46D43', '#FDAE61',
+	                    '#FEE08B', '#FFFFBF',
+	                    '#E6F598', '#ABDDA4', 
+	                    '#66C2A5', '#6AA84F',
+	                    '#38761D']"</span>
+	<span class="na">[hideAxis]=</span><span class="s">"true"</span>
+	<span class="na">[displayMeta]=</span><span class="s">"'Your sentiment score is '+ '&lt;b&gt;Positive&lt;/b&gt;'"</span>
+<span class="nt">&gt;</span>
+<span class="nt">&lt;/app-spectrum-scale&gt;</span>
+
+</code></pre></div></div>
+
+<p>Output
+<img src="/assets/images/sentiment-analysis.png" alt="Sentiment" class="img-blog"></p>
+
+<h4 id="wrapping-up">Wrapping up</h4>
+
+<p>There you have it. You have successfully added your custom spectrum scale. <img class="emoji" title=":clap:" alt=":clap:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f44f.png" height="20" width="20"> <img class="emoji" title=":clap:" alt=":clap:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f44f.png" height="20" width="20"> <img class="emoji" title=":clap:" alt=":clap:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f44f.png" height="20" width="20"></p>
+
+<p>For information and a more detailed documentation, you can visit the npm package at: <a href="https://www.npmjs.com/package/ng-spectrum-scale">https://www.npmjs.com/package/ng-spectrum-scale</a></p>
+
+	
+</div>
+
+  <div>
+  
+  <footer>
+  
+<footer class="footer">
+	<nav>
+	
+	
+	<ul class="clearfix nav-bottom">
+	<!-- <ul class="open nav-top"> -->
+		<li><a href="/index.html">Home</a></li>
+    <li><a href="/posts">Posts</a></li>
+		<li><a href="/projects.html">Projects</a></li>
+		<li><a href="https://github.com/eddrichjanzzen" target="_blank">GitHub</a></li>
+		<li><a href="/contact.html">Contact</a></li>
+	</ul>
+</nav>
+
+
+<!-- https://www.youtube.com/watch?v=6m6iqN1uynE -->
+
+	<div class="mini">
+		<img src="/images/me.jpg" alt="">
+		<p>Developed by <a href="https://github.com/eddrichjanzzen">Eddrich Janzzen Ang</a> powered by <a href="https://jekyllrb.com/">Jekyll</a></p>	
+	</div>
+</footer>
+
+
+  <footer>
+
+</footer></footer>
+</div>
+</div></body>
+<script src="/js/main.js"></script>
+</html>

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en-ca">
+  
+  <head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Minesweeper | Eddrich Janzzen</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Minesweeper" />
+<meta name="author" content="Eddrich Janzzen Ang" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="#include &lt;iostream&gt; #include &lt;cstdio&gt; #include &lt;algorithm&gt; #include &lt;cstring&gt; #include &lt;string&gt; #include &lt;cctype&gt; #include &lt;stack&gt; #include &lt;queue&gt; #include &lt;list&gt; #include &lt;vector&gt; #include &lt;map&gt; #include &lt;sstream&gt; #include &lt;cmath&gt; #include &lt;bitset&gt; #include &lt;utility&gt; #include &lt;set&gt; using namespace std; int main () { int n,m; int counter=0; while(true) { cin &gt;&gt; m &gt;&gt; n; if (n ==0 &amp;&amp; m ==0) break; counter++; if (counter &gt; 1) cout &lt;&lt; &#39;\n&#39;; int field[102][102] = {0}; for (int i=1; i&lt;m+1; i++) for (int j=1; j&lt;n+1; j++) { char temp; cin &gt;&gt; temp; if (temp == &#39;*&#39;) { //111 //1*1 //111 field[i][j] = -1; if (field[i-1][j] != -1) field[i-1][j]++; //top if (field[i-1][j-1] != -1) field[i-1][j-1]++; //top left if (field[i-1][j+1] != -1) field[i-1][j+1]++; //top right if (field[i][j-1] != -1) field[i][j-1]++;//left if (field[i+1][j] != -1) field[i+1][j]++; // bottom if (field[i+1][j+1] != -1) field[i+1][j+1]++; //bottom right if (field[i+1][j-1] != -1) field[i+1][j-1]++; //bottom right if (field[i][j+1] != -1) field[i][j+1]++; //right } } cout &lt;&lt; &quot;Field #&quot; &lt;&lt; counter &lt;&lt; &quot;:\n&quot;; for (int i=1; i&lt;m+1; i++) { for (int j=1; j&lt;n+1; j++) { if (field[i][j] == -1) cout &lt;&lt; &#39;*&#39;; else cout &lt;&lt; field[i][j]; } cout &lt;&lt; &quot;\n&quot;; } } return 0; }" />
+<meta property="og:description" content="#include &lt;iostream&gt; #include &lt;cstdio&gt; #include &lt;algorithm&gt; #include &lt;cstring&gt; #include &lt;string&gt; #include &lt;cctype&gt; #include &lt;stack&gt; #include &lt;queue&gt; #include &lt;list&gt; #include &lt;vector&gt; #include &lt;map&gt; #include &lt;sstream&gt; #include &lt;cmath&gt; #include &lt;bitset&gt; #include &lt;utility&gt; #include &lt;set&gt; using namespace std; int main () { int n,m; int counter=0; while(true) { cin &gt;&gt; m &gt;&gt; n; if (n ==0 &amp;&amp; m ==0) break; counter++; if (counter &gt; 1) cout &lt;&lt; &#39;\n&#39;; int field[102][102] = {0}; for (int i=1; i&lt;m+1; i++) for (int j=1; j&lt;n+1; j++) { char temp; cin &gt;&gt; temp; if (temp == &#39;*&#39;) { //111 //1*1 //111 field[i][j] = -1; if (field[i-1][j] != -1) field[i-1][j]++; //top if (field[i-1][j-1] != -1) field[i-1][j-1]++; //top left if (field[i-1][j+1] != -1) field[i-1][j+1]++; //top right if (field[i][j-1] != -1) field[i][j-1]++;//left if (field[i+1][j] != -1) field[i+1][j]++; // bottom if (field[i+1][j+1] != -1) field[i+1][j+1]++; //bottom right if (field[i+1][j-1] != -1) field[i+1][j-1]++; //bottom right if (field[i][j+1] != -1) field[i][j+1]++; //right } } cout &lt;&lt; &quot;Field #&quot; &lt;&lt; counter &lt;&lt; &quot;:\n&quot;; for (int i=1; i&lt;m+1; i++) { for (int j=1; j&lt;n+1; j++) { if (field[i][j] == -1) cout &lt;&lt; &#39;*&#39;; else cout &lt;&lt; field[i][j]; } cout &lt;&lt; &quot;\n&quot;; } } return 0; }" />
+<link rel="canonical" href="https://eddrichjanzzen.github.io/uva/2017/05/26/UVA10189.html" />
+<meta property="og:url" content="https://eddrichjanzzen.github.io/uva/2017/05/26/UVA10189.html" />
+<meta property="og:site_name" content="Eddrich Janzzen" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-05-26T00:00:00+00:00" />
+<script type="application/ld+json">
+{"description":"#include &lt;iostream&gt; #include &lt;cstdio&gt; #include &lt;algorithm&gt; #include &lt;cstring&gt; #include &lt;string&gt; #include &lt;cctype&gt; #include &lt;stack&gt; #include &lt;queue&gt; #include &lt;list&gt; #include &lt;vector&gt; #include &lt;map&gt; #include &lt;sstream&gt; #include &lt;cmath&gt; #include &lt;bitset&gt; #include &lt;utility&gt; #include &lt;set&gt; using namespace std; int main () { int n,m; int counter=0; while(true) { cin &gt;&gt; m &gt;&gt; n; if (n ==0 &amp;&amp; m ==0) break; counter++; if (counter &gt; 1) cout &lt;&lt; &#39;\\n&#39;; int field[102][102] = {0}; for (int i=1; i&lt;m+1; i++) for (int j=1; j&lt;n+1; j++) { char temp; cin &gt;&gt; temp; if (temp == &#39;*&#39;) { //111 //1*1 //111 field[i][j] = -1; if (field[i-1][j] != -1) field[i-1][j]++; //top if (field[i-1][j-1] != -1) field[i-1][j-1]++; //top left if (field[i-1][j+1] != -1) field[i-1][j+1]++; //top right if (field[i][j-1] != -1) field[i][j-1]++;//left if (field[i+1][j] != -1) field[i+1][j]++; // bottom if (field[i+1][j+1] != -1) field[i+1][j+1]++; //bottom right if (field[i+1][j-1] != -1) field[i+1][j-1]++; //bottom right if (field[i][j+1] != -1) field[i][j+1]++; //right } } cout &lt;&lt; &quot;Field #&quot; &lt;&lt; counter &lt;&lt; &quot;:\\n&quot;; for (int i=1; i&lt;m+1; i++) { for (int j=1; j&lt;n+1; j++) { if (field[i][j] == -1) cout &lt;&lt; &#39;*&#39;; else cout &lt;&lt; field[i][j]; } cout &lt;&lt; &quot;\\n&quot;; } } return 0; }","headline":"Minesweeper","dateModified":"2017-05-26T00:00:00+00:00","datePublished":"2017-05-26T00:00:00+00:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://eddrichjanzzen.github.io/uva/2017/05/26/UVA10189.html"},"url":"https://eddrichjanzzen.github.io/uva/2017/05/26/UVA10189.html","author":{"@type":"Person","name":"Eddrich Janzzen Ang"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <link rel="icon" href="/images/favicon.ico">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:200,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;400" rel="stylesheet">
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/normalize.css">
+  <link rel="stylesheet" href="/css/skeleton.css">
+  <link rel="stylesheet" href="/css/skeleton-alerts.css">
+  <link rel="stylesheet" href="/css/common.css">
+  <!-- for syntax highlighting -->
+  <link rel="stylesheet" href="/css/tango.css">
+  <script src="/js/jquery-3.1.1.min.js"></script> 
+  <script src="/js/main.js"></script>  
+
+  <meta name="google-site-verification" content="y76HL_x2Anjbw7oIO9lswptVVKHz5NHCzh8Dz9Rp4FI" />
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-171515307-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-171515307-1');
+  </script>
+
+  
+</head>
+
+
+<body>
+
+  <header>
+    <nav>
+	
+	<div class="hamburger">
+		<div class="line"></div>
+		<div class="line"></div>
+		<div class="line"></div>
+	</div>
+	
+	
+	<ul class="clearfix nav-top">
+	<!-- <ul class="open nav-top"> -->
+		<li><a href="/index.html" >Home</a></li>
+    <li><a href="/posts">Posts</a></li>
+		<li><a href="/projects.html">Projects</a></li>
+		<li><a href="https://github.com/eddrichjanzzen" target="_blank">GitHub</a></li>
+		<li><a href="/contact.html">Contact</a></li>
+	</ul>
+</nav>
+
+
+<!-- https://www.youtube.com/watch?v=6m6iqN1uynE -->
+
+  </header>
+
+
+  <div class="content-wrapper">
+    <h1>UVA Problems</h1>
+
+<p>
+    Here you can find a collection of some the programming problems I have solved. They are solved using different programming languages such as Python, C++, and Java. You may also view my uHunt statistics <a href="https://uhunt.onlinejudge.org/id/796740">here.</a>       
+</p>
+
+<h3>UVA10189 - Minesweeper</h3>
+ <span>Posted on May 26, 2017
+ </span>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;iostream&gt;
+#include &lt;cstdio&gt;
+#include &lt;algorithm&gt;
+#include &lt;cstring&gt;
+#include &lt;string&gt;
+#include &lt;cctype&gt;
+#include &lt;stack&gt;
+#include &lt;queue&gt;
+#include &lt;list&gt;
+#include &lt;vector&gt;
+#include &lt;map&gt;
+#include &lt;sstream&gt;
+#include &lt;cmath&gt;
+#include &lt;bitset&gt;
+#include &lt;utility&gt;
+#include &lt;set&gt;
+</span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+ 
+<span class="kt">int</span> <span class="nf">main</span> <span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">n</span><span class="p">,</span><span class="n">m</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">counter</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+   <span class="k">while</span><span class="p">(</span><span class="nb">true</span><span class="p">)</span>
+   <span class="p">{</span>
+       <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">m</span> <span class="o">&gt;&gt;</span> <span class="n">n</span><span class="p">;</span>
+       <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">==</span><span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">m</span> <span class="o">==</span><span class="mi">0</span><span class="p">)</span> <span class="k">break</span><span class="p">;</span>
+       <span class="n">counter</span><span class="o">++</span><span class="p">;</span>
+       <span class="k">if</span> <span class="p">(</span><span class="n">counter</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">)</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span><span class="p">;</span>
+       <span class="kt">int</span> <span class="n">field</span><span class="p">[</span><span class="mi">102</span><span class="p">][</span><span class="mi">102</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+      <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">m</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+          <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span> <span class="n">j</span><span class="o">&lt;</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
+          <span class="p">{</span>
+              <span class="kt">char</span> <span class="n">temp</span><span class="p">;</span>
+              <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">temp</span><span class="p">;</span>
+              <span class="k">if</span> <span class="p">(</span><span class="n">temp</span> <span class="o">==</span> <span class="sc">'*'</span><span class="p">)</span>
+                  <span class="p">{</span>
+                      <span class="c1">//111</span>
+                      <span class="c1">//1*1</span>
+                      <span class="c1">//111</span>
+                      <span class="n">field</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+                      <span class="k">if</span> <span class="p">(</span><span class="n">field</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="n">field</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">++</span><span class="p">;</span> <span class="c1">//top</span>
+                      <span class="k">if</span> <span class="p">(</span><span class="n">field</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="n">field</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">++</span><span class="p">;</span> <span class="c1">//top left</span>
+                       <span class="k">if</span> <span class="p">(</span><span class="n">field</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="n">field</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">++</span><span class="p">;</span> <span class="c1">//top right</span>
+                      <span class="k">if</span> <span class="p">(</span><span class="n">field</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="n">field</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">++</span><span class="p">;</span><span class="c1">//left</span>
+                      <span class="k">if</span> <span class="p">(</span><span class="n">field</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="n">field</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">++</span><span class="p">;</span> <span class="c1">// bottom</span>
+                      <span class="k">if</span> <span class="p">(</span><span class="n">field</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="n">field</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">++</span><span class="p">;</span> <span class="c1">//bottom right</span>
+                      <span class="k">if</span> <span class="p">(</span><span class="n">field</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="n">field</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">++</span><span class="p">;</span> <span class="c1">//bottom right</span>
+                      <span class="k">if</span> <span class="p">(</span><span class="n">field</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="n">field</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">++</span><span class="p">;</span> <span class="c1">//right</span>
+                  <span class="p">}</span>
+          <span class="p">}</span>
+ 
+           <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Field #"</span> <span class="o">&lt;&lt;</span> <span class="n">counter</span> <span class="o">&lt;&lt;</span> <span class="s">":</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">m</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+           <span class="p">{</span>
+ 
+                <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span> <span class="n">j</span><span class="o">&lt;</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
+                    <span class="p">{</span>
+                        <span class="k">if</span> <span class="p">(</span><span class="n">field</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="sc">'*'</span><span class="p">;</span>
+                        <span class="k">else</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">field</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">];</span>
+                <span class="p">}</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+           <span class="p">}</span>
+ 
+   <span class="p">}</span>
+ 
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+
+
+<div class="center">
+  [<a href="/uva">Back to Listing Page</a>]
+</div>
+
+
+
+  <div>
+  
+  <footer>
+  
+<footer class="footer">
+	<nav>
+	
+	
+	<ul class="clearfix nav-bottom">
+	<!-- <ul class="open nav-top"> -->
+		<li><a href="/index.html" >Home</a></li>
+    <li><a href="/posts">Posts</a></li>
+		<li><a href="/projects.html">Projects</a></li>
+		<li><a href="https://github.com/eddrichjanzzen" target="_blank">GitHub</a></li>
+		<li><a href="/contact.html">Contact</a></li>
+	</ul>
+</nav>
+
+
+<!-- https://www.youtube.com/watch?v=6m6iqN1uynE -->
+
+	<div class="mini">
+		<img src="/images/me.jpg" alt="">
+		<p>Developed by <a href="https://github.com/eddrichjanzzen">Eddrich Janzzen Ang</a> powered by <a href="https://jekyllrb.com/">Jekyll</a></p>	
+	</div>
+</footer>
+
+
+  <footer>
+
+</body>
+<script src="/js/main.js"></script>
+</html>
