@@ -17,7 +17,7 @@ ruby RUBY_VERSION
 
 # If you have any plugins, put them here!
 group :jekyll_plugins do
-  # gem "jekyll-paginate-v2", "~> 1.0"
+  gem "jekyll-paginate-v2"
   gem 'github-pages'
   gem 'html-proofer'
   gem 'jekyll-admin'

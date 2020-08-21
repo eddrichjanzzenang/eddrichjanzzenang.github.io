@@ -1,8 +1,11 @@
 ---
 layout: uva-nav
+pagination: 
+  enabled: true 
+  category: uva
 ---
 
-{% for post in site.categories.uva %}
+{% for post in paginator.posts %}
 
 <div class="posts">
   <li>
@@ -18,8 +21,8 @@ layout: uva-nav
 </div>
 {% endfor %}
 
-<!-- jekyll paginate -->
-<!-- <div class="pagination">
+<!-- jekyll paginate v2-->
+<div class="pagination">
   {% if paginator.total_pages > 1 %}
   <div class="pager">
     
@@ -37,7 +40,7 @@ layout: uva-nav
     {% endif %}
   </div>
   {% endif %}
-</div> -->
+</div>
 
 <div class="row" style="margin-top:20px;">
   <div class="center">
