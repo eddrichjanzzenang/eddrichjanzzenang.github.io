@@ -6,7 +6,7 @@ date: 2020-01-25
 category: blog
 tag: 
 - python
-description: Test post
+description: A test post for the beginning of my blog.
 ---
 
 #### This is a test post for the beginning of my blog
