@@ -4,7 +4,7 @@ layout: project-specific
 author: eddrichjanzzen
 date: 2020-08-21
 category: projects
-project_url: https://lacontessacattery.com
+project_url: https://www.lacontessacattery.com
 tag: 
 - web
 - design
