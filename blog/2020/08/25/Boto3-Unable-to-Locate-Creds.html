@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en-ca">
+  
+  <head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>AWS: boto3 “Unable to locate credentials” with Docker | Eddrich Janzzen</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="AWS: boto3 “Unable to locate credentials” with Docker" />
+<meta name="author" content="eddrichjanzzen" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="An article that describes the fix for boto3: botocore.exceptions.NoCredentialsError Unable to locate credentials with Docker images." />
+<meta property="og:description" content="An article that describes the fix for boto3: botocore.exceptions.NoCredentialsError Unable to locate credentials with Docker images." />
+<link rel="canonical" href="https://eddrichjanzzen.github.io/blog/2020/08/25/Boto3-Unable-to-Locate-Creds.html" />
+<meta property="og:url" content="https://eddrichjanzzen.github.io/blog/2020/08/25/Boto3-Unable-to-Locate-Creds.html" />
+<meta property="og:site_name" content="Eddrich Janzzen" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-08-25T00:00:00+00:00" />
+<script type="application/ld+json">
+{"description":"An article that describes the fix for boto3: botocore.exceptions.NoCredentialsError Unable to locate credentials with Docker images.","headline":"AWS: boto3 “Unable to locate credentials” with Docker","dateModified":"2020-08-25T00:00:00+00:00","datePublished":"2020-08-25T00:00:00+00:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://eddrichjanzzen.github.io/blog/2020/08/25/Boto3-Unable-to-Locate-Creds.html"},"url":"https://eddrichjanzzen.github.io/blog/2020/08/25/Boto3-Unable-to-Locate-Creds.html","author":{"@type":"Person","name":"eddrichjanzzen"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <link rel="icon" href="/images/favicon.ico">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway:200,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:100;400" rel="stylesheet">
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/normalize.css">
+  <link rel="stylesheet" href="/css/skeleton.css">
+  <link rel="stylesheet" href="/css/skeleton-alerts.css">
+  <link rel="stylesheet" href="/css/common.css">
+  <!-- for syntax highlighting -->
+  <link rel="stylesheet" href="/css/tango.css">
+  <script src="/js/jquery-3.1.1.min.js"></script> 
+  <script src="/js/main.js"></script>  
+
+  <meta name="google-site-verification" content="y76HL_x2Anjbw7oIO9lswptVVKHz5NHCzh8Dz9Rp4FI" />
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-171515307-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-171515307-1');
+  </script>
+
+  
+</head>
+
+
+<body>
+
+  <header>
+    <nav>
+	
+	<div class="hamburger">
+		<div class="line"></div>
+		<div class="line"></div>
+		<div class="line"></div>
+	</div>
+	
+	
+	<ul class="clearfix nav-top">
+	<!-- <ul class="open nav-top"> -->
+		<li><a href="/index.html" >Home</a></li>
+    <li><a href="/posts">Posts</a></li>
+		<li><a href="/projects">Projects</a></li>
+		<li><a href="https://github.com/eddrichjanzzen" target="_blank">GitHub</a></li>
+		<li><a href="/contact.html">Contact</a></li>
+	</ul>
+</nav>
+
+
+<!-- https://www.youtube.com/watch?v=6m6iqN1uynE -->
+
+  </header>
+
+
+  <div class="content-wrapper">
+    <h3>AWS: boto3 "Unable to locate credentials" with Docker</h3>
+<span>Posted on Aug 25, 2020 • eddrichjanzzen
+</span>
+<br><br>
+
+<div class="blog-wrapper">
+	<h4 id="boto3-unable-to-locate-credentials">Boto3: Unable to locate credentials</h4>
+
+<p>Recently I’ve been working on a Dockerized Python application that connects to AWS resources using the <a href="https://pypi.org/project/boto3">boto3</a> library. I stumbled upon an error where the app could not find the aws credentials within the docker container.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+botocore.exceptions.NoCredentialsError: Unable to locate credentials
+
+</code></pre></div></div>
+
+<p>Later on, I realized that the problem lies in the fact that the docker is unable locate the credentials from the <code class="language-plaintext highlighter-rouge">.aws</code> folder. As much as docker is concerned, there are no credentials to be found within the running container.</p>
+
+<h4 id="solution">Solution</h4>
+
+<p>The solution I’ve found to is add the configuration as follows:</p>
+
+<p>If you are using <code class="language-plaintext highlighter-rouge">docker run</code>:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+ docker run <span class="nt">-v</span> ~/.aws/:/root/.aws:ro your_image <span class="nt">-e</span> <span class="nv">AWS_PROFILE</span><span class="o">=</span>default
+
+</code></pre></div></div>
+
+<p>If you are using a <code class="language-plaintext highlighter-rouge">docker-compose.yml</code> file,</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="na">version</span><span class="pi">:</span> <span class="s1">'</span><span class="s">3'</span>
+
+<span class="na">services</span><span class="pi">:</span>
+  <span class="na">service-name</span><span class="pi">:</span>
+    <span class="na">image</span><span class="pi">:</span> <span class="s">docker-image-name:latest</span>
+    <span class="na">environment</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">AWS_PROFILE=default</span>
+    <span class="na">volumes</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">~/.aws/:/root/.aws:ro</span>
+
+</code></pre></div></div>
+
+<h4 id="explanation">Explanation:</h4>
+
+<p><code class="language-plaintext highlighter-rouge">~/.aws/:/root/.aws:ro</code> is a volume definition that mounts the <code class="language-plaintext highlighter-rouge">.aws</code> folder of your local machine to the root of our docker container. <code class="language-plaintext highlighter-rouge">:ro</code> stands for a readonly volume, and we must make the volume readonly so that we are sure the credentials cannot be modified.</p>
+
+<p>We set our <code class="language-plaintext highlighter-rouge">environment</code> as <code class="language-plaintext highlighter-rouge">AWS_PROFILE=default</code> so that boto3 will know to read the configuration for the <code class="language-plaintext highlighter-rouge">default</code> environment. For multiple environments you can configure <code class="language-plaintext highlighter-rouge">AWS_PROFILE=&lt;your environment here&gt;</code></p>
+
+<p>I hope this article will be of help to anyone who encounters a similar issue.</p>
+
+	
+</div>
+
+  <div>
+  
+  <footer>
+  
+<footer class="footer">
+	<nav>
+	
+	
+	<ul class="clearfix nav-bottom">
+	<!-- <ul class="open nav-top"> -->
+		<li><a href="/index.html" >Home</a></li>
+    <li><a href="/posts">Posts</a></li>
+		<li><a href="/projects">Projects</a></li>
+		<li><a href="https://github.com/eddrichjanzzen" target="_blank">GitHub</a></li>
+		<li><a href="/contact.html">Contact</a></li>
+	</ul>
+</nav>
+
+
+<!-- https://www.youtube.com/watch?v=6m6iqN1uynE -->
+
+	<div class="mini">
+		<img src="/images/me.jpg" alt="">
+		<p>Developed by <a href="https://github.com/eddrichjanzzen">Eddrich Janzzen Ang</a> powered by <a href="https://jekyllrb.com/">Jekyll</a></p>	
+	</div>
+</footer>
+
+
+  <footer>
+
+</body>
+<script src="/js/main.js"></script>
+</html>
