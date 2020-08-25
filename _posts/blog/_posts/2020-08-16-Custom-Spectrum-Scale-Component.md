@@ -8,7 +8,7 @@ tag:
 - d3.js
 - angular
 - charts
-description: A spectrum scale component implemented using D3.js and Angular. 
+description: A spectrum scale component implemented using D3.js and Angular. This is complete with example code and usage steps. 
 ---
 
 #### Data Visualization

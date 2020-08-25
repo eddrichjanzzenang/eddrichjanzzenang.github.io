@@ -6,7 +6,7 @@ date: 2020-06-26
 category: blog
 tag: 
 - python
-description: A short article about implementing API using Python Falcon.
+description: A short article about implementing API using Python Falcon <Micro Framework. 
 ---
 
 The advent of technology has produced many different programming languages that developers can use. From the low level languages such as C, C++, and Assembly Language, to the more high level languages such as Ruby and Python, indeed, technology has reached new heights.

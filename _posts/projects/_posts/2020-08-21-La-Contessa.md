@@ -13,4 +13,4 @@ description: A static website for a local cattery based in the Philippines. Deve
 
 A website developed for a local cattery based in the Philippines. Developed using basic css, javascript, and html. For responsiveness, css grid layouts, and media queries are used.
 
-Website: [lacontessacattery.com](https://lacontessacattery.com)
+Website: <a href="https://www.lacontessacattery.com" target="_blank">lacontessacattery.com</a>

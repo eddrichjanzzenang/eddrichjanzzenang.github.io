@@ -6,7 +6,7 @@ date: 2020-03-05
 category: blog
 tag: 
 - python
-description: A short article about fixing that black screen when trying to Bootcamp a Mid2012 Macbook Pro.
+description: A short article about fixing that black screen when trying to Bootcamp to a Mid2012 Macbook Pro.
 ---
 
 #### Macbook Pro Mid 2012 "13

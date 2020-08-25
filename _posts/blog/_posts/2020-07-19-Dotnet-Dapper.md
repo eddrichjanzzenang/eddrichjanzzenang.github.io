@@ -6,7 +6,7 @@ date: 2020-07-19
 category: blog
 tag: 
 - dotnet
-description: A short article about Dapper Micro ORM; the advantages and disadvatanges of using this framework.
+description: A short article about Dapper Micro ORM. Also outlines the advantages and disadvatanges of using a micro ORM and traditional ORM.
 ---
 
 The .NET ecosystem has always been a widely used platform for developing handsdown awesome applications! With the .NET stack alone there is a wide spectrum of projects that can be developed ranging from APIs (via [ASP .NET](https://dotnet.microsoft.com/apps/aspnet)), mobile apps, (via [Xamarin](https://dotnet.microsoft.com/apps/xamarin)), and even Windows Applications, (via [WPF](https://docs.microsoft.com/en-us/dotnet/framework/wpf/getting-started/introduction-to-wpf-in-vs)). With a history of being Windows specific, .NET has evolved over the years to allow open source. This revolutionary change gave rise to its increased in popularity as a development platform. 
