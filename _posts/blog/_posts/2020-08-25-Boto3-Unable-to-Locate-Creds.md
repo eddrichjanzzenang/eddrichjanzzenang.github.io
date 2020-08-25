@@ -60,7 +60,7 @@ services:
 We set our `environment` as `AWS_PROFILE=default` so that boto3 will know to read the configuration for the `default` environment. For multiple environments you can configure `AWS_PROFILE=<your environment here>`
 
 
-I hope this article will be of help to anyone who encounters a similar issue. 
+I hope this article will be of help to anyone who encounters a similar issue. :smile: :thumbsup: 
 
 
 
