@@ -97,7 +97,8 @@ nav li {
 
 .posts li span{
   font-family: "Raleway", monospace;
-  font-size:0.7em;
+  font-size:0.8em;
+  display:block;
   /*font-family: 'Roboto Mono', monospace;*/
 }
 
@@ -105,21 +106,18 @@ nav li {
   list-style-type:none;
   margin-left:20px;
   margin-right:20px;
-  text-overflow: ellipsis;
-  white-space: nowrap; 
-  overflow: hidden;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
 }
 
 .post-header {
-  font-size: 1.2em;
+  font-size: 1.5em;
 }
 
 .post-content {
-  text-overflow: ellipsis;
-  white-space: nowrap; 
-  overflow: hidden;
-  margin-bottom:0.5em;
-  margin-left:10px;
+  margin-bottom: 1.2em;
+  margin-top: 0.5em;
 }
 
 .post-text{
@@ -149,11 +147,10 @@ nav li {
 }
 
 
-
 span {
   color: #878787;
+  /*color: grey;*/
 }
-
 
 .pager {
   text-align: center;
@@ -174,6 +171,12 @@ span {
     padding:15px;
     display:block;
   }
+
+  .posts li {
+    margin-left:15px;
+    margin-right:15px;
+  }
+
 
   .posts li span{
     font-family: "Raleway", monospace;
@@ -213,9 +216,11 @@ span {
   }
   
   .content-wrapper{
-    margin-right: 5%;
-    margin-left: 5%;
+    margin-right: 3%;
+    margin-left: 3%;
   }
+
+
 
   .nav-bottom{
     font-size: 14px;
