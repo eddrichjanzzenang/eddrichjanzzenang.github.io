@@ -1,5 +1,5 @@
 ---
-title: Spectrum Scale using D3.js and Angular
+title: Color Scale using D3.js and Angular
 layout: blog-specific
 author: eddrichjanzzen
 date: 2020-08-16
@@ -8,7 +8,7 @@ tag:
 - d3.js
 - angular
 - charts
-description: A spectrum scale component implemented using D3.js and Angular. This is complete with example code and usage steps. 
+description: A Color scale component implemented using D3.js and Angular. This is complete with example code and usage steps. 
 ---
 
 #### Data Visualization
@@ -17,7 +17,7 @@ As business needs continue to evolve, being able to visualize data is of paramou
 
 For example: What if the data can be better represented using a color spectrum? 
 
-In this article, I have used [D3.js](https://d3js.org/) and [Angular](https://angular.io/) to create a simple reusable component for a Spectrum Scale. Let's dive in! 
+In this article, I have used [D3.js](https://d3js.org/) and [Angular](https://angular.io/) to create a simple reusable component for a Color Scale. Let's dive in! 
 
 #### D3.js and Angular
 
@@ -27,15 +27,15 @@ In this article, I have used [D3.js](https://d3js.org/) and [Angular](https://an
 
 Combining D3 with Angular, we are able to take advantage of a powerful visualization tool and the resuability of components. Lets jump in! 
 
-#### Spectrum Scale Component
+#### Color Scale Component
  
 ##### Set up and Installation:
-Install the following dependencies: `d3` and `ng-spectrum-scale`
+Install the following dependencies: `d3` and `ng-color-scale`
 
 ```bash
 
 $ npm i d3
-$ npm i ng-spectrum-scale
+$ npm i ng-color-scale
 
 ```
 
@@ -48,8 +48,8 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-// NgSpectrumScaleModule
-import { NgSpectrumScaleModule } from 'ng-spectrum-scale';
+// NgColorScaleModule
+import { NgColorScaleModule } from 'ng-color-scale';
 
 @NgModule({
   declarations: [
@@ -59,9 +59,9 @@ import { NgSpectrumScaleModule } from 'ng-spectrum-scale';
     BrowserModule,
     AppRoutingModule,
 
-    // NgSpectrumScaleModule
+    // NgcolorScaleModule
 
-    NgSpectrumScaleModule
+    NgcolorScaleModule
   ],
   providers: [],
   bootstrap: [AppComponent]
@@ -79,7 +79,7 @@ Example 1:
 
 <h1>Gender Bias</h1>
 
-<app-spectrum-scale
+<app-color-scale
 	[data]="-0.799"
 	[leftLabel]="'Feminine'"
 	[rightLabel]="'Masculine'"
@@ -89,7 +89,7 @@ Example 1:
 	[colorList]="['#FF6347', '#D53E4F','#090979','#0000FF']"
 	[displayMeta]="'Your article is '+ '<b>Feminine</b>'"
 >
-</app-spectrum-scale>  
+</app-color-scale>  
 
 ```
 
@@ -100,7 +100,7 @@ Example 2:
 ```html
 
 <h1>Sentiment Analysis</h1>
-<app-spectrum-scale
+<app-color-scale
 	[data]="0.55"
 	[leftLabel]="'Negative'"
 	[rightLabel]="'Positive'"
@@ -116,7 +116,7 @@ Example 2:
 	[hideAxis]="true"
 	[displayMeta]="'Your sentiment score is '+ '<b>Positive</b>'"
 >
-</app-spectrum-scale>
+</app-color-scale>
 
 ```
 
@@ -126,9 +126,9 @@ Output
 
 #### Wrapping up
 
-There you have it. You have successfully added your custom spectrum scale. :clap: :clap: :clap: 
+There you have it. You have successfully added your custom color scale. :clap: :clap: :clap: 
 
-For information and a more detailed documentation, you can visit the npm package at: [https://www.npmjs.com/package/ng-spectrum-scale](https://www.npmjs.com/package/ng-spectrum-scale)
+For information and a more detailed documentation, you can visit the npm package at: [https://www.npmjs.com/package/ng-color-scale](https://www.npmjs.com/package/ng-color-scale)
 
 
 
