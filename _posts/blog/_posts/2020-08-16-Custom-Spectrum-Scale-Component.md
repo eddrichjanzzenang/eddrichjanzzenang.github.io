@@ -25,7 +25,7 @@ In this article, I have used [D3.js](https://d3js.org/) and [Angular](https://an
 
 [Angular](https://angular.io/) is a platform built by Google for building mobile and desktop web applications. It is framework and development platform for creating efficient and sophisticated single-page apps.
 
-Combining D3 with Angular, we are able to take advantage of a powerful visualization tool and the resuability of components. Lets jump in! 
+Combining D3 with Angular, we are able to take advantage of a powerful visualization tool and the reusability of components. Lets jump in! 
 
 #### Color Scale Component
  
