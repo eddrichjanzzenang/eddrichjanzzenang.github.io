@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="https://eddrichjanzzen.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://eddrichjanzzen.github.io/" rel="alternate" type="text/html" /><updated>2020-12-30T13:41:31+00:00</updated><id>https://eddrichjanzzen.github.io/feed.xml</id><title type="html">Eddrich Janzzen</title><subtitle>Personal Blog</subtitle><author><name>Eddrich Janzzen Ang</name><email>eddrichang@gmail.com</email></author><entry><title type="html">Integrating Editor.js with Angular</title><link href="https://eddrichjanzzen.github.io/blog/2020/12/29/Editorjs-x-Angular.html" rel="alternate" type="text/html" title="Integrating Editor.js with Angular" /><published>2020-12-29T00:00:00+00:00</published><updated>2020-12-29T00:00:00+00:00</updated><id>https://eddrichjanzzen.github.io/blog/2020/12/29/Editorjs-x-Angular</id><content type="html" xml:base="https://eddrichjanzzen.github.io/blog/2020/12/29/Editorjs-x-Angular.html">&lt;p&gt;Writing or creating content has always been a crutial part of the web since its beginning. As the web continues to mature, the demand for dynamic, customizable, and flexibile text editors has evolved as well. Gone are the days of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;textarea&amp;gt;&lt;/code&gt; where the content being written is static. Most modern text editors now follow the concept of &lt;a href=&quot;https://en.wikipedia.org/wiki/WYSIWYG&quot;&gt;WYSIWYG&lt;/a&gt; (What You See Is What You Get), where the content being edited within a form resembles its actual appreance when printed or displayed on screen. As a matter of fact, the open source community offers many free options that can very well suit these needs. &lt;img src=&quot;/assets/images/angular-editorjs/angular-x-editorjs.png&quot; alt=&quot;Angular&quot; class=&quot;img-blog-right&quot; /&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="https://eddrichjanzzen.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://eddrichjanzzen.github.io/" rel="alternate" type="text/html" /><updated>2020-12-30T15:55:52+00:00</updated><id>https://eddrichjanzzen.github.io/feed.xml</id><title type="html">Eddrich Janzzen</title><subtitle>Personal Blog</subtitle><author><name>Eddrich Janzzen Ang</name><email>eddrichang@gmail.com</email></author><entry><title type="html">Integrating Editor.js with Angular</title><link href="https://eddrichjanzzen.github.io/blog/2020/12/29/Editorjs-x-Angular.html" rel="alternate" type="text/html" title="Integrating Editor.js with Angular" /><published>2020-12-29T00:00:00+00:00</published><updated>2020-12-29T00:00:00+00:00</updated><id>https://eddrichjanzzen.github.io/blog/2020/12/29/Editorjs-x-Angular</id><content type="html" xml:base="https://eddrichjanzzen.github.io/blog/2020/12/29/Editorjs-x-Angular.html">&lt;p&gt;Writing or creating content has always been a crutial part of the web since its beginning. As the web continues to mature, the demand for dynamic, customizable, and flexibile text editors has evolved as well. Gone are the days of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;textarea&amp;gt;&lt;/code&gt; where the content being written is static. Most modern text editors now follow the concept of &lt;a href=&quot;https://en.wikipedia.org/wiki/WYSIWYG&quot;&gt;WYSIWYG&lt;/a&gt; (What You See Is What You Get), where the content being edited within a form resembles its actual appreance when printed or displayed on screen. As a matter of fact, the open source community offers many free options that suit these needs. &lt;img src=&quot;/assets/images/angular-editorjs/angular-x-editorjs.png&quot; alt=&quot;Angular&quot; class=&quot;img-blog-right&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;In this article, we will be looking into an emerging Block-Styled editor, &lt;a href=&quot;https://editorjs.io/&quot;&gt;Editor.js&lt;/a&gt;. We will then walkthough how this tool might be implemented in an Angular application.&lt;/p&gt;
 
@@ -61,9 +61,9 @@
 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Having the data returned as &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Clean Data&lt;/code&gt; makes it easier to sanitize, validate, process data on the backend.&lt;/p&gt;
+&lt;p&gt;This makes it easier to sanitize, validate, process data on the backend.&lt;/p&gt;
 
-&lt;p&gt;Another notable feature of Editor.js is extensibility and pluggability. Each &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Block&lt;/code&gt; in Editor.js is provided by a Plugin. This allows flexiblity on installing only the set of tools that are required for your specific needs. For the purpose of this article, we will be utilizing the following commonly used &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Blocks&lt;/code&gt;:&lt;/p&gt;
+&lt;p&gt;Another notable feature of Editor.js is extensibility and pluggability. Each &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Block&lt;/code&gt; in Editor.js is provided by a Plugin. This makes Editor.js a more lightweight library as you are installing only the set of tools that are required for your specific needs. For the purpose of this article, we will be utilizing the following commonly used &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Blocks&lt;/code&gt;:&lt;/p&gt;
 
 &lt;ol&gt;
   &lt;li&gt;&lt;a href=&quot;https://github.com/editor-js/embed&quot;&gt;embed&lt;/a&gt;&lt;/li&gt;
@@ -180,9 +180,22 @@
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;article-editor.config.ts&lt;/code&gt; will contain all the configurations and settings for the different Plugins we want to extend to the editor. For example, the header plugin can be extended using the following configuration:&lt;/p&gt;
+
+&lt;div class=&quot;language-ts highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
+     &lt;span class=&quot;nx&quot;&gt;header&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nl&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Header&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;inlineToolbar&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+        &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;link&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;bold&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;italic&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
 &lt;h5 id=&quot;step-3-define-the-editorjs-object-instance&quot;&gt;Step 3: Define the Editor.js Object Instance&lt;/h5&gt;
 
-&lt;p&gt;&lt;em&gt;Defining component logic:&lt;/em&gt; Replace the code in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;article-editor.component.ts&lt;/code&gt;, with the following code snippet:&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Defining the article-editor omponent logic:&lt;/em&gt; Replace the code in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;article-editor.component.ts&lt;/code&gt;, with the following code snippet:&lt;/p&gt;
+
 &lt;div class=&quot;language-ts highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
 &lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Component&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;OnInit&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;@angular/core&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;UntilDestroy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;untilDestroyed&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;@ngneat/until-destroy&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
@@ -250,9 +263,11 @@
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
+&lt;p&gt;The code snippet above contains all the imports, functions, and set up needed to render Editor.js within the component. The code will be explained further below in the code walkthrough.&lt;/p&gt;
+
 &lt;h5 id=&quot;step-4-adding-markup&quot;&gt;Step 4: Adding Markup&lt;/h5&gt;
 
-&lt;p&gt;Adding html: In the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;article-editor.component.html&lt;/code&gt;, file copy the following mark up:&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Adding html&lt;/em&gt;: In the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;article-editor.component.html&lt;/code&gt;, file copy the following mark up:&lt;/p&gt;
 &lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;articleEditor&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
 
@@ -274,7 +289,7 @@
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Note here that: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;div id=&quot;editorjs&quot;&amp;gt;&amp;lt;/div&amp;gt;&lt;/code&gt;, is where all the magic happens. This is what renders the Editor itself. Without this &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;id=&quot;editorjs&quot;&lt;/code&gt;, the editor will not render.&lt;/p&gt;
+&lt;p&gt;Note here that &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;div id=&quot;editorjs&quot;&amp;gt;&amp;lt;/div&amp;gt;&lt;/code&gt;, is where all the magic happens. This is what renders &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Editor.js&lt;/code&gt;. Without this &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;id=&quot;editorjs&quot;&lt;/code&gt;, the editor will not load.&lt;/p&gt;
 
 &lt;p&gt;You will find the reference to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;id=&quot;editorjs&quot;&lt;/code&gt; in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;holder&lt;/code&gt; key, in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;article-editor.config.ts&lt;/code&gt;:&lt;/p&gt;
 &lt;div class=&quot;language-ts highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
@@ -285,7 +300,7 @@
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Adding Styles: In the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;article-editor.component.scss&lt;/code&gt; file, copy the following mark up:&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Adding Styles:&lt;/em&gt; In the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;article-editor.component.scss&lt;/code&gt; file, copy the following mark up:&lt;/p&gt;
 &lt;div class=&quot;language-scss highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
 &lt;span class=&quot;nc&quot;&gt;.articleEditor&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
   &lt;span class=&quot;nl&quot;&gt;background&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;rgb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;233&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;233&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;233&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
@@ -339,7 +354,7 @@
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Note that we can use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;::ng-deep&lt;/code&gt; to overwrite Editor.js specific styles, to make the editor span the entire width&lt;/p&gt;
+&lt;p&gt;Note that we can use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;::ng-deep&lt;/code&gt; to overwrite Editor.js specific styles, to make the editor span the entire width of the container.&lt;/p&gt;
 &lt;div class=&quot;language-scss highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
 &lt;span class=&quot;nd&quot;&gt;::ng-deep&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;.ce-block__content&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
 &lt;span class=&quot;nd&quot;&gt;::ng-deep&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;.ce-toolbar__content&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
@@ -356,12 +371,27 @@
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
+&lt;h5 id=&quot;step-5-test-your-app&quot;&gt;Step 5: Test your app&lt;/h5&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;ng serve &lt;span class=&quot;nt&quot;&gt;--open&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
 &lt;h4 id=&quot;code-walkthrough&quot;&gt;Code Walkthrough:&lt;/h4&gt;
 &lt;h5 id=&quot;mutation-observer&quot;&gt;Mutation Observer&lt;/h5&gt;
 
 &lt;p&gt;Angular comes with a built-in detection that can keep track of any changes on &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;input&lt;/code&gt; fields. Please see &lt;a href=&quot;https://angular.io/api/forms/FormControl&quot;&gt;FormControls&lt;/a&gt;, and &lt;a href=&quot;https://angular.io/guide/reactive-forms&quot;&gt;ReactiveForms&lt;/a&gt;. This is feature comes in handy when dealing with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;textarea&amp;gt;&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;input&amp;gt;&lt;/code&gt;, or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;form&amp;gt;&lt;/code&gt; elements. However for this example, we are not able to utilize this feature out of the box.&lt;/p&gt;
 
-&lt;p&gt;The way Editor.js works, is, it adds a new &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;div&amp;gt;&lt;/code&gt; element to the DOM whenever new content data is written. So in order for the application to detect changes, we can instead make use of a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MutationObserver&lt;/code&gt; to emit an event every time a new element or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;div&amp;gt;&lt;/code&gt; is added to the DOM.  The following code shows how the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MutationObserver&lt;/code&gt; is being used:&lt;/p&gt;
+&lt;p&gt;The way Editor.js handles adding content is by appending a new &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;div&amp;gt;&lt;/code&gt; element to the DOM whenever new content data is written. So in order for the application to detect changes, we can instead make use of a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MutationObserver&lt;/code&gt; to emit an event every time a new element or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;div&amp;gt;&lt;/code&gt; is added to the DOM.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;What is a MutationObeserver?&lt;/em&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;The &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver&quot;&gt;MutationObserver&lt;/a&gt; is an interface provides the ability to watch for changes being made to the DOM tree.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;The following code shows how the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MutationObserver&lt;/code&gt; is being used:&lt;/p&gt;
 
 &lt;div class=&quot;language-ts highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
 &lt;span class=&quot;nx&quot;&gt;detectEditorChanges&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Observable&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;any&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
@@ -379,7 +409,7 @@
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;In the following code snippet, we wrap the output of the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MutationObserver&lt;/code&gt; in an &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Observable&lt;/code&gt;. This it allows the application to subscribe to an event, every time the user types new content into the editor. Please see the following code:&lt;/p&gt;
+&lt;p&gt;In the following code snippet, we wrap the output of the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MutationObserver&lt;/code&gt; in an &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Observable&lt;/code&gt;. This allows the application to subscribe to an event emitted, every time the user types new content into the editor. Please see the following code:&lt;/p&gt;
 
 &lt;div class=&quot;language-ts highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
 &lt;span class=&quot;nx&quot;&gt;ngOnInit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
@@ -399,7 +429,7 @@
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;When the article-editor component is initialized, we immediately set up a subscription to detect new changes, and emit the clean data output. This way we are able to load data from the editor dynamically as the input from the editor changes&lt;/p&gt;
+&lt;p&gt;When the article-editor component is initialized, we immediately set up a new subscription to detect new changes and emit the clean data output. We then assign the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;outputData&lt;/code&gt; to the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;editorData&lt;/code&gt;. This way we are able to load data from the editor dynamically as the input from the editor changes.&lt;/p&gt;
 
 &lt;h4 id=&quot;the-final-product&quot;&gt;The Final Product&lt;/h4&gt;
 
@@ -407,7 +437,7 @@
 
 &lt;p&gt;There you have it. You have successfully integrated &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Editor.js&lt;/code&gt; with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Angular&lt;/code&gt;. :clap: :clap: :clap:&lt;/p&gt;
 
-&lt;p&gt;For more details, you may visit the sample project. &lt;a href=&quot;https://github.com/eddrichjanzzen/angular-editorjs-sample&quot;&gt;https://github.com/eddrichjanzzen/angular-editorjs-sample&lt;/a&gt;&lt;/p&gt;</content><author><name>eddrichjanzzen</name></author><category term="blog" /><category term="Angular" /><category term="Editorjs" /><category term="MutationObserver" /><summary type="html">Writing or creating content has always been a crutial part of the web since its beginning. As the web continues to mature, the demand for dynamic, customizable, and flexibile text editors has evolved as well. Gone are the days of &amp;lt;textarea&amp;gt; where the content being written is static. Most modern text editors now follow the concept of WYSIWYG (What You See Is What You Get), where the content being edited within a form resembles its actual appreance when printed or displayed on screen. As a matter of fact, the open source community offers many free options that can very well suit these needs.</summary></entry><entry><title type="html">AWS: boto3 “Unable to locate credentials” with Docker</title><link href="https://eddrichjanzzen.github.io/blog/2020/08/25/Boto3-Unable-to-Locate-Creds.html" rel="alternate" type="text/html" title="AWS: boto3 &quot;Unable to locate credentials&quot; with Docker" /><published>2020-08-25T00:00:00+00:00</published><updated>2020-08-25T00:00:00+00:00</updated><id>https://eddrichjanzzen.github.io/blog/2020/08/25/Boto3-Unable-to-Locate-Creds</id><content type="html" xml:base="https://eddrichjanzzen.github.io/blog/2020/08/25/Boto3-Unable-to-Locate-Creds.html">&lt;h4 id=&quot;boto3-unable-to-locate-credentials&quot;&gt;Boto3: Unable to locate credentials&lt;/h4&gt;
+&lt;p&gt;For more details, you may visit the sample project. &lt;a href=&quot;https://github.com/eddrichjanzzen/angular-editorjs-sample&quot;&gt;https://github.com/eddrichjanzzen/angular-editorjs-sample&lt;/a&gt;&lt;/p&gt;</content><author><name>eddrichjanzzen</name></author><category term="blog" /><category term="Angular" /><category term="Editorjs" /><category term="MutationObserver" /><summary type="html">Writing or creating content has always been a crutial part of the web since its beginning. As the web continues to mature, the demand for dynamic, customizable, and flexibile text editors has evolved as well. Gone are the days of &amp;lt;textarea&amp;gt; where the content being written is static. Most modern text editors now follow the concept of WYSIWYG (What You See Is What You Get), where the content being edited within a form resembles its actual appreance when printed or displayed on screen. As a matter of fact, the open source community offers many free options that suit these needs.</summary></entry><entry><title type="html">AWS: boto3 “Unable to locate credentials” with Docker</title><link href="https://eddrichjanzzen.github.io/blog/2020/08/25/Boto3-Unable-to-Locate-Creds.html" rel="alternate" type="text/html" title="AWS: boto3 &quot;Unable to locate credentials&quot; with Docker" /><published>2020-08-25T00:00:00+00:00</published><updated>2020-08-25T00:00:00+00:00</updated><id>https://eddrichjanzzen.github.io/blog/2020/08/25/Boto3-Unable-to-Locate-Creds</id><content type="html" xml:base="https://eddrichjanzzen.github.io/blog/2020/08/25/Boto3-Unable-to-Locate-Creds.html">&lt;h4 id=&quot;boto3-unable-to-locate-credentials&quot;&gt;Boto3: Unable to locate credentials&lt;/h4&gt;
 
 &lt;p&gt;Recently I’ve been working on a Dockerized Python application that connects to AWS resources using the &lt;a href=&quot;https://pypi.org/project/boto3&quot;&gt;boto3&lt;/a&gt; library. I stumbled upon an error where the app could not find the aws credentials within the docker container.&lt;/p&gt;
 
