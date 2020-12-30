@@ -216,7 +216,7 @@ export const editorjsConfig = {
 
 ##### Step 3: Define the Editor.js Object Instance
 
-*Defining the article-editor omponent logic:* Replace the code in `article-editor.component.ts`, with the following code snippet: 
+*Defining the article-editor component logic:* Replace the code in `article-editor.component.ts`, with the following code snippet: 
 
 ```ts
 
