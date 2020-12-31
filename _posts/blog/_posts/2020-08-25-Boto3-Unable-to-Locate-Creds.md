@@ -4,10 +4,11 @@ layout: blog-specific
 author: eddrichjanzzen
 date: 2020-08-25
 category: blog
-tag: 
-- Boto3
-- Docker
-- No AWS Credentials
+tags: 
+- boto3
+- docker
+- aws
+- python
 description: 'An article that describes the fix for boto3: botocore.exceptions.NoCredentialsError Unable to locate credentials with Docker images.'
 ---	
 

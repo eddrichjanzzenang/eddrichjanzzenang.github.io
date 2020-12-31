@@ -4,7 +4,7 @@ layout: blog-specific
 author: eddrichjanzzen
 date: 2020-08-16
 category: blog
-tag: 
+tags: 
 - d3.js
 - angular
 - charts

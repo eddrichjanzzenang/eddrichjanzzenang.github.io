@@ -4,10 +4,10 @@ layout: blog-specific
 author: eddrichjanzzen
 date: 2020-12-29
 category: blog
-tag: 
-- Angular
-- Editorjs
-- MutationObserver
+tags: 
+- angular
+- editorjs
+- mutationObserver
 description: 'An article that walks through how to integrate Editor.js into an Angular application'
 ---	
 

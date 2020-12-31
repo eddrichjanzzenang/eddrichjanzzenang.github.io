@@ -4,8 +4,10 @@ layout: blog-specific
 author: eddrichjanzzen
 date: 2020-06-26
 category: blog
-tag: 
+tags: 
 - python
+- falcon
+- microservices
 description: A short article about implementing API using Python Falcon Micro Framework. 
 ---
 

@@ -4,8 +4,11 @@ layout: blog-specific
 author: eddrichjanzzen
 date: 2020-03-05
 category: blog
-tag: 
-- python
+tags: 
+- macbook
+- apple
+- bootcamp
+- windows
 description: A short article about fixing that black screen when trying to Bootcamp to a Mid2012 Macbook Pro.
 ---
 
