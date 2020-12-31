@@ -16,8 +16,12 @@ pagination:
 			</iframe>
 			<div class="card-content">
 
-				<h4>{{project.title}}</h4>
-
+				<h4 style="margin-bottom: 0px">{{project.title}}</h4>
+	      <div>    
+	        {% for tag in project.tags %}
+	          <div class="badge badge-secondary">{{tag}}</div>
+	        {% endfor %}
+	      </div>
 				<p>{{project.content}}</p>
 			</div>
 		</div>
