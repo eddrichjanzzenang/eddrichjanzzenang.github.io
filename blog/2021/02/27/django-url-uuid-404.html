@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en-ca">
+  
+  <head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Django urls UUID 404 page not found | Eddrich Janzzen</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Django urls UUID 404 page not found" />
+<meta name="author" content="eddrichjanzzen" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="An article that describes a possible fix for 404 page not found in urls when using UUIDs as the primary key identifier" />
+<meta property="og:description" content="An article that describes a possible fix for 404 page not found in urls when using UUIDs as the primary key identifier" />
+<link rel="canonical" href="https://eddrichjanzzen.github.io/blog/2021/02/27/django-url-uuid-404.html" />
+<meta property="og:url" content="https://eddrichjanzzen.github.io/blog/2021/02/27/django-url-uuid-404.html" />
+<meta property="og:site_name" content="Eddrich Janzzen" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-02-27T00:00:00+00:00" />
+<script type="application/ld+json">
+{"description":"An article that describes a possible fix for 404 page not found in urls when using UUIDs as the primary key identifier","headline":"Django urls UUID 404 page not found","dateModified":"2021-02-27T00:00:00+00:00","datePublished":"2021-02-27T00:00:00+00:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://eddrichjanzzen.github.io/blog/2021/02/27/django-url-uuid-404.html"},"url":"https://eddrichjanzzen.github.io/blog/2021/02/27/django-url-uuid-404.html","author":{"@type":"Person","name":"eddrichjanzzen"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <link rel="icon" href="/images/favicon.ico">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway:200,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:100;400" rel="stylesheet">
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/normalize.css">
+  <link rel="stylesheet" href="/css/skeleton.css">
+  <link rel="stylesheet" href="/css/skeleton-alerts.css">
+  <link rel="stylesheet" href="/css/badge.css">
+  <link rel="stylesheet" href="/css/common.css">
+  <!-- for syntax highlighting -->
+  <link rel="stylesheet" href="/css/tango.css">
+  <script src="/js/jquery-3.1.1.min.js"></script> 
+  <script src="/js/main.js"></script>  
+
+  <meta name="google-site-verification" content="y76HL_x2Anjbw7oIO9lswptVVKHz5NHCzh8Dz9Rp4FI" />
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-171515307-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-171515307-1');
+  </script>
+
+  
+</head>
+
+
+<body>
+
+  <header>
+    <nav>
+	
+	<div class="hamburger">
+		<div class="line"></div>
+		<div class="line"></div>
+		<div class="line"></div>
+	</div>
+	
+	
+	<ul class="clearfix nav-top">
+	<!-- <ul class="open nav-top"> -->
+		<li><a href="/index.html">Home</a></li>
+    <li><a href="/posts">Posts</a></li>
+		<li><a href="/projects">Projects</a></li>
+		<li><a href="https://github.com/eddrichjanzzen" target="_blank">GitHub</a></li>
+		<li><a href="/contact.html">Contact</a></li>
+	</ul>
+</nav>
+
+
+<!-- https://www.youtube.com/watch?v=6m6iqN1uynE -->
+
+  </header>
+
+
+  <div class="content-wrapper">
+    <h3>Django urls UUID 404 page not found</h3>
+<span>Posted on Feb 27, 2021 • eddrichjanzzen
+</span>
+<div>    
+  
+    <div class="badge badge-secondary">python</div>
+  
+    <div class="badge badge-secondary">tech</div>
+  
+</div>
+<br>
+
+<div class="blog-wrapper">
+	<h4 id="urls-uuid-404-page-not-found">urls UUID 404 page not found</h4>
+
+<p>Recently I’ve been working on a simple api that uses <a href="https://www.django-rest-framework.org/">Django Rest Framework</a>. Instead of using integer ids as the primary key identifier, UUIDs are used. The advantage of this approach is to prevent enumeration attacks where the primary key is easily guessable. In addition to this, using UUIDs also guarantees a unique identifier across all systems.</p>
+
+<p>In Django, we are able to define a path to accept a UUID as follows:</p>
+
+<p>urls.py</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">path</span><span class="p">,</span> <span class="n">re_path</span>
+<span class="kn">from</span> <span class="nn">tasks.views</span> <span class="kn">import</span> <span class="n">api_root_view</span><span class="p">,</span> <span class="n">task_view</span><span class="p">,</span> <span class="n">user_view</span> 
+<span class="kn">from</span> <span class="nn">django.conf.urls</span> <span class="kn">import</span> <span class="n">url</span>
+
+<span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">path</span><span class="p">(</span><span class="s">'tasks/&lt;uuid:pk&gt;'</span><span class="p">,</span> <span class="n">task_view</span><span class="o">.</span><span class="n">TaskDetail</span><span class="o">.</span><span class="n">as_view</span><span class="p">()),</span>
+    <span class="o">...</span>
+<span class="p">]</span>
+
+</code></pre></div></div>
+
+<p>However, I found that the approach above will only work if the UUID supplied matches the specific pattern. This means that supplying an invalid UUID; lets say a UUID that’s missing a few characters will always throw a 404 page and will never reach the view.</p>
+
+<h5 id="original">Original</h5>
+
+<p>request:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+GET http://localhost:8000/tasks/7cd6fae8-2835-4dac-b44b-53326af162d3
+
+</code></pre></div></div>
+
+<p>response</p>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7cd6fae8-2835-4dac-b44b-53326af162d3"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Feed the dogs"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Remember to feed the dogs at 8AM"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"deadline"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-02-23T16:37:37Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"created_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-02-27T05:25:35.579628Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"updated_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-02-27T05:25:35.579688Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"completed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h5 id="missing-few-characters">Missing few characters</h5>
+
+<p>request:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+GET http://localhost:8000/tasks/7cd6fae8-4dac-b-53326a3
+
+</code></pre></div></div>
+
+<p>response:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+404 Page not found
+
+</code></pre></div></div>
+
+<h4 id="solution">Solution</h4>
+
+<p>To solve this problem, we can instead make use of <code class="language-plaintext highlighter-rouge">re_path</code>, as follows</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">path</span><span class="p">,</span> <span class="n">re_path</span>
+<span class="kn">from</span> <span class="nn">tasks.views</span> <span class="kn">import</span> <span class="n">api_root_view</span><span class="p">,</span> <span class="n">task_view</span><span class="p">,</span> <span class="n">user_view</span> 
+<span class="kn">from</span> <span class="nn">django.conf.urls</span> <span class="kn">import</span> <span class="n">url</span>
+
+<span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="c1"># accept match any regEx after 'task/'
+</span>    <span class="n">re_path</span><span class="p">(</span><span class="s">r'^task\/(?P&lt;pk&gt;.+)$'</span><span class="p">,</span> <span class="n">task_view</span><span class="o">.</span><span class="n">TaskDetail</span><span class="o">.</span><span class="n">as_view</span><span class="p">()),</span>
+<span class="p">]</span>
+
+</code></pre></div></div>
+
+<p>In this example, we can match any regEx after <code class="language-plaintext highlighter-rouge">tasks/</code> with the <code class="language-plaintext highlighter-rouge">pk</code>, so that regardless whether the UUID supplied is invalid, the request would still hit the view, and will respond with details not found, instead of a the 404 page.</p>
+
+<h5 id="original-1">Original</h5>
+
+<p>request:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+GET http://localhost:8000/tasks/7cd6fae8-2835-4dac-b44b-53326af162d3
+
+</code></pre></div></div>
+
+<p>response:</p>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7cd6fae8-2835-4dac-b44b-53326af162d3"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Feed the dogs"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Remember to feed the dogs at 8AM"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"deadline"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-02-23T16:37:37Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"created_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-02-27T05:25:35.579628Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"updated_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-02-27T05:25:35.579688Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"completed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h5 id="missing-few-characters-1">Missing few characters</h5>
+
+<p>request:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+GET http://localhost:8000/tasks/7cd6fae8-2835-4dac-b-53326a3
+
+</code></pre></div></div>
+
+<p>response:</p>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">
+</span><span class="p">{</span><span class="w">
+    </span><span class="nl">"detail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Not found."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre></div></div>
+
+<p>I hope this article will be of help to anyone who encounters a similar issue. <img class="emoji" title=":smile:" alt=":smile:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f604.png" height="20" width="20"> <img class="emoji" title=":thumbsup:" alt=":thumbsup:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f44d.png" height="20" width="20"></p>
+
+	
+</div>
+
+  <div>
+  
+  <footer>
+  
+<footer class="footer">
+	<nav>
+	
+	
+	<ul class="clearfix nav-bottom">
+	<!-- <ul class="open nav-top"> -->
+		<li><a href="/index.html">Home</a></li>
+    <li><a href="/posts">Posts</a></li>
+		<li><a href="/projects">Projects</a></li>
+		<li><a href="https://github.com/eddrichjanzzen" target="_blank">GitHub</a></li>
+		<li><a href="/contact.html">Contact</a></li>
+	</ul>
+</nav>
+
+
+<!-- https://www.youtube.com/watch?v=6m6iqN1uynE -->
+
+	<div class="mini">
+		<img src="/images/me.jpg" alt="">
+		<p>Developed by <a href="https://github.com/eddrichjanzzen">Eddrich Janzzen Ang</a> powered by <a href="https://jekyllrb.com/">Jekyll</a></p>	
+	</div>
+</footer>
+
+
+  <footer>
+
+</footer></footer>
+</div>
+</div></body>
+<script src="/js/main.js"></script>
+</html>
