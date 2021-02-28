@@ -10,8 +10,6 @@ tags:
 description: 'An article that describes a possible fix for 404 page not found in urls when using UUIDs as the primary key identifier'
 ---	
 
-#### urls UUID 404 page not found 
-
 Recently I've been working on a simple api that uses [Django Rest Framework](https://www.django-rest-framework.org/). Instead of using integer ids as the primary key identifier, UUIDs are used. The advantage of this approach is to prevent enumeration attacks where the primary key is easily guessable. In addition to this, using UUIDs also guarantees a unique identifier across all systems. 
 
 In Django, we are able to define a path to accept a UUID as follows:
