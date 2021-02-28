@@ -1,6 +1,105 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="https://eddrichjanzzen.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://eddrichjanzzen.github.io/" rel="alternate" type="text/html" /><updated>2021-02-27T06:33:58+00:00</updated><id>https://eddrichjanzzen.github.io/feed.xml</id><title type="html">Eddrich Janzzen</title><subtitle>Personal Blog</subtitle><author><name>Eddrich Janzzen Ang</name><email>eddrichang@gmail.com</email></author><entry><title type="html">Django urls UUID 404 page not found</title><link href="https://eddrichjanzzen.github.io/blog/2021/02/27/django-url-uuid-404.html" rel="alternate" type="text/html" title="Django urls UUID 404 page not found" /><published>2021-02-27T00:00:00+00:00</published><updated>2021-02-27T00:00:00+00:00</updated><id>https://eddrichjanzzen.github.io/blog/2021/02/27/django-url-uuid-404</id><content type="html" xml:base="https://eddrichjanzzen.github.io/blog/2021/02/27/django-url-uuid-404.html">&lt;h4 id=&quot;urls-uuid-404-page-not-found&quot;&gt;urls UUID 404 page not found&lt;/h4&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="https://eddrichjanzzen.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://eddrichjanzzen.github.io/" rel="alternate" type="text/html" /><updated>2021-02-28T15:34:15+00:00</updated><id>https://eddrichjanzzen.github.io/feed.xml</id><title type="html">Eddrich Janzzen</title><subtitle>Personal Blog</subtitle><author><name>Eddrich Janzzen Ang</name><email>eddrichang@gmail.com</email></author><entry><title type="html">Angular Lazy Loading: ‘router-outlet’ is not a known element</title><link href="https://eddrichjanzzen.github.io/blog/2021/02/28/angular-lazy-loading-router-outlet-not-a-known-element.html" rel="alternate" type="text/html" title="Angular Lazy Loading: 'router-outlet' is not a known element" /><published>2021-02-28T00:00:00+00:00</published><updated>2021-02-28T00:00:00+00:00</updated><id>https://eddrichjanzzen.github.io/blog/2021/02/28/angular-lazy-loading-router-outlet-not-a-known-element</id><content type="html" xml:base="https://eddrichjanzzen.github.io/blog/2021/02/28/angular-lazy-loading-router-outlet-not-a-known-element.html">&lt;p&gt;While working on lazy loaded modules in angular 10, I ran into issues with adding components that use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;router-outlet&amp;gt;&amp;lt;/router-outlet&amp;gt;&lt;/code&gt; in the template file. The compiler throws the error below even if the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;RouterModule&lt;/code&gt; is already defined in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;module.ts&lt;/code&gt; imports:&lt;/p&gt;
 
-&lt;p&gt;Recently I’ve been working on a simple api that uses &lt;a href=&quot;https://www.django-rest-framework.org/&quot;&gt;Django Rest Framework&lt;/a&gt;. Instead of using integer ids as the primary key identifier, UUIDs are used. The advantage of this approach is to prevent enumeration attacks where the primary key is easily guessable. In addition to this, using UUIDs also guarantees a unique identifier across all systems.&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+Error: src/app/modules/authentication/authentication.component.html:1:1 - error NG8001: &lt;span class=&quot;s1&quot;&gt;'router-outlet'&lt;/span&gt; is not a known element:
+1. If &lt;span class=&quot;s1&quot;&gt;'router-outlet'&lt;/span&gt; is an Angular component, &lt;span class=&quot;k&quot;&gt;then &lt;/span&gt;verify that it is part of this module.
+2. If &lt;span class=&quot;s1&quot;&gt;'router-outlet'&lt;/span&gt; is a Web Component &lt;span class=&quot;k&quot;&gt;then &lt;/span&gt;add &lt;span class=&quot;s1&quot;&gt;'CUSTOM_ELEMENTS_SCHEMA'&lt;/span&gt; to the &lt;span class=&quot;s1&quot;&gt;'@NgModule.schemas'&lt;/span&gt; of this component to suppress this message.
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;solution&quot;&gt;Solution&lt;/h4&gt;
+
+&lt;p&gt;There are two things one must remember when lazy loading modules that use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;router-outlet&amp;gt;&amp;lt;/router-outlet&amp;gt;&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h6 id=&quot;1-there-is-no-need-to-re-import-the-module-class-in-the-modulets-if-it-is-lazy-loaded-angular-already-knows-to-load-these-modules-by-default&quot;&gt;1. There is no need to re-import the module class in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;module.ts&lt;/code&gt;, if it is lazy loaded. Angular already knows to load these modules by default.&lt;/h6&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;main-routing.module.ts&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&quot;language-typescript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Routes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;RouterModule&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;@angular/router&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;NgModule&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;@angular/core&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;routes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Routes&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;''&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;component&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;MainComponent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;children&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;na&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;''&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+                &lt;span class=&quot;na&quot;&gt;component&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;AuthenticationComponent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+                &lt;span class=&quot;na&quot;&gt;loadChildren&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;import&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;./../authentication/authentication.module&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;m&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;m&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;AuthenticationModule&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;NgModule&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;imports&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;RouterModule&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;forChild&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;routes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)],&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;exports&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;RouterModule&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;MainRoutingModule&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;main.module.ts&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&quot;language-typescript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;CommonModule&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;@angular/common&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;MainRoutingModule&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;./main-routing.module&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;AuthenticationModule&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;../authentication/authentication.module&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;NgModule&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;declarations&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;MainComponent&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;imports&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;CommonModule&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;SharedModule&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;//xxx AuthenticationModule xxx &amp;lt;----- There is no need to import the module here&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;MainRoutingModule&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;MainModule&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h6 id=&quot;2-the-component-using-router-outletrouter-outlet-must-be-added-in-the--modulets-declarations-list&quot;&gt;2. The component using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;router-outlet&amp;gt;&amp;lt;/router-outlet&amp;gt;&lt;/code&gt; must be added in the  &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;module.ts&lt;/code&gt; declarations list&lt;/h6&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;main.component.html&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;router-outlet&amp;gt;&amp;lt;/router-outlet&amp;gt;&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;main.module.ts&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&quot;language-typescript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;MainComponent&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;./main.component&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;SharedModule&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;./../shared/shared.module&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;NgModule&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;@angular/core&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;CommonModule&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;@angular/common&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;MainRoutingModule&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;./main-routing.module&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;RouterModule&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;@angular/router&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+
+&lt;span class=&quot;p&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;NgModule&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;declarations&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;MainComponent&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// &amp;lt;----- DON'T FORGET TO DECLARE THIS&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;imports&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;CommonModule&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;SharedModule&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;RouterModule&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;MainRoutingModule&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;MainModule&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;I hope this article will be of help to anyone who encounters a similar issue. :smile: :thumbsup:&lt;/p&gt;</content><author><name>eddrichjanzzen</name></author><category term="blog" /><category term="angular" /><category term="tech" /><summary type="html">While working on lazy loaded modules in angular 10, I ran into issues with adding components that use &amp;lt;router-outlet&amp;gt;&amp;lt;/router-outlet&amp;gt; in the template file. The compiler throws the error below even if the RouterModule is already defined in the module.ts imports:</summary></entry><entry><title type="html">Django urls UUID 404 page not found</title><link href="https://eddrichjanzzen.github.io/blog/2021/02/27/django-url-uuid-404.html" rel="alternate" type="text/html" title="Django urls UUID 404 page not found" /><published>2021-02-27T00:00:00+00:00</published><updated>2021-02-27T00:00:00+00:00</updated><id>https://eddrichjanzzen.github.io/blog/2021/02/27/django-url-uuid-404</id><content type="html" xml:base="https://eddrichjanzzen.github.io/blog/2021/02/27/django-url-uuid-404.html">&lt;p&gt;Recently I’ve been working on a simple api that uses &lt;a href=&quot;https://www.django-rest-framework.org/&quot;&gt;Django Rest Framework&lt;/a&gt;. Instead of using integer ids as the primary key identifier, UUIDs are used. The advantage of this approach is to prevent enumeration attacks where the primary key is easily guessable. In addition to this, using UUIDs also guarantees a unique identifier across all systems.&lt;/p&gt;
 
 &lt;p&gt;In Django, we are able to define a path to accept a UUID as follows:&lt;/p&gt;
 
@@ -111,7 +210,7 @@ GET http://localhost:8000/tasks/7cd6fae8-2835-4dac-b-53326a3
 
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;I hope this article will be of help to anyone who encounters a similar issue. :smile: :thumbsup:&lt;/p&gt;</content><author><name>eddrichjanzzen</name></author><category term="blog" /><category term="python" /><category term="tech" /><summary type="html">urls UUID 404 page not found</summary></entry><entry><title type="html">Integrating Editor.js with Angular</title><link href="https://eddrichjanzzen.github.io/blog/2020/12/29/Editorjs-x-Angular.html" rel="alternate" type="text/html" title="Integrating Editor.js with Angular" /><published>2020-12-29T00:00:00+00:00</published><updated>2020-12-29T00:00:00+00:00</updated><id>https://eddrichjanzzen.github.io/blog/2020/12/29/Editorjs-x-Angular</id><content type="html" xml:base="https://eddrichjanzzen.github.io/blog/2020/12/29/Editorjs-x-Angular.html">&lt;p&gt;Writing or creating content has always been a crutial part of the web since its beginning. As the web continues to mature, the demand for dynamic, customizable, and flexibile text editors has evolved as well. Gone are the days of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;textarea&amp;gt;&lt;/code&gt; where the content being written is static. Most modern text editors now follow the concept of &lt;a href=&quot;https://en.wikipedia.org/wiki/WYSIWYG&quot;&gt;WYSIWYG&lt;/a&gt; (What You See Is What You Get), where the content being edited within a form resembles its actual appreance when printed or displayed on screen. As a matter of fact, the open source community offers many free options that suit these needs. &lt;img src=&quot;/assets/images/angular-editorjs/angular-x-editorjs.png&quot; alt=&quot;Angular&quot; class=&quot;img-blog-right&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;I hope this article will be of help to anyone who encounters a similar issue. :smile: :thumbsup:&lt;/p&gt;</content><author><name>eddrichjanzzen</name></author><category term="blog" /><category term="python" /><category term="tech" /><summary type="html">Recently I’ve been working on a simple api that uses Django Rest Framework. Instead of using integer ids as the primary key identifier, UUIDs are used. The advantage of this approach is to prevent enumeration attacks where the primary key is easily guessable. In addition to this, using UUIDs also guarantees a unique identifier across all systems.</summary></entry><entry><title type="html">Integrating Editor.js with Angular</title><link href="https://eddrichjanzzen.github.io/blog/2020/12/29/Editorjs-x-Angular.html" rel="alternate" type="text/html" title="Integrating Editor.js with Angular" /><published>2020-12-29T00:00:00+00:00</published><updated>2020-12-29T00:00:00+00:00</updated><id>https://eddrichjanzzen.github.io/blog/2020/12/29/Editorjs-x-Angular</id><content type="html" xml:base="https://eddrichjanzzen.github.io/blog/2020/12/29/Editorjs-x-Angular.html">&lt;p&gt;Writing or creating content has always been a crutial part of the web since its beginning. As the web continues to mature, the demand for dynamic, customizable, and flexibile text editors has evolved as well. Gone are the days of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;textarea&amp;gt;&lt;/code&gt; where the content being written is static. Most modern text editors now follow the concept of &lt;a href=&quot;https://en.wikipedia.org/wiki/WYSIWYG&quot;&gt;WYSIWYG&lt;/a&gt; (What You See Is What You Get), where the content being edited within a form resembles its actual appreance when printed or displayed on screen. As a matter of fact, the open source community offers many free options that suit these needs. &lt;img src=&quot;/assets/images/angular-editorjs/angular-x-editorjs.png&quot; alt=&quot;Angular&quot; class=&quot;img-blog-right&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;In this article, we will be looking into an emerging Block-Styled editor, &lt;a href=&quot;https://editorjs.io/&quot;&gt;Editor.js&lt;/a&gt;. We will then walkthough how this tool might be implemented in an Angular application.&lt;/p&gt;
 
@@ -1037,32 +1136,4 @@ botocore.exceptions.NoCredentialsError: Unable to locate credentials
 
 &lt;p&gt;Python Falcon is a simple framework that boasts to be blazing fast and highly reliable. It is also easily extensible which makes it one of the ideal choices for large scale microservices.&lt;/p&gt;
 
-&lt;p&gt;For more details, you may visit my sample project. &lt;a href=&quot;https://github.com/eddrichjanzzen/python-falcon-sample&quot;&gt;https://github.com/eddrichjanzzen/python-falcon-sample&lt;/a&gt;&lt;/p&gt;</content><author><name>eddrichjanzzen</name></author><category term="blog" /><category term="python" /><category term="falcon" /><category term="microservices" /><summary type="html">The advent of technology has produced many different programming languages that developers can use. From the low level languages such as C, C++, and Assembly Language, to the more high level languages such as Ruby and Python, indeed, technology has reached new heights.</summary></entry><entry><title type="html">Fix Black Screen in Windows 10 Bootcamp Assistant</title><link href="https://eddrichjanzzen.github.io/blog/2020/03/05/Fix-BlackScreen-Windows10-Bootcamp-Mid2012.html" rel="alternate" type="text/html" title="Fix Black Screen in Windows 10 Bootcamp Assistant" /><published>2020-03-05T00:00:00+00:00</published><updated>2020-03-05T00:00:00+00:00</updated><id>https://eddrichjanzzen.github.io/blog/2020/03/05/Fix-BlackScreen-Windows10-Bootcamp-Mid2012</id><content type="html" xml:base="https://eddrichjanzzen.github.io/blog/2020/03/05/Fix-BlackScreen-Windows10-Bootcamp-Mid2012.html">&lt;h4 id=&quot;macbook-pro-mid-2012-13&quot;&gt;Macbook Pro Mid 2012 “13&lt;/h4&gt;
-
-&lt;p&gt;The Macbook Pro Mid 2012 “13 (non-retina), is arguably one of the most versatile models released by Apple. Not only does it offer a wide possibility of upgradability; it also offers built-in ports without needing to buy those external dongles. With 2 USB ports, a Lightning Cable port, an Ethernet port, a Firewire 800 port, a Headphone jack, and SD Card slot, I could attest that this model is definitely designed for pros! The device is indeed very flexible with most of the important parts being easily replaceable/upgradable. As a matter of fact, with a few upgrades the device can still be up to par with todays standards.&lt;/p&gt;
-
-&lt;p&gt;At the time of this writing, I have went along to upgrade my machine by replacing the original 2 x 2Gb DDR3 RAMs with 2 x 8Gb DDR3 RAMs to get a maximum of 16Gb memory. I also switched out the original HDD with to an SSD to increase processing speed. Lastly, I’ve also went along to buy a bracket or “caddy case” to replace the optical drive with additional storage.&lt;/p&gt;
-
-&lt;h4 id=&quot;bootcamping-this-device&quot;&gt;Bootcamping this Device&lt;/h4&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/bootcamp.png&quot; alt=&quot;Bootcamp&quot; class=&quot;img-blog&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;One of the problems I’ve encountered when trying to Bootcamp this device was a black screen after the download when booting the system after following along with Bootcamp Assistant.&lt;/p&gt;
-
-&lt;p&gt;There are two important caveats to consider when bootcamping this Macbook model using Bootcamp Assistant. (especially if you’re using additional storage like me: with the bracket or “caddy case”.)&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Install Windows on Main Storage slot
-    &lt;ul&gt;
-      &lt;li&gt;You can only run and install Windows on the main storage slot, not on the secondary slot. This means you can’t run Windows from the secondary storage by default.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Install Windows with Optical Drive attached
-    &lt;ul&gt;
-      &lt;li&gt;You must install Windows with the optical drive attached because the system checks for a Windows installer CD before checking for a USB flash drive. This means that if you have the “caddy case” connected you must remove it and put back your optical drive. Leaving the optical drive slot unconnected also will not work. The optical drive must be connected for the installation to work.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Following these two steps helped me Bootcamp my machine without any hiccups. 
-:clap: :clap: :clap:&lt;/p&gt;</content><author><name>eddrichjanzzen</name></author><category term="blog" /><category term="macbook" /><category term="apple" /><category term="bootcamp" /><category term="windows" /><summary type="html">Macbook Pro Mid 2012 “13</summary></entry></feed>
+&lt;p&gt;For more details, you may visit my sample project. &lt;a href=&quot;https://github.com/eddrichjanzzen/python-falcon-sample&quot;&gt;https://github.com/eddrichjanzzen/python-falcon-sample&lt;/a&gt;&lt;/p&gt;</content><author><name>eddrichjanzzen</name></author><category term="blog" /><category term="python" /><category term="falcon" /><category term="microservices" /><summary type="html">The advent of technology has produced many different programming languages that developers can use. From the low level languages such as C, C++, and Assembly Language, to the more high level languages such as Ruby and Python, indeed, technology has reached new heights.</summary></entry></feed>

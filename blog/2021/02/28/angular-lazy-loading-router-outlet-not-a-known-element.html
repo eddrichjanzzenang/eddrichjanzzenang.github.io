@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en-ca">
+  
+  <head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Angular Lazy Loading: ‘router-outlet’ is not a known element | Eddrich Janzzen</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Angular Lazy Loading: ‘router-outlet’ is not a known element" />
+<meta name="author" content="eddrichjanzzen" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="An article that describes the fix for an error with lazy loaded modules in angular: ‘router-outlet’ is not a known element.." />
+<meta property="og:description" content="An article that describes the fix for an error with lazy loaded modules in angular: ‘router-outlet’ is not a known element.." />
+<link rel="canonical" href="https://eddrichjanzzen.github.io/blog/2021/02/28/angular-lazy-loading-router-outlet-not-a-known-element.html" />
+<meta property="og:url" content="https://eddrichjanzzen.github.io/blog/2021/02/28/angular-lazy-loading-router-outlet-not-a-known-element.html" />
+<meta property="og:site_name" content="Eddrich Janzzen" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-02-28T00:00:00+00:00" />
+<script type="application/ld+json">
+{"description":"An article that describes the fix for an error with lazy loaded modules in angular: ‘router-outlet’ is not a known element..","headline":"Angular Lazy Loading: ‘router-outlet’ is not a known element","dateModified":"2021-02-28T00:00:00+00:00","datePublished":"2021-02-28T00:00:00+00:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://eddrichjanzzen.github.io/blog/2021/02/28/angular-lazy-loading-router-outlet-not-a-known-element.html"},"url":"https://eddrichjanzzen.github.io/blog/2021/02/28/angular-lazy-loading-router-outlet-not-a-known-element.html","author":{"@type":"Person","name":"eddrichjanzzen"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <link rel="icon" href="/images/favicon.ico">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway:200,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:100;400" rel="stylesheet">
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/normalize.css">
+  <link rel="stylesheet" href="/css/skeleton.css">
+  <link rel="stylesheet" href="/css/skeleton-alerts.css">
+  <link rel="stylesheet" href="/css/badge.css">
+  <link rel="stylesheet" href="/css/common.css">
+  <!-- for syntax highlighting -->
+  <link rel="stylesheet" href="/css/tango.css">
+  <script src="/js/jquery-3.1.1.min.js"></script> 
+  <script src="/js/main.js"></script>  
+
+  <meta name="google-site-verification" content="y76HL_x2Anjbw7oIO9lswptVVKHz5NHCzh8Dz9Rp4FI" />
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-171515307-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-171515307-1');
+  </script>
+
+  
+</head>
+
+
+<body>
+
+  <header>
+    <nav>
+	
+	<div class="hamburger">
+		<div class="line"></div>
+		<div class="line"></div>
+		<div class="line"></div>
+	</div>
+	
+	
+	<ul class="clearfix nav-top">
+	<!-- <ul class="open nav-top"> -->
+		<li><a href="/index.html">Home</a></li>
+    <li><a href="/posts">Posts</a></li>
+		<li><a href="/projects">Projects</a></li>
+		<li><a href="https://github.com/eddrichjanzzen" target="_blank">GitHub</a></li>
+		<li><a href="/contact.html">Contact</a></li>
+	</ul>
+</nav>
+
+
+<!-- https://www.youtube.com/watch?v=6m6iqN1uynE -->
+
+  </header>
+
+
+  <div class="content-wrapper">
+    <h3>Angular Lazy Loading: 'router-outlet' is not a known element</h3>
+<span>Posted on Feb 28, 2021 • eddrichjanzzen
+</span>
+<div>    
+  
+    <div class="badge badge-secondary">angular</div>
+  
+    <div class="badge badge-secondary">tech</div>
+  
+</div>
+<br>
+
+<div class="blog-wrapper">
+	<p>While working on lazy loaded modules in angular 10, I ran into issues with adding components that use <code class="language-plaintext highlighter-rouge">&lt;router-outlet&gt;&lt;/router-outlet&gt;</code> in the template file. The compiler throws the error below even if the <code class="language-plaintext highlighter-rouge">RouterModule</code> is already defined in the <code class="language-plaintext highlighter-rouge">module.ts</code> imports:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+Error: src/app/modules/authentication/authentication.component.html:1:1 - error NG8001: <span class="s1">'router-outlet'</span> is not a known element:
+1. If <span class="s1">'router-outlet'</span> is an Angular component, <span class="k">then </span>verify that it is part of this module.
+2. If <span class="s1">'router-outlet'</span> is a Web Component <span class="k">then </span>add <span class="s1">'CUSTOM_ELEMENTS_SCHEMA'</span> to the <span class="s1">'@NgModule.schemas'</span> of this component to suppress this message.
+
+</code></pre></div></div>
+
+<h4 id="solution">Solution</h4>
+
+<p>There are two things one must remember when lazy loading modules that use <code class="language-plaintext highlighter-rouge">&lt;router-outlet&gt;&lt;/router-outlet&gt;</code>.</p>
+
+<h6 id="1-there-is-no-need-to-re-import-the-module-class-in-the-modulets-if-it-is-lazy-loaded-angular-already-knows-to-load-these-modules-by-default">1. There is no need to re-import the module class in the <code class="language-plaintext highlighter-rouge">module.ts</code>, if it is lazy loaded. Angular already knows to load these modules by default.</h6>
+
+<p><code class="language-plaintext highlighter-rouge">main-routing.module.ts</code></p>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">Routes</span><span class="p">,</span> <span class="nx">RouterModule</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@angular/router</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">NgModule</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@angular/core</span><span class="dl">'</span><span class="p">;</span>
+<span class="p">...</span>
+
+<span class="kd">const</span> <span class="nx">routes</span><span class="p">:</span> <span class="nx">Routes</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span>
+        <span class="na">path</span><span class="p">:</span> <span class="dl">''</span><span class="p">,</span>
+        <span class="na">component</span><span class="p">:</span> <span class="nx">MainComponent</span><span class="p">,</span>
+        <span class="na">children</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="na">path</span><span class="p">:</span> <span class="dl">''</span><span class="p">,</span>
+                <span class="na">component</span><span class="p">:</span> <span class="nx">AuthenticationComponent</span><span class="p">,</span>
+                <span class="na">loadChildren</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">import</span><span class="p">(</span><span class="dl">'</span><span class="s1">./../authentication/authentication.module</span><span class="dl">'</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">m</span> <span class="o">=&gt;</span> <span class="nx">m</span><span class="p">.</span><span class="nx">AuthenticationModule</span><span class="p">)</span>
+            <span class="p">},</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">];</span>
+
+<span class="p">@</span><span class="nd">NgModule</span><span class="p">({</span>
+    <span class="na">imports</span><span class="p">:</span> <span class="p">[</span><span class="nx">RouterModule</span><span class="p">.</span><span class="nx">forChild</span><span class="p">(</span><span class="nx">routes</span><span class="p">)],</span>
+    <span class="na">exports</span><span class="p">:</span> <span class="p">[</span><span class="nx">RouterModule</span><span class="p">]</span>
+<span class="p">})</span>
+<span class="k">export</span> <span class="kd">class</span> <span class="nx">MainRoutingModule</span> <span class="p">{</span> <span class="p">}</span>
+
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">main.module.ts</code></p>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="p">...</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">CommonModule</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@angular/common</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="k">import</span> <span class="p">{</span> <span class="nx">MainRoutingModule</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./main-routing.module</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">AuthenticationModule</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">../authentication/authentication.module</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="p">@</span><span class="nd">NgModule</span><span class="p">({</span>
+    <span class="na">declarations</span><span class="p">:</span> <span class="p">[</span>
+        <span class="nx">MainComponent</span>
+    <span class="p">],</span>
+    <span class="na">imports</span><span class="p">:</span> <span class="p">[</span>
+        <span class="nx">CommonModule</span><span class="p">,</span>
+        <span class="nx">SharedModule</span><span class="p">,</span>
+        <span class="c1">//xxx AuthenticationModule xxx &lt;----- There is no need to import the module here</span>
+        <span class="nx">MainRoutingModule</span>
+    <span class="p">]</span>
+<span class="p">})</span>
+<span class="k">export</span> <span class="kd">class</span> <span class="nx">MainModule</span> <span class="p">{</span> <span class="p">}</span>
+
+</code></pre></div></div>
+
+<h6 id="2-the-component-using-router-outletrouter-outlet-must-be-added-in-the--modulets-declarations-list">2. The component using <code class="language-plaintext highlighter-rouge">&lt;router-outlet&gt;&lt;/router-outlet&gt;</code> must be added in the  <code class="language-plaintext highlighter-rouge">module.ts</code> declarations list</h6>
+
+<p><code class="language-plaintext highlighter-rouge">main.component.html</code></p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="nt">&lt;router-outlet&gt;&lt;/router-outlet&gt;</span>
+
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">main.module.ts</code></p>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">MainComponent</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./main.component</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">SharedModule</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./../shared/shared.module</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">NgModule</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@angular/core</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">CommonModule</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@angular/common</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="k">import</span> <span class="p">{</span> <span class="nx">MainRoutingModule</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./main-routing.module</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">RouterModule</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@angular/router</span><span class="dl">'</span><span class="p">;</span>
+
+
+<span class="p">@</span><span class="nd">NgModule</span><span class="p">({</span>
+    <span class="na">declarations</span><span class="p">:</span> <span class="p">[</span>
+        <span class="nx">MainComponent</span> <span class="c1">// &lt;----- DON'T FORGET TO DECLARE THIS</span>
+    <span class="p">],</span>
+    <span class="na">imports</span><span class="p">:</span> <span class="p">[</span>
+        <span class="nx">CommonModule</span><span class="p">,</span>
+        <span class="nx">SharedModule</span><span class="p">,</span>
+        <span class="nx">RouterModule</span><span class="p">,</span>
+        <span class="nx">MainRoutingModule</span>
+    <span class="p">]</span>
+<span class="p">})</span>
+<span class="k">export</span> <span class="kd">class</span> <span class="nx">MainModule</span> <span class="p">{</span> <span class="p">}</span>
+
+</code></pre></div></div>
+
+<p>I hope this article will be of help to anyone who encounters a similar issue. <img class="emoji" title=":smile:" alt=":smile:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f604.png" height="20" width="20"> <img class="emoji" title=":thumbsup:" alt=":thumbsup:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f44d.png" height="20" width="20"></p>
+
+	
+</div>
+
+  <div>
+  
+  <footer>
+  
+<footer class="footer">
+	<nav>
+	
+	
+	<ul class="clearfix nav-bottom">
+	<!-- <ul class="open nav-top"> -->
+		<li><a href="/index.html">Home</a></li>
+    <li><a href="/posts">Posts</a></li>
+		<li><a href="/projects">Projects</a></li>
+		<li><a href="https://github.com/eddrichjanzzen" target="_blank">GitHub</a></li>
+		<li><a href="/contact.html">Contact</a></li>
+	</ul>
+</nav>
+
+
+<!-- https://www.youtube.com/watch?v=6m6iqN1uynE -->
+
+	<div class="mini">
+		<img src="/images/me.jpg" alt="">
+		<p>Developed by <a href="https://github.com/eddrichjanzzen">Eddrich Janzzen Ang</a> powered by <a href="https://jekyllrb.com/">Jekyll</a></p>	
+	</div>
+</footer>
+
+
+  <footer>
+
+</footer></footer>
+</div>
+</div></body>
+<script src="/js/main.js"></script>
+</html>
