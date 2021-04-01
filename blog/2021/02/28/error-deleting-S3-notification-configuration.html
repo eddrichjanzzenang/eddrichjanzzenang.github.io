@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en-ca">
+  
+  <head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Terraform: Error deleting S3 notification configuration | Eddrich Janzzen</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Terraform: Error deleting S3 notification configuration" />
+<meta name="author" content="eddrichjanzzen" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="An article that describes fix and a possible prevetive measure against an error on deleting S3 notification configuration when using terraform" />
+<meta property="og:description" content="An article that describes fix and a possible prevetive measure against an error on deleting S3 notification configuration when using terraform" />
+<link rel="canonical" href="https://eddrichjanzzen.github.io/blog/2021/02/28/error-deleting-S3-notification-configuration.html" />
+<meta property="og:url" content="https://eddrichjanzzen.github.io/blog/2021/02/28/error-deleting-S3-notification-configuration.html" />
+<meta property="og:site_name" content="Eddrich Janzzen" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-02-28T00:00:00+00:00" />
+<script type="application/ld+json">
+{"description":"An article that describes fix and a possible prevetive measure against an error on deleting S3 notification configuration when using terraform","headline":"Terraform: Error deleting S3 notification configuration","dateModified":"2021-02-28T00:00:00+00:00","datePublished":"2021-02-28T00:00:00+00:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://eddrichjanzzen.github.io/blog/2021/02/28/error-deleting-S3-notification-configuration.html"},"url":"https://eddrichjanzzen.github.io/blog/2021/02/28/error-deleting-S3-notification-configuration.html","author":{"@type":"Person","name":"eddrichjanzzen"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <link rel="icon" href="/images/favicon.ico">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway:200,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:100;400" rel="stylesheet">
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/normalize.css">
+  <link rel="stylesheet" href="/css/skeleton.css">
+  <link rel="stylesheet" href="/css/skeleton-alerts.css">
+  <link rel="stylesheet" href="/css/badge.css">
+  <link rel="stylesheet" href="/css/common.css">
+  <!-- for syntax highlighting -->
+  <link rel="stylesheet" href="/css/tango.css">
+  <script src="/js/jquery-3.1.1.min.js"></script> 
+  <script src="/js/main.js"></script>  
+
+  <meta name="google-site-verification" content="y76HL_x2Anjbw7oIO9lswptVVKHz5NHCzh8Dz9Rp4FI" />
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-171515307-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-171515307-1');
+  </script>
+
+  
+</head>
+
+
+<body>
+
+  <header>
+    <nav>
+	
+	<div class="hamburger">
+		<div class="line"></div>
+		<div class="line"></div>
+		<div class="line"></div>
+	</div>
+	
+	
+	<ul class="clearfix nav-top">
+	<!-- <ul class="open nav-top"> -->
+		<li><a href="/index.html">Home</a></li>
+    <li><a href="/posts">Posts</a></li>
+		<li><a href="/projects">Projects</a></li>
+		<li><a href="https://github.com/eddrichjanzzen" target="_blank">GitHub</a></li>
+		<li><a href="/contact.html">Contact</a></li>
+	</ul>
+</nav>
+
+
+<!-- https://www.youtube.com/watch?v=6m6iqN1uynE -->
+
+  </header>
+
+
+  <div class="content-wrapper">
+    <h3>Terraform: Error deleting S3 notification configuration</h3>
+<span>Posted on Feb 28, 2021 • eddrichjanzzen
+</span>
+<div>    
+  
+    <div class="badge badge-secondary">tech</div>
+  
+    <div class="badge badge-secondary">aws</div>
+  
+</div>
+<br>
+
+<div class="blog-wrapper">
+	<p>Recently I’ve been working on project that uses <a href="https://www.terraform.io/">Terraform</a> to provision different cloud resources like Dynamodb, S3, and Lambda Functions in <a href="https://aws.amazon.com/">AWS</a>. I ran into an issue where calling <code class="language-plaintext highlighter-rouge">terraform destroy</code> would produce the following error.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+Error deleting S3 notification configuration: OperationAborted: A conflicting conditional operation is currently <span class="k">in </span>progress against this resource. Please try again.
+	status code: 409, request <span class="nb">id</span>: W080JFW9XFESM4VE, host <span class="nb">id</span>: XXXXXXXXXX+WuqFetNLnzZ7T1oTXV0tzad4lCBQNWG5oxKD+hxocPXd2mpjYBnS1veeI<span class="o">=</span>
+
+</code></pre></div></div>
+
+<p>The error above states that there is a conflicting conditional that prevents the deletion of the S3 bucket resource.</p>
+
+<p>Initial research led me to an article by AWS stating that the issue could be due to eventual consistency. It states that: “Because Amazon S3 is a large distributed system, changes like deleting a bucket can take time to become eventually consistent across all AWS Regions. … Until the bucket is completely deleted by Amazon S3, you can’t use the same bucket name. However, when the bucket is deleted and the name is available, other accounts can use the bucket name.”</p>
+
+<h4 id="solution">Solution</h4>
+
+<p>To solve this issue, I found that appending a random string after the bucket name works. Here’s how:</p>
+
+<h5 id="step-1">Step 1:</h5>
+<p>Add a random string generator using the <code class="language-plaintext highlighter-rouge">random_string</code> resource of terraform</p>
+
+<div class="language-tf highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="c1"># terraform built in - random string generator</span>
+<span class="k">resource</span> <span class="s2">"random_string"</span> <span class="s2">"id"</span> <span class="p">{</span>
+  <span class="nx">length</span> <span class="p">=</span> <span class="mi">5</span>
+  <span class="nx">special</span> <span class="p">=</span> <span class="kc">false</span>
+  <span class="nx">upper</span> <span class="p">=</span> <span class="kc">false</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+
+<p>For this example we specify a length of 5, and no special or upper case characters.</p>
+
+<h5 id="step-2">Step 2:</h5>
+<p>Define a your S3 bucket resource appending the result of the random string generator as follows:</p>
+
+<div class="language-tf highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="c1"># S3 Bucket for new Documents</span>
+<span class="k">resource</span> <span class="s2">"aws_s3_bucket"</span> <span class="s2">"new_documents"</span> <span class="p">{</span>
+  <span class="nx">bucket</span> <span class="p">=</span> <span class="s2">"my-documents-bucket-</span><span class="k">${</span><span class="nx">random_string</span><span class="p">.</span><span class="nx">id</span><span class="p">.</span><span class="nx">result</span><span class="k">}</span><span class="s2">"</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+
+<p>This will produce a unique bucket following pattern everytime the bucket is created:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"my-documents-bucket-abcde"</span>
+<span class="s2">"my-documents-bucket-rando"</span>
+<span class="s2">"my-documents-bucket-zcgsa"</span>
+</code></pre></div></div>
+
+<p>I hope this article will be of help to anyone who encounters a similar issue. <img class="emoji" title=":smile:" alt=":smile:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f604.png" height="20" width="20"> <img class="emoji" title=":thumbsup:" alt=":thumbsup:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f44d.png" height="20" width="20"></p>
+
+	
+</div>
+
+  <div>
+  
+  <footer>
+  
+<footer class="footer">
+	<nav>
+	
+	
+	<ul class="clearfix nav-bottom">
+	<!-- <ul class="open nav-top"> -->
+		<li><a href="/index.html">Home</a></li>
+    <li><a href="/posts">Posts</a></li>
+		<li><a href="/projects">Projects</a></li>
+		<li><a href="https://github.com/eddrichjanzzen" target="_blank">GitHub</a></li>
+		<li><a href="/contact.html">Contact</a></li>
+	</ul>
+</nav>
+
+
+<!-- https://www.youtube.com/watch?v=6m6iqN1uynE -->
+
+	<div class="mini">
+		<img src="/images/me.jpg" alt="">
+		<p>Developed by <a href="https://github.com/eddrichjanzzen">Eddrich Janzzen Ang</a> powered by <a href="https://jekyllrb.com/">Jekyll</a></p>	
+	</div>
+</footer>
+
+
+  <footer>
+
+</footer></footer>
+</div>
+</div></body>
+<script src="/js/main.js"></script>
+</html>
