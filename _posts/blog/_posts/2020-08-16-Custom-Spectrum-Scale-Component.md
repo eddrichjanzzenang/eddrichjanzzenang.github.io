@@ -5,9 +5,8 @@ author: eddrichjanzzen
 date: 2020-08-16
 category: blog
 tags: 
-- d3.js
+- tech
 - angular
-- charts
 description: A Color scale component implemented using D3.js and Angular. This is complete with example code and usage steps. 
 ---
 

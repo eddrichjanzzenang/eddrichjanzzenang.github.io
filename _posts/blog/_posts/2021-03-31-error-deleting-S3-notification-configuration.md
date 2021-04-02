@@ -2,7 +2,7 @@
 title: "Terraform: Error deleting S3 notification configuration"
 layout: blog-specific
 author: eddrichjanzzen
-date: 2021-02-28
+date: 2021-03-31
 category: blog
 tags: 
 - tech

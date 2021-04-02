@@ -6,8 +6,7 @@ date: 2020-06-26
 category: blog
 tags: 
 - python
-- falcon
-- microservices
+- tech
 description: A short article about implementing API using Python Falcon Micro Framework. 
 ---
 

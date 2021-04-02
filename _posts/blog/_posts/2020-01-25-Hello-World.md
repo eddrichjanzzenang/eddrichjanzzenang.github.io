@@ -5,8 +5,7 @@ author: eddrichjanzzen
 date: 2020-01-25
 category: blog
 tags: 
-- python
-- hello world
+- tech
 description: A test post for the beginning of my blog.
 ---
 

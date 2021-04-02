@@ -6,8 +6,7 @@ date: 2020-12-29
 category: blog
 tags: 
 - angular
-- editorjs
-- mutationObserver
+- tech
 description: 'An article that walks through how to integrate Editor.js into an Angular application'
 ---	
 
