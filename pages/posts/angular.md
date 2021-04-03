@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: post-layout
 permalink: /posts/angular/
 pagination:
   enabled: true
