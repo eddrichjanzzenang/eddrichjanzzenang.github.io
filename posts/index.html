@@ -13,9 +13,11 @@ pagination:
   <div class="five columns">
     <div class="no-content">
       <h4>Tags</h4>
-      {% for tag in site.tags %}
-        <a class="badge badge-secondary">{{tag | first}}</a>
-      {% endfor %}
+      <div class="button-group tag-button-group">
+        {% for tag in site.tags %}
+          <a class="badge badge-secondary">{{tag | first}}</a>
+        {% endfor %}
+      </div>
     </div>
   </div>
 </div>
@@ -47,25 +49,7 @@ pagination:
   </div>
   
   <!-- jekyll paginate 2 -->
-  <div class="pagination">
-    {% if paginator.total_pages > 1 %}
-    <div class="pager">
-      
-      {% if paginator.next_page %}
-      <div class="next">
-          <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo</a>
-      </div>
-      {% endif %}
-      <small>page {{ paginator.page }} of {{ paginator.total_pages }}</small>
-
-      {% if paginator.previous_page %}
-      <div class="previous">
-          <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&raquo</a>
-      </div> 
-      {% endif %}
-    </div>
-    {% endif %}
-  </div>
+  {% include post/pagination.html %}
 </div>
 
 
