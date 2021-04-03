@@ -1,4 +1,100 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="https://eddrichjanzzen.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://eddrichjanzzen.github.io/" rel="alternate" type="text/html" /><updated>2021-04-01T15:35:33+00:00</updated><id>https://eddrichjanzzen.github.io/feed.xml</id><title type="html">Eddrich Janzzen</title><subtitle>Personal Blog</subtitle><author><name>Eddrich Janzzen Ang</name><email>eddrichang@gmail.com</email></author><entry><title type="html">Angular Lazy Loading: ‘router-outlet’ is not a known element</title><link href="https://eddrichjanzzen.github.io/blog/2021/02/28/angular-lazy-loading-router-outlet-not-a-known-element.html" rel="alternate" type="text/html" title="Angular Lazy Loading: 'router-outlet' is not a known element" /><published>2021-02-28T00:00:00+00:00</published><updated>2021-02-28T00:00:00+00:00</updated><id>https://eddrichjanzzen.github.io/blog/2021/02/28/angular-lazy-loading-router-outlet-not-a-known-element</id><content type="html" xml:base="https://eddrichjanzzen.github.io/blog/2021/02/28/angular-lazy-loading-router-outlet-not-a-known-element.html">&lt;p&gt;While working on lazy loaded modules in angular 10, I ran into issues with adding components that use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;router-outlet&amp;gt;&amp;lt;/router-outlet&amp;gt;&lt;/code&gt; in the template file. The compiler throws the error below even if the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;RouterModule&lt;/code&gt; is already defined in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;module.ts&lt;/code&gt; imports:&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="https://eddrichjanzzen.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://eddrichjanzzen.github.io/" rel="alternate" type="text/html" /><updated>2021-04-03T14:16:41+00:00</updated><id>https://eddrichjanzzen.github.io/feed.xml</id><title type="html">Eddrich Janzzen</title><subtitle>Personal Blog</subtitle><author><name>Eddrich Janzzen Ang</name><email>eddrichang@gmail.com</email></author><entry><title type="html">Jekyll: index.html not rendering in page</title><link href="https://eddrichjanzzen.github.io/blog/2021/04/03/jekyll-page-index-not-showing.html" rel="alternate" type="text/html" title="Jekyll: index.html not rendering in page" /><published>2021-04-03T00:00:00+00:00</published><updated>2021-04-03T00:00:00+00:00</updated><id>https://eddrichjanzzen.github.io/blog/2021/04/03/jekyll-page-index-not-showing</id><content type="html" xml:base="https://eddrichjanzzen.github.io/blog/2021/04/03/jekyll-page-index-not-showing.html">&lt;p&gt;&lt;a href=&quot;https://jekyllrb.com/&quot;&gt;Jekyll&lt;/a&gt; is an amazing tool for building static websites. What I love about Jekyll is that you can easily deploy a simple website without the need for a database. &lt;img src=&quot;/assets/images/blog/jekyll.png&quot; alt=&quot;jekyll&quot; class=&quot;img-blog-right&quot; /&gt; You can also host it for free using &lt;a href=&quot;https://pages.github.com/&quot;&gt;Github Pages&lt;/a&gt; which makes process way more convenient.&lt;/p&gt;
+
+&lt;p&gt;Recently I’ve found the time to restructure my personal webpage built with Jekyll.&lt;/p&gt;
+
+&lt;p&gt;While restructuring the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pages&lt;/code&gt; directory, I ran into an issue where the page would return &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Index of /posts/&lt;/code&gt; instead of the page specified as the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;index&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/blog/index-of-posts.png&quot; alt=&quot;Index&quot; class=&quot;img-blog&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;After an hour or two of debugging, I found that the issue had to do with how Jekyll reads &lt;a href=&quot;https://jekyllrb.com/docs/front-matter/&quot;&gt;Front Matter&lt;/a&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- Accidentally added comment here --&amp;gt;&lt;/span&gt;
+---
+layout: post-layout
+title: Lastest Posts
+order: 3
+permalink: /posts/
+pagination:
+  enabled: true
+  collection: posts
+  permalink: /:num/
+  title: Latest Posts
+---
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Apparently, adding an extra line above the front matter, eg. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;empty line&lt;/code&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;comment&lt;/code&gt; or  &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;space&lt;/code&gt; caused Jekyll to skip the file and not include it in the page compilation. A possible reason for this could be because Jekyll tries to look for the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;---&lt;/code&gt; in the first line of the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;html&lt;/code&gt;. If the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;---&lt;/code&gt; is not found the file is skipped.&lt;/p&gt;
+
+&lt;h4 id=&quot;solution&quot;&gt;Solution&lt;/h4&gt;
+
+&lt;p&gt;Removing all extra lines above the front matter resolved the issue.&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;---
+layout: post-layout
+title: Lastest Posts
+order: 3
+permalink: /posts/
+pagination:
+  enabled: true
+  collection: posts
+  permalink: /:num/
+  title: Latest Posts
+---
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h4 id=&quot;tldr&quot;&gt;TLDR;&lt;/h4&gt;
+
+&lt;p&gt;When working on a Jekyll project, make sure to remove any trailing characters or spaces at the beginning of your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;html&lt;/code&gt; file and before the front matter.&lt;/p&gt;
+
+&lt;p&gt;I hope this article will be of help to anyone who encounters a similar issue. :smile: :thumbsup:&lt;/p&gt;</content><author><name>eddrichjanzzen</name></author><category term="blog" /><category term="tech" /><category term="jekyll" /><summary type="html">Jekyll is an amazing tool for building static websites. What I love about Jekyll is that you can easily deploy a simple website without the need for a database. You can also host it for free using Github Pages which makes process way more convenient.</summary></entry><entry><title type="html">Terraform: Error deleting S3 notification configuration</title><link href="https://eddrichjanzzen.github.io/blog/2021/03/31/error-deleting-S3-notification-configuration.html" rel="alternate" type="text/html" title="Terraform: Error deleting S3 notification configuration" /><published>2021-03-31T00:00:00+00:00</published><updated>2021-03-31T00:00:00+00:00</updated><id>https://eddrichjanzzen.github.io/blog/2021/03/31/error-deleting-S3-notification-configuration</id><content type="html" xml:base="https://eddrichjanzzen.github.io/blog/2021/03/31/error-deleting-S3-notification-configuration.html">&lt;p&gt;Recently I’ve been working on project that uses &lt;a href=&quot;https://www.terraform.io/&quot;&gt;Terraform&lt;/a&gt; to provision different cloud resources like Dynamodb, S3, and Lambda Functions in &lt;a href=&quot;https://aws.amazon.com/&quot;&gt;AWS&lt;/a&gt;. I ran into an issue where calling &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;terraform destroy&lt;/code&gt; would produce the following error.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+Error deleting S3 notification configuration: OperationAborted: A conflicting conditional operation is currently &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;progress against this resource. Please try again.
+	status code: 409, request &lt;span class=&quot;nb&quot;&gt;id&lt;/span&gt;: W080JFW9XFESM4VE, host &lt;span class=&quot;nb&quot;&gt;id&lt;/span&gt;: XXXXXXXXXX+WuqFetNLnzZ7T1oTXV0tzad4lCBQNWG5oxKD+hxocPXd2mpjYBnS1veeI&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The error above states that there is a conflicting conditional that prevents the deletion of the S3 bucket resource.&lt;/p&gt;
+
+&lt;p&gt;Initial research led me to an article by AWS stating that the issue could be due to eventual consistency. It states that: “Because Amazon S3 is a large distributed system, changes like deleting a bucket can take time to become eventually consistent across all AWS Regions. … Until the bucket is completely deleted by Amazon S3, you can’t use the same bucket name. However, when the bucket is deleted and the name is available, other accounts can use the bucket name.”&lt;/p&gt;
+
+&lt;h4 id=&quot;solution&quot;&gt;Solution&lt;/h4&gt;
+
+&lt;p&gt;To solve this issue, I found that appending a random string after the bucket name works. Here’s how:&lt;/p&gt;
+
+&lt;h5 id=&quot;step-1&quot;&gt;Step 1:&lt;/h5&gt;
+&lt;p&gt;Add a random string generator using the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;random_string&lt;/code&gt; resource of terraform&lt;/p&gt;
+
+&lt;div class=&quot;language-tf highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;span class=&quot;c1&quot;&gt;# terraform built in - random string generator&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;resource&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;random_string&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;id&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;length&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;special&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;upper&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;For this example we specify a length of 5, and no special or upper case characters.&lt;/p&gt;
+
+&lt;h5 id=&quot;step-2&quot;&gt;Step 2:&lt;/h5&gt;
+&lt;p&gt;Define a your S3 bucket resource appending the result of the random string generator as follows:&lt;/p&gt;
+
+&lt;div class=&quot;language-tf highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;span class=&quot;c1&quot;&gt;# S3 Bucket for new Documents&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;resource&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;aws_s3_bucket&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;new_documents&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;bucket&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;my-documents-bucket-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;random_string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This will produce a unique bucket following pattern everytime the bucket is created:&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;s2&quot;&gt;&quot;my-documents-bucket-abcde&quot;&lt;/span&gt;
+&lt;span class=&quot;s2&quot;&gt;&quot;my-documents-bucket-rando&quot;&lt;/span&gt;
+&lt;span class=&quot;s2&quot;&gt;&quot;my-documents-bucket-zcgsa&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;I hope this article will be of help to anyone who encounters a similar issue. :smile: :thumbsup:&lt;/p&gt;</content><author><name>eddrichjanzzen</name></author><category term="blog" /><category term="tech" /><category term="aws" /><category term="terraform" /><summary type="html">Recently I’ve been working on project that uses Terraform to provision different cloud resources like Dynamodb, S3, and Lambda Functions in AWS. I ran into an issue where calling terraform destroy would produce the following error.</summary></entry><entry><title type="html">Angular Lazy Loading: ‘router-outlet’ is not a known element</title><link href="https://eddrichjanzzen.github.io/blog/2021/02/28/angular-lazy-loading-router-outlet-not-a-known-element.html" rel="alternate" type="text/html" title="Angular Lazy Loading: 'router-outlet' is not a known element" /><published>2021-02-28T00:00:00+00:00</published><updated>2021-02-28T00:00:00+00:00</updated><id>https://eddrichjanzzen.github.io/blog/2021/02/28/angular-lazy-loading-router-outlet-not-a-known-element</id><content type="html" xml:base="https://eddrichjanzzen.github.io/blog/2021/02/28/angular-lazy-loading-router-outlet-not-a-known-element.html">&lt;p&gt;While working on lazy loaded modules in angular 10, I ran into issues with adding components that use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;router-outlet&amp;gt;&amp;lt;/router-outlet&amp;gt;&lt;/code&gt; in the template file. The compiler throws the error below even if the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;RouterModule&lt;/code&gt; is already defined in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;module.ts&lt;/code&gt; imports:&lt;/p&gt;
 
 &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
 Error: src/app/modules/authentication/authentication.component.html:1:1 - error NG8001: &lt;span class=&quot;s1&quot;&gt;'router-outlet'&lt;/span&gt; is not a known element:
@@ -99,55 +195,7 @@ Error: src/app/modules/authentication/authentication.component.html:1:1 - error 
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;I hope this article will be of help to anyone who encounters a similar issue. :smile: :thumbsup:&lt;/p&gt;</content><author><name>eddrichjanzzen</name></author><category term="blog" /><category term="angular" /><category term="tech" /><summary type="html">While working on lazy loaded modules in angular 10, I ran into issues with adding components that use &amp;lt;router-outlet&amp;gt;&amp;lt;/router-outlet&amp;gt; in the template file. The compiler throws the error below even if the RouterModule is already defined in the module.ts imports:</summary></entry><entry><title type="html">Terraform: Error deleting S3 notification configuration</title><link href="https://eddrichjanzzen.github.io/blog/2021/02/28/error-deleting-S3-notification-configuration.html" rel="alternate" type="text/html" title="Terraform: Error deleting S3 notification configuration" /><published>2021-02-28T00:00:00+00:00</published><updated>2021-02-28T00:00:00+00:00</updated><id>https://eddrichjanzzen.github.io/blog/2021/02/28/error-deleting-S3-notification-configuration</id><content type="html" xml:base="https://eddrichjanzzen.github.io/blog/2021/02/28/error-deleting-S3-notification-configuration.html">&lt;p&gt;Recently I’ve been working on project that uses &lt;a href=&quot;https://www.terraform.io/&quot;&gt;Terraform&lt;/a&gt; to provision different cloud resources like Dynamodb, S3, and Lambda Functions in &lt;a href=&quot;https://aws.amazon.com/&quot;&gt;AWS&lt;/a&gt;. I ran into an issue where calling &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;terraform destroy&lt;/code&gt; would produce the following error.&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-Error deleting S3 notification configuration: OperationAborted: A conflicting conditional operation is currently &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;progress against this resource. Please try again.
-	status code: 409, request &lt;span class=&quot;nb&quot;&gt;id&lt;/span&gt;: W080JFW9XFESM4VE, host &lt;span class=&quot;nb&quot;&gt;id&lt;/span&gt;: XXXXXXXXXX+WuqFetNLnzZ7T1oTXV0tzad4lCBQNWG5oxKD+hxocPXd2mpjYBnS1veeI&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;The error above states that there is a conflicting conditional that prevents the deletion of the S3 bucket resource.&lt;/p&gt;
-
-&lt;p&gt;Initial research led me to an article by AWS stating that the issue could be due to eventual consistency. It states that: “Because Amazon S3 is a large distributed system, changes like deleting a bucket can take time to become eventually consistent across all AWS Regions. … Until the bucket is completely deleted by Amazon S3, you can’t use the same bucket name. However, when the bucket is deleted and the name is available, other accounts can use the bucket name.”&lt;/p&gt;
-
-&lt;h4 id=&quot;solution&quot;&gt;Solution&lt;/h4&gt;
-
-&lt;p&gt;To solve this issue, I found that appending a random string after the bucket name works. Here’s how:&lt;/p&gt;
-
-&lt;h5 id=&quot;step-1&quot;&gt;Step 1:&lt;/h5&gt;
-&lt;p&gt;Add a random string generator using the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;random_string&lt;/code&gt; resource of terraform&lt;/p&gt;
-
-&lt;div class=&quot;language-tf highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-&lt;span class=&quot;c1&quot;&gt;# terraform built in - random string generator&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;resource&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;random_string&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;id&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;length&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;special&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;upper&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;For this example we specify a length of 5, and no special or upper case characters.&lt;/p&gt;
-
-&lt;h5 id=&quot;step-2&quot;&gt;Step 2:&lt;/h5&gt;
-&lt;p&gt;Define a your S3 bucket resource appending the result of the random string generator as follows:&lt;/p&gt;
-
-&lt;div class=&quot;language-tf highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-&lt;span class=&quot;c1&quot;&gt;# S3 Bucket for new Documents&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;resource&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;aws_s3_bucket&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;new_documents&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;bucket&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;my-documents-bucket-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;random_string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;This will produce a unique bucket following pattern everytime the bucket is created:&lt;/p&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;s2&quot;&gt;&quot;my-documents-bucket-abcde&quot;&lt;/span&gt;
-&lt;span class=&quot;s2&quot;&gt;&quot;my-documents-bucket-rando&quot;&lt;/span&gt;
-&lt;span class=&quot;s2&quot;&gt;&quot;my-documents-bucket-zcgsa&quot;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;I hope this article will be of help to anyone who encounters a similar issue. :smile: :thumbsup:&lt;/p&gt;</content><author><name>eddrichjanzzen</name></author><category term="blog" /><category term="tech" /><category term="aws" /><summary type="html">Recently I’ve been working on project that uses Terraform to provision different cloud resources like Dynamodb, S3, and Lambda Functions in AWS. I ran into an issue where calling terraform destroy would produce the following error.</summary></entry><entry><title type="html">Django urls UUID 404 page not found</title><link href="https://eddrichjanzzen.github.io/blog/2021/02/27/django-url-uuid-404.html" rel="alternate" type="text/html" title="Django urls UUID 404 page not found" /><published>2021-02-27T00:00:00+00:00</published><updated>2021-02-27T00:00:00+00:00</updated><id>https://eddrichjanzzen.github.io/blog/2021/02/27/django-url-uuid-404</id><content type="html" xml:base="https://eddrichjanzzen.github.io/blog/2021/02/27/django-url-uuid-404.html">&lt;p&gt;Recently I’ve been working on a simple api that uses &lt;a href=&quot;https://www.django-rest-framework.org/&quot;&gt;Django Rest Framework&lt;/a&gt;. Instead of using integer ids as the primary key identifier, UUIDs are used. The advantage of this approach is to prevent enumeration attacks where the primary key is easily guessable. In addition to this, using UUIDs also guarantees a unique identifier across all systems.&lt;/p&gt;
+&lt;p&gt;I hope this article will be of help to anyone who encounters a similar issue. :smile: :thumbsup:&lt;/p&gt;</content><author><name>eddrichjanzzen</name></author><category term="blog" /><category term="angular" /><category term="tech" /><summary type="html">While working on lazy loaded modules in angular 10, I ran into issues with adding components that use &amp;lt;router-outlet&amp;gt;&amp;lt;/router-outlet&amp;gt; in the template file. The compiler throws the error below even if the RouterModule is already defined in the module.ts imports:</summary></entry><entry><title type="html">Django urls UUID 404 page not found</title><link href="https://eddrichjanzzen.github.io/blog/2021/02/27/django-url-uuid-404.html" rel="alternate" type="text/html" title="Django urls UUID 404 page not found" /><published>2021-02-27T00:00:00+00:00</published><updated>2021-02-27T00:00:00+00:00</updated><id>https://eddrichjanzzen.github.io/blog/2021/02/27/django-url-uuid-404</id><content type="html" xml:base="https://eddrichjanzzen.github.io/blog/2021/02/27/django-url-uuid-404.html">&lt;p&gt;Recently I’ve been working on a simple api that uses &lt;a href=&quot;https://www.django-rest-framework.org/&quot;&gt;Django Rest Framework&lt;/a&gt;. Instead of using integer ids as the primary key identifier, UUIDs are used. The advantage of this approach is to prevent enumeration attacks where the primary key is easily guessable. In addition to this, using UUIDs also guarantees a unique identifier across all systems.&lt;/p&gt;
 
 &lt;p&gt;In Django, we are able to define a path to accept a UUID as follows:&lt;/p&gt;
 
@@ -258,7 +306,7 @@ GET http://localhost:8000/tasks/7cd6fae8-2835-4dac-b-53326a3
 
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;I hope this article will be of help to anyone who encounters a similar issue. :smile: :thumbsup:&lt;/p&gt;</content><author><name>eddrichjanzzen</name></author><category term="blog" /><category term="python" /><category term="tech" /><summary type="html">Recently I’ve been working on a simple api that uses Django Rest Framework. Instead of using integer ids as the primary key identifier, UUIDs are used. The advantage of this approach is to prevent enumeration attacks where the primary key is easily guessable. In addition to this, using UUIDs also guarantees a unique identifier across all systems.</summary></entry><entry><title type="html">Integrating Editor.js with Angular</title><link href="https://eddrichjanzzen.github.io/blog/2020/12/29/Editorjs-x-Angular.html" rel="alternate" type="text/html" title="Integrating Editor.js with Angular" /><published>2020-12-29T00:00:00+00:00</published><updated>2020-12-29T00:00:00+00:00</updated><id>https://eddrichjanzzen.github.io/blog/2020/12/29/Editorjs-x-Angular</id><content type="html" xml:base="https://eddrichjanzzen.github.io/blog/2020/12/29/Editorjs-x-Angular.html">&lt;p&gt;Writing or creating content has always been a crutial part of the web since its beginning. As the web continues to mature, the demand for dynamic, customizable, and flexibile text editors has evolved as well. Gone are the days of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;textarea&amp;gt;&lt;/code&gt; where the content being written is static. Most modern text editors now follow the concept of &lt;a href=&quot;https://en.wikipedia.org/wiki/WYSIWYG&quot;&gt;WYSIWYG&lt;/a&gt; (What You See Is What You Get), where the content being edited within a form resembles its actual appreance when printed or displayed on screen. As a matter of fact, the open source community offers many free options that suit these needs. &lt;img src=&quot;/assets/images/angular-editorjs/angular-x-editorjs.png&quot; alt=&quot;Angular&quot; class=&quot;img-blog-right&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;I hope this article will be of help to anyone who encounters a similar issue. :smile: :thumbsup:&lt;/p&gt;</content><author><name>eddrichjanzzen</name></author><category term="blog" /><category term="python" /><category term="tech" /><summary type="html">Recently I’ve been working on a simple api that uses Django Rest Framework. Instead of using integer ids as the primary key identifier, UUIDs are used. The advantage of this approach is to prevent enumeration attacks where the primary key is easily guessable. In addition to this, using UUIDs also guarantees a unique identifier across all systems.</summary></entry><entry><title type="html">Integrating Editor.js with Angular</title><link href="https://eddrichjanzzen.github.io/blog/2020/12/29/Editorjs-x-Angular.html" rel="alternate" type="text/html" title="Integrating Editor.js with Angular" /><published>2020-12-29T00:00:00+00:00</published><updated>2020-12-29T00:00:00+00:00</updated><id>https://eddrichjanzzen.github.io/blog/2020/12/29/Editorjs-x-Angular</id><content type="html" xml:base="https://eddrichjanzzen.github.io/blog/2020/12/29/Editorjs-x-Angular.html">&lt;p&gt;Writing or creating content has always been a crutial part of the web since its beginning. As the web continues to mature, the demand for dynamic, customizable, and flexibile text editors has evolved as well. Gone are the days of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;textarea&amp;gt;&lt;/code&gt; where the content being written is static. Most modern text editors now follow the concept of &lt;a href=&quot;https://en.wikipedia.org/wiki/WYSIWYG&quot;&gt;WYSIWYG&lt;/a&gt; (What You See Is What You Get), where the content being edited within a form resembles its actual appreance when printed or displayed on screen. As a matter of fact, the open source community offers many free options that suit these needs. &lt;img src=&quot;/assets/images/blog/angular-editorjs/angular-x-editorjs.png&quot; alt=&quot;Angular&quot; class=&quot;img-blog-right&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;In this article, we will be looking into an emerging Block-Styled editor, &lt;a href=&quot;https://editorjs.io/&quot;&gt;Editor.js&lt;/a&gt;. We will then walkthough how this tool might be implemented in an Angular application.&lt;/p&gt;
 
@@ -697,7 +745,7 @@ GET http://localhost:8000/tasks/7cd6fae8-2835-4dac-b-53326a3
 
 &lt;p&gt;There you have it. You have successfully integrated &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Editor.js&lt;/code&gt; with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Angular&lt;/code&gt;. :clap: :clap: :clap:&lt;/p&gt;
 
-&lt;p&gt;For more details, you may visit the sample project. &lt;a href=&quot;https://github.com/eddrichjanzzen/angular-editorjs-sample&quot;&gt;https://github.com/eddrichjanzzen/angular-editorjs-sample&lt;/a&gt;&lt;/p&gt;</content><author><name>eddrichjanzzen</name></author><category term="blog" /><category term="angular" /><category term="editorjs" /><category term="mutationObserver" /><summary type="html">Writing or creating content has always been a crutial part of the web since its beginning. As the web continues to mature, the demand for dynamic, customizable, and flexibile text editors has evolved as well. Gone are the days of &amp;lt;textarea&amp;gt; where the content being written is static. Most modern text editors now follow the concept of WYSIWYG (What You See Is What You Get), where the content being edited within a form resembles its actual appreance when printed or displayed on screen. As a matter of fact, the open source community offers many free options that suit these needs.</summary></entry><entry><title type="html">AWS: boto3 “Unable to locate credentials” with Docker</title><link href="https://eddrichjanzzen.github.io/blog/2020/08/25/Boto3-Unable-to-Locate-Creds.html" rel="alternate" type="text/html" title="AWS: boto3 &quot;Unable to locate credentials&quot; with Docker" /><published>2020-08-25T00:00:00+00:00</published><updated>2020-08-25T00:00:00+00:00</updated><id>https://eddrichjanzzen.github.io/blog/2020/08/25/Boto3-Unable-to-Locate-Creds</id><content type="html" xml:base="https://eddrichjanzzen.github.io/blog/2020/08/25/Boto3-Unable-to-Locate-Creds.html">&lt;h4 id=&quot;boto3-unable-to-locate-credentials&quot;&gt;Boto3: Unable to locate credentials&lt;/h4&gt;
+&lt;p&gt;For more details, you may visit the sample project. &lt;a href=&quot;https://github.com/eddrichjanzzen/angular-editorjs-sample&quot;&gt;https://github.com/eddrichjanzzen/angular-editorjs-sample&lt;/a&gt;&lt;/p&gt;</content><author><name>eddrichjanzzen</name></author><category term="blog" /><category term="angular" /><category term="tech" /><summary type="html">Writing or creating content has always been a crutial part of the web since its beginning. As the web continues to mature, the demand for dynamic, customizable, and flexibile text editors has evolved as well. Gone are the days of &amp;lt;textarea&amp;gt; where the content being written is static. Most modern text editors now follow the concept of WYSIWYG (What You See Is What You Get), where the content being edited within a form resembles its actual appreance when printed or displayed on screen. As a matter of fact, the open source community offers many free options that suit these needs.</summary></entry><entry><title type="html">AWS: boto3 “Unable to locate credentials” with Docker</title><link href="https://eddrichjanzzen.github.io/blog/2020/08/25/Boto3-Unable-to-Locate-Creds.html" rel="alternate" type="text/html" title="AWS: boto3 &quot;Unable to locate credentials&quot; with Docker" /><published>2020-08-25T00:00:00+00:00</published><updated>2020-08-25T00:00:00+00:00</updated><id>https://eddrichjanzzen.github.io/blog/2020/08/25/Boto3-Unable-to-Locate-Creds</id><content type="html" xml:base="https://eddrichjanzzen.github.io/blog/2020/08/25/Boto3-Unable-to-Locate-Creds.html">&lt;h4 id=&quot;boto3-unable-to-locate-credentials&quot;&gt;Boto3: Unable to locate credentials&lt;/h4&gt;
 
 &lt;p&gt;Recently I’ve been working on a Dockerized Python application that connects to AWS resources using the &lt;a href=&quot;https://pypi.org/project/boto3&quot;&gt;boto3&lt;/a&gt; library. I stumbled upon an error where the app could not find the aws credentials within the docker container.&lt;/p&gt;
 
@@ -740,13 +788,13 @@ botocore.exceptions.NoCredentialsError: Unable to locate credentials
 
 &lt;p&gt;We set our &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;environment&lt;/code&gt; as &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;AWS_PROFILE=default&lt;/code&gt; so that boto3 will know to read the configuration for the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;default&lt;/code&gt; environment. For multiple environments you can configure &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;AWS_PROFILE=&amp;lt;your environment here&amp;gt;&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;I hope this article will be of help to anyone who encounters a similar issue. :smile: :thumbsup:&lt;/p&gt;</content><author><name>eddrichjanzzen</name></author><category term="blog" /><category term="boto3" /><category term="docker" /><category term="aws" /><category term="python" /><summary type="html">Boto3: Unable to locate credentials</summary></entry><entry><title type="html">Comming Soon</title><link href="https://eddrichjanzzen.github.io/projects/2020/08/21/CommingSoonA.html" rel="alternate" type="text/html" title="Comming Soon" /><published>2020-08-21T00:00:00+00:00</published><updated>2020-08-21T00:00:00+00:00</updated><id>https://eddrichjanzzen.github.io/projects/2020/08/21/CommingSoonA</id><content type="html" xml:base="https://eddrichjanzzen.github.io/projects/2020/08/21/CommingSoonA.html">&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam magna tellus, consectetur et odio vitae, congue iaculis lacus. Nunc ultrices porttitor massa. Mauris posuere, risus at maximus malesuada, ex diam iaculis lectus, vel posuere diam nunc eget mauris. Phasellus lacinia ex ac nulla viverra tempus. In efficitur tortor lorem, vel laoreet quam pretium ut.&lt;/p&gt;
+&lt;p&gt;I hope this article will be of help to anyone who encounters a similar issue. :smile: :thumbsup:&lt;/p&gt;</content><author><name>eddrichjanzzen</name></author><category term="blog" /><category term="tech" /><category term="aws" /><category term="python" /><summary type="html">Boto3: Unable to locate credentials</summary></entry><entry><title type="html">Comming Soon</title><link href="https://eddrichjanzzen.github.io/projects/2020/08/21/CommingSoonA.html" rel="alternate" type="text/html" title="Comming Soon" /><published>2020-08-21T00:00:00+00:00</published><updated>2020-08-21T00:00:00+00:00</updated><id>https://eddrichjanzzen.github.io/projects/2020/08/21/CommingSoonA</id><content type="html" xml:base="https://eddrichjanzzen.github.io/projects/2020/08/21/CommingSoonA.html">&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam magna tellus, consectetur et odio vitae, congue iaculis lacus. Nunc ultrices porttitor massa. Mauris posuere, risus at maximus malesuada, ex diam iaculis lectus, vel posuere diam nunc eget mauris. Phasellus lacinia ex ac nulla viverra tempus. In efficitur tortor lorem, vel laoreet quam pretium ut.&lt;/p&gt;
 
 &lt;p&gt;Website: &lt;a href=&quot;&quot;&gt;https://example.com&lt;/a&gt;&lt;/p&gt;</content><author><name>eddrichjanzzen</name></author><category term="projects" /><category term="web" /><category term="design" /><summary type="html">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam magna tellus, consectetur et odio vitae, congue iaculis lacus. Nunc ultrices porttitor massa. Mauris posuere, risus at maximus malesuada, ex diam iaculis lectus, vel posuere diam nunc eget mauris. Phasellus lacinia ex ac nulla viverra tempus. In efficitur tortor lorem, vel laoreet quam pretium ut.</summary></entry><entry><title type="html">Comming Soon</title><link href="https://eddrichjanzzen.github.io/projects/2020/08/21/CommingSoonB.html" rel="alternate" type="text/html" title="Comming Soon" /><published>2020-08-21T00:00:00+00:00</published><updated>2020-08-21T00:00:00+00:00</updated><id>https://eddrichjanzzen.github.io/projects/2020/08/21/CommingSoonB</id><content type="html" xml:base="https://eddrichjanzzen.github.io/projects/2020/08/21/CommingSoonB.html">&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam magna tellus, consectetur et odio vitae, congue iaculis lacus. Nunc ultrices porttitor massa. Mauris posuere, risus at maximus malesuada, ex diam iaculis lectus, vel posuere diam nunc eget mauris. Phasellus lacinia ex ac nulla viverra tempus. In efficitur tortor lorem, vel laoreet quam pretium ut.&lt;/p&gt;
 
 &lt;p&gt;Website: &lt;a href=&quot;&quot;&gt;https://example.com&lt;/a&gt;&lt;/p&gt;</content><author><name>eddrichjanzzen</name></author><category term="projects" /><category term="web" /><category term="design" /><summary type="html">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam magna tellus, consectetur et odio vitae, congue iaculis lacus. Nunc ultrices porttitor massa. Mauris posuere, risus at maximus malesuada, ex diam iaculis lectus, vel posuere diam nunc eget mauris. Phasellus lacinia ex ac nulla viverra tempus. In efficitur tortor lorem, vel laoreet quam pretium ut.</summary></entry><entry><title type="html">La Contessa Cattery</title><link href="https://eddrichjanzzen.github.io/projects/2020/08/21/La-Contessa.html" rel="alternate" type="text/html" title="La Contessa Cattery" /><published>2020-08-21T00:00:00+00:00</published><updated>2020-08-21T00:00:00+00:00</updated><id>https://eddrichjanzzen.github.io/projects/2020/08/21/La-Contessa</id><content type="html" xml:base="https://eddrichjanzzen.github.io/projects/2020/08/21/La-Contessa.html">&lt;p&gt;A website developed for a local cattery based in the Philippines. Developed using basic css, javascript, and html. For responsiveness, css grid layouts, and media queries are used.&lt;/p&gt;
 
-&lt;p&gt;Website: &lt;a href=&quot;https://www.lacontessacattery.com&quot; target=&quot;_blank&quot;&gt;lacontessacattery.com&lt;/a&gt;&lt;/p&gt;</content><author><name>eddrichjanzzen</name></author><category term="projects" /><category term="web design" /><category term="cattery" /><category term="pets" /><summary type="html">A website developed for a local cattery based in the Philippines. Developed using basic css, javascript, and html. For responsiveness, css grid layouts, and media queries are used.</summary></entry><entry><title type="html">Color Scale using D3.js and Angular</title><link href="https://eddrichjanzzen.github.io/blog/2020/08/16/Custom-Spectrum-Scale-Component.html" rel="alternate" type="text/html" title="Color Scale using D3.js and Angular" /><published>2020-08-16T00:00:00+00:00</published><updated>2020-08-16T00:00:00+00:00</updated><id>https://eddrichjanzzen.github.io/blog/2020/08/16/Custom-Spectrum-Scale-Component</id><content type="html" xml:base="https://eddrichjanzzen.github.io/blog/2020/08/16/Custom-Spectrum-Scale-Component.html">&lt;h4 id=&quot;data-visualization&quot;&gt;Data Visualization&lt;/h4&gt;
+&lt;p&gt;Website: &lt;a href=&quot;https://www.lacontessacattery.com&quot; target=&quot;_blank&quot;&gt;lacontessacattery.com&lt;/a&gt;&lt;/p&gt;</content><author><name>eddrichjanzzen</name></author><category term="projects" /><category term="web" /><summary type="html">A website developed for a local cattery based in the Philippines. Developed using basic css, javascript, and html. For responsiveness, css grid layouts, and media queries are used.</summary></entry><entry><title type="html">Color Scale using D3.js and Angular</title><link href="https://eddrichjanzzen.github.io/blog/2020/08/16/Custom-Spectrum-Scale-Component.html" rel="alternate" type="text/html" title="Color Scale using D3.js and Angular" /><published>2020-08-16T00:00:00+00:00</published><updated>2020-08-16T00:00:00+00:00</updated><id>https://eddrichjanzzen.github.io/blog/2020/08/16/Custom-Spectrum-Scale-Component</id><content type="html" xml:base="https://eddrichjanzzen.github.io/blog/2020/08/16/Custom-Spectrum-Scale-Component.html">&lt;h4 id=&quot;data-visualization&quot;&gt;Data Visualization&lt;/h4&gt;
 
 &lt;p&gt;As business needs continue to evolve, being able to visualize data is of paramount importance. More than just presenting the numbers to our users; we also need to make it easy for them to understand what those numbers mean. Data visualization is a vast field that deals with making data easier to understand. There are numerous ways to present data such as bar graphs, line charts, and pie charts. However, these methods can sometimes be quite limited.&lt;/p&gt;
 
@@ -825,7 +873,7 @@ botocore.exceptions.NoCredentialsError: Unable to locate credentials
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Output:
-&lt;img src=&quot;/assets/images/gender-bias.png&quot; alt=&quot;Gender&quot; class=&quot;img-blog&quot; /&gt;&lt;/p&gt;
+&lt;img src=&quot;/assets/images/blog/gender-bias.png&quot; alt=&quot;Gender&quot; class=&quot;img-blog&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Example 2:&lt;/p&gt;
 &lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
@@ -851,58 +899,10 @@ botocore.exceptions.NoCredentialsError: Unable to locate credentials
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Output
-&lt;img src=&quot;/assets/images/sentiment-analysis.png&quot; alt=&quot;Sentiment&quot; class=&quot;img-blog&quot; /&gt;&lt;/p&gt;
+&lt;img src=&quot;/assets/images/blog/sentiment-analysis.png&quot; alt=&quot;Sentiment&quot; class=&quot;img-blog&quot; /&gt;&lt;/p&gt;
 
 &lt;h4 id=&quot;wrapping-up&quot;&gt;Wrapping up&lt;/h4&gt;
 
 &lt;p&gt;There you have it. You have successfully added your custom color scale. :clap: :clap: :clap:&lt;/p&gt;
 
-&lt;p&gt;For information and a more detailed documentation, you can visit the npm package at: &lt;a href=&quot;https://www.npmjs.com/package/ng-color-scale&quot;&gt;https://www.npmjs.com/package/ng-color-scale&lt;/a&gt;&lt;/p&gt;</content><author><name>eddrichjanzzen</name></author><category term="blog" /><category term="d3.js" /><category term="angular" /><category term="charts" /><summary type="html">Data Visualization</summary></entry><entry><title type="html">Dapper Micro ORM</title><link href="https://eddrichjanzzen.github.io/blog/2020/07/19/Dotnet-Dapper.html" rel="alternate" type="text/html" title="Dapper Micro ORM" /><published>2020-07-19T00:00:00+00:00</published><updated>2020-07-19T00:00:00+00:00</updated><id>https://eddrichjanzzen.github.io/blog/2020/07/19/Dotnet-Dapper</id><content type="html" xml:base="https://eddrichjanzzen.github.io/blog/2020/07/19/Dotnet-Dapper.html">&lt;p&gt;The .NET ecosystem has always been a widely used platform for developing handsdown awesome applications! With the .NET stack alone there is a wide spectrum of projects that can be developed ranging from APIs (via &lt;a href=&quot;https://dotnet.microsoft.com/apps/aspnet&quot;&gt;ASP .NET&lt;/a&gt;), mobile apps, (via &lt;a href=&quot;https://dotnet.microsoft.com/apps/xamarin&quot;&gt;Xamarin&lt;/a&gt;), and even Windows Applications, (via &lt;a href=&quot;https://docs.microsoft.com/en-us/dotnet/framework/wpf/getting-started/introduction-to-wpf-in-vs&quot;&gt;WPF&lt;/a&gt;). With a history of being Windows specific, .NET has evolved over the years to allow open source. This revolutionary change gave rise to its increased in popularity as a development platform.&lt;/p&gt;
-
-&lt;h4 id=&quot;dapper&quot;&gt;Dapper&lt;/h4&gt;
-
-&lt;p&gt;Most modern .NET Web applications make use of Entity Framework as their ORM tool. An ORM or Object Relational Mapping is a development pattern that hides or encapsulates the data source by mapping the data into objects. There may advantages to adopting this type of pattern. For one, it enables developers to work with using objects rather than focusing on underlying database tables and columns where the data is stored. Not only does this provide greater benefits to how developers write their code, it also elimates the need for most of the boiler plate data acesss code that developers usually write. &lt;a href=&quot;https://en.wikipedia.org/wiki/Object-relational_mapping&quot;&gt;read more&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;In today’s article we will be talking about a less conventional implementation of an ORM. We will be talking about the Dapper Micro ORM.&lt;/p&gt;
-
-&lt;h5 id=&quot;what-is-dapper&quot;&gt;What is Dapper?&lt;/h5&gt;
-
-&lt;p&gt;In simple terms, Dapper is a object mapper for .NET. It owns the title fo “King of Micro ORM”. It is virtually as fast as using a raw ADO.NET data reader. It allows one to be very flexible with writing SQL queries themselves thereby ensuring optimal performance. &lt;a href=&quot;https://dapper-tutorial.net/dapper&quot;&gt;read more&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Unlike the full-blown ORMs (ei, &lt;a href=&quot;https://nhibernate.info/&quot;&gt;NHibernate&lt;/a&gt;, &lt;a href=&quot;https://docs.microsoft.com/en-us/ef/ef6/&quot;&gt;EntityFramework&lt;/a&gt;, or &lt;a href=&quot;https://www.sqlalchemy.org/&quot;&gt;SQLAlchemy&lt;/a&gt;), Dapper focuses more on mapping the data to its code representation, leaving the other configurations upto the developer. This allows for some flexibility in the way the data is queried/manipulated. This increased flexibility however, comes with some benefits and drawbacks. Lets go over some of them.&lt;/p&gt;
-
-&lt;h5 id=&quot;the-advantages&quot;&gt;The Advantages&lt;/h5&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Faster Performance.
-    &lt;ul&gt;
-      &lt;li&gt;Being able to map the data directly to its code representation means less time spent on other tasks.  Since micro-ORMS allow for configuration of the SQL scripts, it is possible to write more SQL optimized scripts instead of relying on the autogenerated SQL scripts by the regular ORMs. This thereby increases speed and performance.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Lighter Weight.
-    &lt;ul&gt;
-      &lt;li&gt;Sometimes setting up a full blown ORM might be too much. Especially for smaller projects that only use a few entities, a lot of the functionalities provided by the regular ORMs are not needed.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h5 id=&quot;the-disadvantages&quot;&gt;The Disadvantages&lt;/h5&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Database Migrations.
-    &lt;ul&gt;
-      &lt;li&gt;Regular ORMs usually come with a built in migration tool. Dapper on the otherhand does not. There is a need for one to set up a migration tools especially for larger projects. However, there are ways around this such as using &lt;a href=&quot;https://dbup.github.io/&quot;&gt;DbUp&lt;/a&gt;, or &lt;a href=&quot;https://www.devart.com/dbforge/sql/schemacompare/&quot;&gt;Schema Compare&lt;/a&gt; available in Visual Studio.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Working with Validation.
-    &lt;ul&gt;
-      &lt;li&gt;Micro ORMs focus more on mapping the data and fast performance at the expense of features such as validation. For apps that rely heaviliy on validation, it would be recommended to stick to using regular ORMs.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h4 id=&quot;when-should-i-consider-using-a-micro-orm&quot;&gt;When should I consider using a micro-ORM?&lt;/h4&gt;
-
-&lt;p&gt;It depends. It helps to carefully assess the requirments and to do proper research before making any decisions.&lt;/p&gt;
-
-&lt;p&gt;If you’re developing a small utility application where performance of critical importance, perhaps using a micro ORM would come to be a good move. :sunglasses:&lt;/p&gt;</content><author><name>eddrichjanzzen</name></author><category term="blog" /><category term="dotnet" /><category term="dapper" /><category term="C#" /><summary type="html">The .NET ecosystem has always been a widely used platform for developing handsdown awesome applications! With the .NET stack alone there is a wide spectrum of projects that can be developed ranging from APIs (via ASP .NET), mobile apps, (via Xamarin), and even Windows Applications, (via WPF). With a history of being Windows specific, .NET has evolved over the years to allow open source. This revolutionary change gave rise to its increased in popularity as a development platform.</summary></entry></feed>
+&lt;p&gt;For information and a more detailed documentation, you can visit the npm package at: &lt;a href=&quot;https://www.npmjs.com/package/ng-color-scale&quot;&gt;https://www.npmjs.com/package/ng-color-scale&lt;/a&gt;&lt;/p&gt;</content><author><name>eddrichjanzzen</name></author><category term="blog" /><category term="tech" /><category term="angular" /><summary type="html">Data Visualization</summary></entry></feed>

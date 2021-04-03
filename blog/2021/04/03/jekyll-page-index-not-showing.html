@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en-ca">
+  
+  <head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Jekyll: index.html not rendering in page | Eddrich Janzzen</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Jekyll: index.html not rendering in page" />
+<meta name="author" content="eddrichjanzzen" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="An article shows a possible reason why the index.html page in jekyll isn’t rendered" />
+<meta property="og:description" content="An article shows a possible reason why the index.html page in jekyll isn’t rendered" />
+<link rel="canonical" href="https://eddrichjanzzen.github.io/blog/2021/04/03/jekyll-page-index-not-showing.html" />
+<meta property="og:url" content="https://eddrichjanzzen.github.io/blog/2021/04/03/jekyll-page-index-not-showing.html" />
+<meta property="og:site_name" content="Eddrich Janzzen" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-04-03T00:00:00+00:00" />
+<script type="application/ld+json">
+{"description":"An article shows a possible reason why the index.html page in jekyll isn’t rendered","headline":"Jekyll: index.html not rendering in page","dateModified":"2021-04-03T00:00:00+00:00","datePublished":"2021-04-03T00:00:00+00:00","@type":"BlogPosting","url":"https://eddrichjanzzen.github.io/blog/2021/04/03/jekyll-page-index-not-showing.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://eddrichjanzzen.github.io/blog/2021/04/03/jekyll-page-index-not-showing.html"},"author":{"@type":"Person","name":"eddrichjanzzen"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <link rel="icon" href="/assets/icons/favicon.ico">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway:200,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:100;400" rel="stylesheet">
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/normalize.css">
+  <link rel="stylesheet" href="/assets/css/skeleton.css">
+  <link rel="stylesheet" href="/assets/css/skeleton-alerts.css">
+  <link rel="stylesheet" href="/assets/css/badge.css">
+  <link rel="stylesheet" href="/assets/css/common.css">
+  <!-- for syntax highlighting -->
+  <link rel="stylesheet" href="/assets/css/tango.css">
+  <!-- font awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+  <!-- for category filtering-->
+  <script src="/assets/js/jquery-3.1.1.min.js"></script> 
+
+  <meta name="google-site-verification" content="y76HL_x2Anjbw7oIO9lswptVVKHz5NHCzh8Dz9Rp4FI" />
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-171515307-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-171515307-1');
+  </script>
+
+  
+</head>
+
+
+<body>
+
+  <header>
+    <nav>
+	
+	<div class="hamburger">
+		<div class="line"></div>
+		<div class="line"></div>
+		<div class="line"></div>
+	</div>
+	
+	
+	<ul class="clearfix nav-top">
+	<!-- <ul class="open nav-top"> -->
+		<li><a href="/index.html">Home</a></li>
+    <li><a href="/posts">Posts</a></li>
+		<li><a href="/projects">Projects</a></li>
+		<li><a href="https://github.com/eddrichjanzzen" target="_blank">GitHub</a></li>
+		<li><a href="/contact">Contact</a></li>
+	</ul>
+</nav>
+
+
+<!-- https://www.youtube.com/watch?v=6m6iqN1uynE -->
+
+  </header>
+
+
+  <div class="content-wrapper">
+    <h3>Jekyll: index.html not rendering in page</h3>
+<span>Posted on Apr 03, 2021 • eddrichjanzzen
+</span>
+<div>    
+  
+    <a class="badge badge-secondary" href="/posts/tech">
+      <i class="fas fa-tags"></i>
+      tech
+    </a>
+  
+    <a class="badge badge-secondary" href="/posts/jekyll">
+      <i class="fas fa-tags"></i>
+      jekyll
+    </a>
+  
+</div>
+<br>
+
+<div class="blog-wrapper">
+	<p><a href="https://jekyllrb.com/">Jekyll</a> is an amazing tool for building static websites. What I love about Jekyll is that you can easily deploy a simple website without the need for a database. <img src="/assets/images/blog/jekyll.png" alt="jekyll" class="img-blog-right"> You can also host it for free using <a href="https://pages.github.com/">Github Pages</a> which makes process way more convenient.</p>
+
+<p>Recently I’ve found the time to restructure my personal webpage built with Jekyll.</p>
+
+<p>While restructuring the <code class="language-plaintext highlighter-rouge">pages</code> directory, I ran into an issue where the page would return <code class="language-plaintext highlighter-rouge">Index of /posts/</code> instead of the page specified as the <code class="language-plaintext highlighter-rouge">index</code>.</p>
+
+<p><img src="/assets/images/blog/index-of-posts.png" alt="Index" class="img-blog"></p>
+
+<p>After an hour or two of debugging, I found that the issue had to do with how Jekyll reads <a href="https://jekyllrb.com/docs/front-matter/">Front Matter</a>.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">&lt;!-- Accidentally added comment here --&gt;</span>
+---
+layout: post-layout
+title: Lastest Posts
+order: 3
+permalink: /posts/
+pagination:
+  enabled: true
+  collection: posts
+  permalink: /:num/
+  title: Latest Posts
+---
+
+</code></pre></div></div>
+
+<p>Apparently, adding an extra line above the front matter, eg. <code class="language-plaintext highlighter-rouge">empty line</code> or <code class="language-plaintext highlighter-rouge">comment</code> or  <code class="language-plaintext highlighter-rouge">space</code> caused Jekyll to skip the file and not include it in the page compilation. A possible reason for this could be because Jekyll tries to look for the <code class="language-plaintext highlighter-rouge">---</code> in the first line of the <code class="language-plaintext highlighter-rouge">html</code>. If the <code class="language-plaintext highlighter-rouge">---</code> is not found the file is skipped.</p>
+
+<h4 id="solution">Solution</h4>
+
+<p>Removing all extra lines above the front matter resolved the issue.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>---
+layout: post-layout
+title: Lastest Posts
+order: 3
+permalink: /posts/
+pagination:
+  enabled: true
+  collection: posts
+  permalink: /:num/
+  title: Latest Posts
+---
+
+</code></pre></div></div>
+<h4 id="tldr">TLDR;</h4>
+
+<p>When working on a Jekyll project, make sure to remove any trailing characters or spaces at the beginning of your <code class="language-plaintext highlighter-rouge">html</code> file and before the front matter.</p>
+
+<p>I hope this article will be of help to anyone who encounters a similar issue. <img class="emoji" title=":smile:" alt=":smile:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f604.png" height="20" width="20"> <img class="emoji" title=":thumbsup:" alt=":thumbsup:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f44d.png" height="20" width="20"></p>
+
+	
+</div>
+
+  <div>
+  
+  <footer>
+    
+<footer class="footer">
+	<nav>
+	
+	
+	<ul class="clearfix nav-bottom">
+	<!-- <ul class="open nav-top"> -->
+		<li><a href="/index.html">Home</a></li>
+    <li><a href="/posts">Posts</a></li>
+		<li><a href="/projects">Projects</a></li>
+		<li><a href="https://github.com/eddrichjanzzen" target="_blank">GitHub</a></li>
+		<li><a href="/contact">Contact</a></li>
+	</ul>
+</nav>
+
+
+<!-- https://www.youtube.com/watch?v=6m6iqN1uynE -->
+
+	<div class="mini">
+		<img src="/assets/images/me.jpg" alt="">
+		<p>Developed by <a href="https://github.com/eddrichjanzzen">Eddrich Janzzen Ang</a> powered by <a href="https://jekyllrb.com/">Jekyll</a></p>	
+	</div>
+</footer>
+
+
+  <footer>
+
+</footer></footer>
+</div>
+</div></body>
+<script src="/assets/js/main.js"></script>
+</html>
