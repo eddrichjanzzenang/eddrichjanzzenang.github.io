@@ -6,8 +6,7 @@ date: 2020-07-19
 category: blog
 tags: 
 - dotnet
-- dapper
-- C#
+- tech
 description: A short article about Dapper Micro ORM. Also outlines the advantages and disadvatanges of using a micro ORM and traditional ORM.
 ---
 

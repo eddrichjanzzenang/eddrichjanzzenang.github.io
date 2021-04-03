@@ -125,6 +125,10 @@ nav li {
   padding:15px 15px 0px 15px;
 }
 
+.no-content{
+  padding:15px 15px 0px 15px;
+}
+
 .post-description {
   height: 200px;
   max-height:300px;

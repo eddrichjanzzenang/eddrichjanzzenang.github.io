@@ -41,10 +41,19 @@ Badge
 }
 
 .badge-secondary {
-  color: #fff;
-  background-color: #D0D0D0;
-  /*background-color: #ff3333;*/
+  color: #C0392B;
+  background-color: #F2D7D5;
+  padding: 0.5em 0.8em;
+  margin: 0.3em;
 }
+
+.badge-medium {
+  font-size: 1em;
+} 
+
+.badge-large {
+  font-size: 2em;
+} 
 
 .badge-secondary:hover, .badge-secondary:focus {
   color: #fff;

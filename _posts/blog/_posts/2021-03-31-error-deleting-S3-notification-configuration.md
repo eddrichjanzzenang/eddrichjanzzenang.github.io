@@ -2,11 +2,12 @@
 title: "Terraform: Error deleting S3 notification configuration"
 layout: blog-specific
 author: eddrichjanzzen
-date: 2021-02-28
+date: 2021-03-31
 category: blog
 tags: 
 - tech
 - aws
+- terraform
 description: "An article that describes fix and a possible prevetive measure against an error on deleting S3 notification configuration when using terraform "
 ---	
 

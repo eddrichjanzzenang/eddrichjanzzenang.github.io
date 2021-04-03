@@ -7,7 +7,10 @@ layout: default
 </span>
 <div>    
   {% for tag in page.tags %}
-    <div class="badge badge-secondary">{{tag}}</div>
+    <a class="badge badge-secondary" href="/posts/{{ tag }}">
+      <i class="fas fa-tags"></i>
+      {{tag}}
+    </a>
   {% endfor %}
 </div>
 <br>

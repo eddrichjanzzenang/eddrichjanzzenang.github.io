@@ -1,0 +1,27 @@
+<div class="row">
+	<div class="eight columns">
+		<div class="no-content"></div>
+	</div>
+	<div class="four columns">
+		<div class="no-content">
+
+		{% if page.pagination.title == "Latest Posts" %}  
+			<h3>Tags</h3>
+				{% assign sorted_tags = site.tags | sort %}
+				{% for tag in sorted_tags %}
+					{% assign blogTags = tag[1] | where: "category", "blog" | sort %}
+					{% if blogTags != empty %}
+						<a class="badge badge-secondary badge-medium" href="/posts/{{ tag[0] }}">
+							<i class="fas fa-tags"></i>
+							{{ tag[0] }}
+						</a>
+					{% endif %}
+				{% endfor %}
+		{% else %}
+			<div class="show-all">
+				<a class="button" style="float: right;" href="/posts/">Show All</a>
+			</div>
+		{% endif %}
+		</div>
+	</div>
+</div>
