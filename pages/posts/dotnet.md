@@ -5,6 +5,6 @@ pagination:
   enabled: true
   collection: posts
   permalink: /:num/
-  title: DOTNET
+  title: Dotnet
   tag: dotnet
 ---

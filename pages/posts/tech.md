@@ -5,6 +5,6 @@ pagination:
   enabled: true
   collection: posts
   permalink: /:num/
-  title: TECH
+  title: Tech
   tag: tech
 ---
