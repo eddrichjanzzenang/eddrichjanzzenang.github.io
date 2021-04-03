@@ -7,6 +7,7 @@ category: blog
 tags: 
 - tech
 - aws
+- terraform
 description: "An article that describes fix and a possible prevetive measure against an error on deleting S3 notification configuration when using terraform "
 ---	
 
