@@ -52,14 +52,17 @@ pagination:
   # Limit how many pagenated pages to create (default: 0, means all)  
   limit: 0  
 
+  # set to blog by default
+  category: blog
+
   # Optional, defines the field that the posts should be sorted on (omit to default to 'date')  
   sort_field: 'date'  
 
   # Optional, sorts the posts in reverse order (omit to default decending or sort_reverse: true)  
   sort_reverse: true  
 
-  # Optional, the default category to use, omit or just leave this as 'posts' to get a backwards-compatible behavior (all posts)  
-  category: 'posts' 
+  # # Optional, the default category to use, omit or just leave this as 'posts' to get a backwards-compatible behavior (all posts)  
+  # category: 'posts' 
 
   # Optional, the default tag to use, omit to disable 
   tag: '' 
