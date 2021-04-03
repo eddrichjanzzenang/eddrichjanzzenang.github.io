@@ -93,7 +93,7 @@ Example 1:
 ```
 
 Output:
-![Gender](/assets/images/gender-bias.png){:class="img-blog"}
+![Gender](/assets/images/blog/gender-bias.png){:class="img-blog"}
 
 Example 2:
 ```html
@@ -120,7 +120,7 @@ Example 2:
 ```
 
 Output
-![Sentiment](/assets/images/sentiment-analysis.png){:class="img-blog"}
+![Sentiment](/assets/images/blog/sentiment-analysis.png){:class="img-blog"}
 
 
 #### Wrapping up

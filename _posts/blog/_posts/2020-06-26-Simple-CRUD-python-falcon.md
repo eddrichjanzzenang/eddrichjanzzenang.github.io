@@ -12,7 +12,7 @@ description: A short article about implementing API using Python Falcon Micro Fr
 
 The advent of technology has produced many different programming languages that developers can use. From the low level languages such as C, C++, and Assembly Language, to the more high level languages such as Ruby and Python, indeed, technology has reached new heights.
 
-![Python](/assets/images/python-logo.png){:class="img-blog-right"}
+![Python](/assets/images/blog/python-logo.png){:class="img-blog-right"}
 
 One of the emerging programming languages in modern day is Python. It has gained its popularity for being simple yet at the same time very expressive. It is simple in the sense that the code resembles how humans think, which makes it very human understandable. It is expressive in the sense that it enables developers to write fewer lines of code for tasks that require more code in other languages. For these reasons, Python has been adopted as a language commonly used to build simple yet powerful scripts. As a matter of fact, it has become one of the staple tools in the field of data science; used to perform complex tasks such as data cleaning, machine learning, and even building neural networks. 
 
@@ -20,7 +20,7 @@ However, one of the underrated capabilities that not everyone sees, is how Pytho
 
 
 #### Python Falcon 
-![Falcon](/assets/images/falcon.jpg){:class="img-blog"}
+![Falcon](/assets/images/blog/falcon.jpg){:class="img-blog"}
 
 In today's article, we will be talking about an emerging framework for building simple APIs. We will be going through how to set up a simple API with Create, Read, Update, and Delete functionalities using the [Python Falcon](https://falconframework.org/#sectionAbout) framework. 
 
