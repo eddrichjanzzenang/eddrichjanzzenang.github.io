@@ -85,3 +85,15 @@ pagination:
 
 # paginate: 5
 # paginate_path: "posts/page:num/"
+
+
+collections:
+  - posts
+
+
+# Jekyll does not need to include these in the finished built _site.
+exclude:
+  - bin
+  - vendor
+  - Gemfile
+  - Gemfile.lock
