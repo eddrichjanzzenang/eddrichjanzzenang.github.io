@@ -1,12 +1,12 @@
 <div class="row">
-	<div class="eight columns">
+	<div class="six columns">
 		<div class="no-content"></div>
 	</div>
-	<div class="four columns">
+	<div class="six columns">
 		<div class="no-content">
 
 		{% if page.pagination.title == "Latest Posts" %}  
-			<h3>Tags</h3>
+			<h4>Tags</h4>
 				{% assign sorted_tags = site.tags | sort %}
 				{% for tag in sorted_tags %}
 					{% assign blogTags = tag[1] | where: "category", "blog" | sort %}
