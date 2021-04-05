@@ -255,3 +255,6 @@ span {
   -webkit-overflow-scrolling:touch;
 }
 
+.tag-filter {
+  margin-bottom: 2em;
+}
