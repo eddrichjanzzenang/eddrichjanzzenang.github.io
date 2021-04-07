@@ -1,5 +1,5 @@
 ---
-title: "Jekyll: index.html not rendering in page"
+title: "Jekyll: index.html not rendering in page, Index of /page_name/"
 layout: blog-specific
 author: eddrichjanzzen
 date: 2021-04-03
@@ -18,7 +18,7 @@ While restructuring the `pages` directory, I ran into an issue where the page wo
 
 ![Index](/assets/images/blog/index-of-posts.png){:class="img-blog"}
 
-After an hour or two of debugging, I found that the issue had to do with how Jekyll reads [Front Matter](https://jekyllrb.com/docs/front-matter/).
+After an hour or two of debugging, I found that the issue had to do with how Jekyll reads [front matter](https://jekyllrb.com/docs/front-matter/).
 
 ```html
 <!-- Accidentally added comment here -->

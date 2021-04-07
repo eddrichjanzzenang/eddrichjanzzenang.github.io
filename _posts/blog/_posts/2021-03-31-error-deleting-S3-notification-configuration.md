@@ -8,7 +8,7 @@ tags:
 - tech
 - aws
 - terraform
-description: "An article that describes fix and a possible prevetive measure against an error on deleting S3 notification configuration when using terraform "
+description: "An article that describes fix and a possible preventive measure against an error on deleting S3 notification configuration when using terraform "
 ---	
 
 Recently I've been working on project that uses [Terraform](https://www.terraform.io/) to provision different cloud resources like Dynamodb, S3, and Lambda Functions in [AWS](https://aws.amazon.com/). I ran into an issue where calling `terraform destroy` would produce the following error. 
