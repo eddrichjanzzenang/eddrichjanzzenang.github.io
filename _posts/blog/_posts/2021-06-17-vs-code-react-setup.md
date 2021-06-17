@@ -52,7 +52,7 @@ The good news is, you can enable Emmet for React using following steps:
 }
 ```
 
-  Success! Emmet should now be working!!! :cool:
+  Success! Emmet should now be working!!! :raised_hands:
 
 
 #### 2. Prettier Plugin
@@ -82,7 +82,7 @@ To install Prettier you can follow these steps:
 ![settings](/assets/images/blog/vs-code-react/prettier-verify.png){:class="img-blog"}
 
 
-  Success! Prettier has now been installed!! :cool: :clap:
+  Success! Prettier has now been installed!! :raised_hands: :clap:
 
 
 
