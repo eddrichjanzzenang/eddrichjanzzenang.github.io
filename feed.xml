@@ -1,4 +1,89 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="https://eddrichjanzzen.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://eddrichjanzzen.github.io/" rel="alternate" type="text/html" /><updated>2021-06-13T12:13:34+00:00</updated><id>https://eddrichjanzzen.github.io/feed.xml</id><title type="html">Eddrich Janzzen</title><subtitle>Personal Blog</subtitle><author><name>Eddrich Janzzen Ang</name><email>eddrichang@gmail.com</email></author><entry><title type="html">Jekyll: index.html not rendering in page, Index of /page_name/</title><link href="https://eddrichjanzzen.github.io/blog/2021/04/03/jekyll-page-index-not-showing.html" rel="alternate" type="text/html" title="Jekyll: index.html not rendering in page, Index of /page_name/" /><published>2021-04-03T00:00:00+00:00</published><updated>2021-04-03T00:00:00+00:00</updated><id>https://eddrichjanzzen.github.io/blog/2021/04/03/jekyll-page-index-not-showing</id><content type="html" xml:base="https://eddrichjanzzen.github.io/blog/2021/04/03/jekyll-page-index-not-showing.html">&lt;p&gt;&lt;a href=&quot;https://jekyllrb.com/&quot;&gt;Jekyll&lt;/a&gt; is an amazing tool for building static websites. What I love about Jekyll is that you can easily deploy a simple website without the need for a database. &lt;img src=&quot;/assets/images/blog/jekyll.png&quot; alt=&quot;jekyll&quot; class=&quot;img-blog-right&quot; /&gt; You can also host it for free using &lt;a href=&quot;https://pages.github.com/&quot;&gt;Github Pages&lt;/a&gt; which makes process way more convenient.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="https://eddrichjanzzen.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://eddrichjanzzen.github.io/" rel="alternate" type="text/html" /><updated>2021-06-17T16:00:25+00:00</updated><id>https://eddrichjanzzen.github.io/feed.xml</id><title type="html">Eddrich Janzzen</title><subtitle>Personal Blog</subtitle><author><name>Eddrich Janzzen Ang</name><email>eddrichang@gmail.com</email></author><entry><title type="html">Setting up Visual Studio Code for Developing React Applications</title><link href="https://eddrichjanzzen.github.io/blog/2021/06/17/vs-code-react-setup.html" rel="alternate" type="text/html" title="Setting up Visual Studio Code for Developing React Applications" /><published>2021-06-17T00:00:00+00:00</published><updated>2021-06-17T00:00:00+00:00</updated><id>https://eddrichjanzzen.github.io/blog/2021/06/17/vs-code-react-setup</id><content type="html" xml:base="https://eddrichjanzzen.github.io/blog/2021/06/17/vs-code-react-setup.html">&lt;p&gt;Recently, I’ve been looking into learning &lt;a href=&quot;https://reactjs.org/&quot;&gt;React&lt;/a&gt;. React is javascript library developed and maintained by Facebook. &lt;img src=&quot;/assets/images/blog/vs-code-react/vs-code-react.png&quot; alt=&quot;React&quot; class=&quot;img-blog-right width-40&quot; /&gt; It is mainly used to create user interfaces, but can also be used to build mobile applications.&lt;/p&gt;
+
+&lt;p&gt;In this article, I will be sharing some of the configurations and plugins for &lt;a href=&quot;https://code.visualstudio.com/&quot;&gt;Visual Studio Code&lt;/a&gt; to make developing applications in React way faster.&lt;/p&gt;
+
+&lt;h4 id=&quot;1-emmet-for-react&quot;&gt;1. Emmet for React&lt;/h4&gt;
+&lt;p&gt;&lt;a href=&quot;https://emmet.io/&quot;&gt;Emmet&lt;/a&gt; is a plugin for text editors to improve the html css workflow. It comes with a series of shortcuts to automatically generate html and css.&lt;/p&gt;
+
+&lt;p&gt;Javascipt XML or &lt;a href=&quot;https://www.w3schools.com/react/react_jsx.asp#:~:text=JSX%20stands%20for%20JavaScript%20XML,and%20add%20HTML%20in%20React.&quot;&gt;JSX&lt;/a&gt; is a syntax extension to Javascript, which mainly used in developing components in React. Although VS code comes with Emmet out of the box, it does not immediately support JSX.&lt;/p&gt;
+
+&lt;p&gt;The good news is, you can enable Emmet for React using following steps:&lt;/p&gt;
+&lt;blockquote&gt;
+
+  &lt;h5 id=&quot;1-go-to-the-settings-page-in-vs-code&quot;&gt;1. Go to the settings page in VS Code&lt;/h5&gt;
+
+  &lt;p&gt;&lt;img src=&quot;/assets/images/blog/vs-code-react/settings-page.png&quot; alt=&quot;settings&quot; class=&quot;img-blog&quot; /&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+
+  &lt;h5 id=&quot;2-go-to-the-workspace-settings-tab&quot;&gt;2. Go to the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Workspace Settings&lt;/code&gt; tab&lt;/h5&gt;
+
+  &lt;p&gt;&lt;img src=&quot;/assets/images/blog/vs-code-react/workspace-settings.png&quot; alt=&quot;settings&quot; class=&quot;img-blog&quot; /&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+
+  &lt;h5 id=&quot;3-under-extensions-look-for-emmet&quot;&gt;3. Under &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Extensions&lt;/code&gt; look for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Emmet&lt;/code&gt;&lt;/h5&gt;
+
+  &lt;p&gt;&lt;img src=&quot;/assets/images/blog/vs-code-react/emmet-boxed.png&quot; alt=&quot;settings&quot; class=&quot;img-blog&quot; /&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+
+  &lt;h5 id=&quot;4-click-on-edit-in-settingsjson&quot;&gt;4. Click on &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&quot;Edit in settings.json&quot;&lt;/code&gt;&lt;/h5&gt;
+
+  &lt;p&gt;&lt;img src=&quot;/assets/images/blog/vs-code-react/settings.png&quot; alt=&quot;settings&quot; class=&quot;img-blog&quot; /&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+
+  &lt;h5 id=&quot;5-add-the-following-lines-of-code-to-settingsjson&quot;&gt;5. Add the following lines of code to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&quot;settings.json&quot;&lt;/code&gt;&lt;/h5&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;emmet.includeLanguages&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;javascript&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;javascriptreact&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Success! Emmet should now be working!!! :cool:&lt;/p&gt;
+
+&lt;h4 id=&quot;2-prettier-plugin&quot;&gt;2. Prettier Plugin&lt;/h4&gt;
+&lt;p&gt;&lt;a href=&quot;https://prettier.io/docs/en/why-prettier.html&quot;&gt;Prettier&lt;/a&gt; is an opinionated code formatter that enforces consistent style by parsing the code. It is easy to adopt; has low overhead; and saves time and energy on code reviews.&lt;/p&gt;
+
+&lt;p&gt;To install Prettier you can follow these steps:&lt;/p&gt;
+
+&lt;blockquote&gt;
+
+  &lt;h5 id=&quot;1-in-the-side-panel-click-on-the-extensions-icon&quot;&gt;1. In the side panel click on the Extensions icon&lt;/h5&gt;
+
+  &lt;p&gt;&lt;img src=&quot;/assets/images/blog/vs-code-react/extensions.png&quot; alt=&quot;settings&quot; class=&quot;img-blog&quot; /&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+
+  &lt;h5 id=&quot;2-in-the-search-bar-search-for-prettier&quot;&gt;2. In the search bar, search for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Prettier&lt;/code&gt;&lt;/h5&gt;
+
+  &lt;p&gt;&lt;img src=&quot;/assets/images/blog/vs-code-react/search-prettier.png&quot; alt=&quot;settings&quot; class=&quot;img-blog&quot; /&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+
+  &lt;h5 id=&quot;3-install-pretter&quot;&gt;3. Install &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Pretter&lt;/code&gt;&lt;/h5&gt;
+
+  &lt;p&gt;&lt;img src=&quot;/assets/images/blog/vs-code-react/install-prettier.png&quot; alt=&quot;settings&quot; class=&quot;img-blog&quot; /&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+
+  &lt;h5 id=&quot;4-to-verify-prettier-is-installed-you-should-see-the-following-on-the-bottom-of-the-code-editor&quot;&gt;4. To verify prettier is installed, you should see the following on the bottom of the code editor&lt;/h5&gt;
+
+  &lt;p&gt;&lt;img src=&quot;/assets/images/blog/vs-code-react/prettier-verify.png&quot; alt=&quot;settings&quot; class=&quot;img-blog&quot; /&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Success! Prettier has now been installed!! :cool: :clap:&lt;/p&gt;</content><author><name>eddrichjanzzen</name></author><category term="blog" /><category term="tech" /><category term="react" /><summary type="html">Recently, I’ve been looking into learning React. React is javascript library developed and maintained by Facebook. It is mainly used to create user interfaces, but can also be used to build mobile applications.</summary></entry><entry><title type="html">Jekyll: index.html not rendering in page, Index of /page_name/</title><link href="https://eddrichjanzzen.github.io/blog/2021/04/03/jekyll-page-index-not-showing.html" rel="alternate" type="text/html" title="Jekyll: index.html not rendering in page, Index of /page_name/" /><published>2021-04-03T00:00:00+00:00</published><updated>2021-04-03T00:00:00+00:00</updated><id>https://eddrichjanzzen.github.io/blog/2021/04/03/jekyll-page-index-not-showing</id><content type="html" xml:base="https://eddrichjanzzen.github.io/blog/2021/04/03/jekyll-page-index-not-showing.html">&lt;p&gt;&lt;a href=&quot;https://jekyllrb.com/&quot;&gt;Jekyll&lt;/a&gt; is an amazing tool for building static websites. What I love about Jekyll is that you can easily deploy a simple website without the need for a database. &lt;img src=&quot;/assets/images/blog/jekyll.png&quot; alt=&quot;jekyll&quot; class=&quot;img-blog-right&quot; /&gt; You can also host it for free using &lt;a href=&quot;https://pages.github.com/&quot;&gt;Github Pages&lt;/a&gt; which makes process way more convenient.&lt;/p&gt;
 
 &lt;p&gt;Recently I’ve found the time to restructure my personal webpage built with Jekyll.&lt;/p&gt;
 
@@ -794,115 +879,4 @@ botocore.exceptions.NoCredentialsError: Unable to locate credentials
 
 &lt;p&gt;Website: &lt;a href=&quot;&quot;&gt;https://example.com&lt;/a&gt;&lt;/p&gt;</content><author><name>eddrichjanzzen</name></author><category term="projects" /><category term="web" /><category term="design" /><summary type="html">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam magna tellus, consectetur et odio vitae, congue iaculis lacus. Nunc ultrices porttitor massa. Mauris posuere, risus at maximus malesuada, ex diam iaculis lectus, vel posuere diam nunc eget mauris. Phasellus lacinia ex ac nulla viverra tempus. In efficitur tortor lorem, vel laoreet quam pretium ut.</summary></entry><entry><title type="html">La Contessa Cattery</title><link href="https://eddrichjanzzen.github.io/projects/2020/08/21/La-Contessa.html" rel="alternate" type="text/html" title="La Contessa Cattery" /><published>2020-08-21T00:00:00+00:00</published><updated>2020-08-21T00:00:00+00:00</updated><id>https://eddrichjanzzen.github.io/projects/2020/08/21/La-Contessa</id><content type="html" xml:base="https://eddrichjanzzen.github.io/projects/2020/08/21/La-Contessa.html">&lt;p&gt;A static website for a local cattery based in the Philippines. Previously developed using basic css, javascript, and html, but now uses Vue.js for continuity. For responsiveness and layouts css grids and media queries are used.&lt;/p&gt;
 
-&lt;p&gt;Website: &lt;a href=&quot;https://www.lacontessacattery.com&quot; target=&quot;_blank&quot;&gt;lacontessacattery.com&lt;/a&gt;&lt;/p&gt;</content><author><name>eddrichjanzzen</name></author><category term="projects" /><category term="web" /><summary type="html">A static website for a local cattery based in the Philippines. Previously developed using basic css, javascript, and html, but now uses Vue.js for continuity. For responsiveness and layouts css grids and media queries are used.</summary></entry><entry><title type="html">Color Scale using D3.js and Angular</title><link href="https://eddrichjanzzen.github.io/blog/2020/08/16/Custom-Spectrum-Scale-Component.html" rel="alternate" type="text/html" title="Color Scale using D3.js and Angular" /><published>2020-08-16T00:00:00+00:00</published><updated>2020-08-16T00:00:00+00:00</updated><id>https://eddrichjanzzen.github.io/blog/2020/08/16/Custom-Spectrum-Scale-Component</id><content type="html" xml:base="https://eddrichjanzzen.github.io/blog/2020/08/16/Custom-Spectrum-Scale-Component.html">&lt;h4 id=&quot;data-visualization&quot;&gt;Data Visualization&lt;/h4&gt;
-
-&lt;p&gt;As business needs continue to evolve, being able to visualize data is of paramount importance. More than just presenting the numbers to our users; we also need to make it easy for them to understand what those numbers mean. Data visualization is a vast field that deals with making data easier to understand. There are numerous ways to present data such as bar graphs, line charts, and pie charts. However, these methods can sometimes be quite limited.&lt;/p&gt;
-
-&lt;p&gt;For example: What if the data can be better represented using a color spectrum?&lt;/p&gt;
-
-&lt;p&gt;In this article, I have used &lt;a href=&quot;https://d3js.org/&quot;&gt;D3.js&lt;/a&gt; and &lt;a href=&quot;https://angular.io/&quot;&gt;Angular&lt;/a&gt; to create a simple reusable component for a Color Scale. Let’s dive in!&lt;/p&gt;
-
-&lt;h4 id=&quot;d3js-and-angular&quot;&gt;D3.js and Angular&lt;/h4&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://d3js.org/&quot;&gt;D3.js&lt;/a&gt; or Data Driven Documents is a Javascript library for manipulating documents based on data. In simple terms, D3 is a library that helps you bring your data to life. With D3, creating simple yet amazing visualizations are possible with use of a browser.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://angular.io/&quot;&gt;Angular&lt;/a&gt; is a platform built by Google for building mobile and desktop web applications. It is framework and development platform for creating efficient and sophisticated single-page apps.&lt;/p&gt;
-
-&lt;p&gt;Combining D3 with Angular, we are able to take advantage of a powerful visualization tool and the reusability of components. Lets jump in!&lt;/p&gt;
-
-&lt;h4 id=&quot;color-scale-component&quot;&gt;Color Scale Component&lt;/h4&gt;
-
-&lt;h5 id=&quot;set-up-and-installation&quot;&gt;Set up and Installation:&lt;/h5&gt;
-&lt;p&gt;Install the following dependencies: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;d3&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ng-color-scale&lt;/code&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;npm i d3
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;npm i ng-color-scale
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;In your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;app.module.ts&lt;/code&gt;, add the following:&lt;/p&gt;
-
-&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;BrowserModule&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;@angular/platform-browser&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;NgModule&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;@angular/core&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;AppRoutingModule&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;./app-routing.module&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;AppComponent&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;./app.component&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;// NgColorScaleModule&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;NgColorScaleModule&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;ng-color-scale&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
-&lt;span class=&quot;p&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;NgModule&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;declarations&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;AppComponent&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;imports&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;BrowserModule&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;AppRoutingModule&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-
-    &lt;span class=&quot;c1&quot;&gt;// NgcolorScaleModule&lt;/span&gt;
-
-    &lt;span class=&quot;nx&quot;&gt;NgcolorScaleModule&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;providers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[],&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;bootstrap&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;AppComponent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;AppModule&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h5 id=&quot;usage&quot;&gt;Usage:&lt;/h5&gt;
-&lt;p&gt;In your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;app.component.html&lt;/code&gt; add the following:&lt;/p&gt;
-
-&lt;p&gt;Example 1:&lt;/p&gt;
-&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;h1&amp;gt;&lt;/span&gt;Gender Bias&lt;span class=&quot;nt&quot;&gt;&amp;lt;/h1&amp;gt;&lt;/span&gt;
-
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;app-color-scale&lt;/span&gt;
-	&lt;span class=&quot;na&quot;&gt;[data]=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;-0.799&quot;&lt;/span&gt;
-	&lt;span class=&quot;na&quot;&gt;[leftLabel]=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;'Feminine'&quot;&lt;/span&gt;
-	&lt;span class=&quot;na&quot;&gt;[rightLabel]=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;'Masculine'&quot;&lt;/span&gt;
-	&lt;span class=&quot;na&quot;&gt;[middleLabel]=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;'Neutral'&quot;&lt;/span&gt;
-	&lt;span class=&quot;na&quot;&gt;[minVal]=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;-1&quot;&lt;/span&gt;
-	&lt;span class=&quot;na&quot;&gt;[maxVal]=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1&quot;&lt;/span&gt;
-	&lt;span class=&quot;na&quot;&gt;[colorList]=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;['#FF6347', '#D53E4F','#090979','#0000FF']&quot;&lt;/span&gt;
-	&lt;span class=&quot;na&quot;&gt;[displayMeta]=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;'Your article is '+ '&amp;lt;b&amp;gt;Feminine&amp;lt;/b&amp;gt;'&quot;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/app-color-scale&amp;gt;&lt;/span&gt;  
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Output:
-&lt;img src=&quot;/assets/images/blog/gender-bias.png&quot; alt=&quot;Gender&quot; class=&quot;img-blog&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Example 2:&lt;/p&gt;
-&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;h1&amp;gt;&lt;/span&gt;Sentiment Analysis&lt;span class=&quot;nt&quot;&gt;&amp;lt;/h1&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;app-color-scale&lt;/span&gt;
-	&lt;span class=&quot;na&quot;&gt;[data]=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;0.55&quot;&lt;/span&gt;
-	&lt;span class=&quot;na&quot;&gt;[leftLabel]=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;'Negative'&quot;&lt;/span&gt;
-	&lt;span class=&quot;na&quot;&gt;[rightLabel]=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;'Positive'&quot;&lt;/span&gt;
-	&lt;span class=&quot;na&quot;&gt;[middleLabel]=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;'Neutral'&quot;&lt;/span&gt;
-	&lt;span class=&quot;na&quot;&gt;[minVal]=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;-1&quot;&lt;/span&gt;
-	&lt;span class=&quot;na&quot;&gt;[maxVal]=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1&quot;&lt;/span&gt;
-	&lt;span class=&quot;na&quot;&gt;[colorList]=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;['#9E0142', '#D53E4F',
-	                    '#F46D43', '#FDAE61',
-	                    '#FEE08B', '#FFFFBF',
-	                    '#E6F598', '#ABDDA4', 
-	                    '#66C2A5', '#6AA84F',
-	                    '#38761D']&quot;&lt;/span&gt;
-	&lt;span class=&quot;na&quot;&gt;[hideAxis]=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;true&quot;&lt;/span&gt;
-	&lt;span class=&quot;na&quot;&gt;[displayMeta]=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;'Your sentiment score is '+ '&amp;lt;b&amp;gt;Positive&amp;lt;/b&amp;gt;'&quot;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/app-color-scale&amp;gt;&lt;/span&gt;
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Output
-&lt;img src=&quot;/assets/images/blog/sentiment-analysis.png&quot; alt=&quot;Sentiment&quot; class=&quot;img-blog&quot; /&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;wrapping-up&quot;&gt;Wrapping up&lt;/h4&gt;
-
-&lt;p&gt;There you have it. You have successfully added your custom color scale. :clap: :clap: :clap:&lt;/p&gt;
-
-&lt;p&gt;For information and a more detailed documentation, you can visit the npm package at: &lt;a href=&quot;https://www.npmjs.com/package/ng-color-scale&quot;&gt;https://www.npmjs.com/package/ng-color-scale&lt;/a&gt;&lt;/p&gt;</content><author><name>eddrichjanzzen</name></author><category term="blog" /><category term="tech" /><category term="angular" /><summary type="html">Data Visualization</summary></entry></feed>
+&lt;p&gt;Website: &lt;a href=&quot;https://www.lacontessacattery.com&quot; target=&quot;_blank&quot;&gt;lacontessacattery.com&lt;/a&gt;&lt;/p&gt;</content><author><name>eddrichjanzzen</name></author><category term="projects" /><category term="web" /><summary type="html">A static website for a local cattery based in the Philippines. Previously developed using basic css, javascript, and html, but now uses Vue.js for continuity. For responsiveness and layouts css grids and media queries are used.</summary></entry></feed>
