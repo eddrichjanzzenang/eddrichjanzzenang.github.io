@@ -256,7 +256,7 @@ span {
 }
 
 .project-item {
-  min-height: calc(105vh);
+  min-height: calc(60vh);
   margin-bottom: 1em;
 }
 
