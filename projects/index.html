@@ -3,25 +3,20 @@ layout: default
 pagination: 
   enabled: true 
   category: projects
-  per_page: 1
+  per_page: 2
 ---
 <h3>Projects</h3>
 
 <div class="row">
 
 	{% for project in paginator.posts %}
-		<div class="twelve columns card">
-			<iframe class="project-frame" 
+		<div class="six columns card project-item">
+			<iframe class="project-frame"
+						scrolling="no" 
 						src="{{project.project_url}}">				
 			</iframe>
 			<div class="card-content">
-
 				<h4 style="margin-bottom: 0px">{{project.title}}</h4>
-	      <div>    
-	        {% for tag in project.tags %}
-	          <div class="badge badge-secondary">{{tag}}</div>
-	        {% endfor %}
-	      </div>
 				<p>{{project.content}}</p>
 			</div>
 		</div>
