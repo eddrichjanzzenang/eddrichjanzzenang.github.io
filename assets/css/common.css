@@ -37,7 +37,8 @@ nav li {
     -webkit-transition: all 500ms cubic-bezier(0.675, 0.170, 0.245, 0.795); 
     -moz-transition: all 500ms cubic-bezier(0.675, 0.170, 0.245, 0.795); 
     -ms-transition: all 500ms cubic-bezier(0.675, 0.170, 0.245, 0.795); 
-     -o-transition: all 500ms cubic-bezier(0.675, 0.170, 0.245, 0.795); 
+     -o-transition: all 500ms cubic-bezier(0.675, 0.170, 0.245, 0.795);
+    transition: all 500ms cubic-bezier(0.675, 0.170, 0.245, 0.795);
 }
 
 
@@ -153,7 +154,6 @@ nav li {
 
 span {
   color: #878787;
-  /*color: grey;*/
 }
 
 .pager {
@@ -253,6 +253,11 @@ span {
   height:350px;
   overflow: auto;
   -webkit-overflow-scrolling:touch;
+}
+
+.project-item {
+  min-height: calc(105vh);
+  margin-bottom: 1em;
 }
 
 .tag-filter {
